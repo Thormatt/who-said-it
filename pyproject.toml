@@ -33,3 +33,8 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "N"]
+
+[tool.ruff.lint.per-file-ignores]
+# Inline HTML templates for the labeling pages.
+"src/epi/review.py" = ["E501"]
+"src/epi/judge_validation.py" = ["E501"]
