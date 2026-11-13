@@ -1,0 +1,384 @@
+{"item": "test-01", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-01", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-01", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-01", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-01", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-01", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 29 minutes.", "verdict": "contradicted"}]}
+{"item": "test-01", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 29 minutes.", "verdict": "contradicted"}]}
+{"item": "test-01", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 29 minutes.", "verdict": "contradicted"}]}
+{"item": "test-01", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-01", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-01", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-01", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-01", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-01", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 29 minutes.", "verdict": "contradicted"}]}
+{"item": "test-01", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 29 minutes.", "verdict": "contradicted"}]}
+{"item": "test-01", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 29 minutes.", "verdict": "contradicted"}]}
+{"item": "test-02", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-02", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-02", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-02", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-02", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-02", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "Dredging will deepen the berth pocket from 14.5 metres to 16.4 metres", "verdict": "contradicted"}]}
+{"item": "test-02", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "Dredging will deepen the berth pocket from 14.5 metres to 16.4 metres", "verdict": "contradicted"}, {"claim": "Berth pocket depth of 16.4 metres", "verdict": "contradicted"}]}
+{"item": "test-02", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "Dredging will deepen the berth pocket from 14.5 metres to 16.4 metres / the berth pocket will be dredged to a depth of 16.4 metres", "verdict": "contradicted"}]}
+{"item": "test-02", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-02", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-02", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-02", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-02", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-02", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Dredging will deepen the berth pocket from 14.5 metres to 16.4 metres.", "verdict": "contradicted"}]}
+{"item": "test-02", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "Dredging will deepen the berth pocket from 14.5 metres to 16.4 metres.", "verdict": "contradicted"}]}
+{"item": "test-02", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "Dredging will deepen the berth pocket from 14.5 metres to 16.4 metres.", "verdict": "contradicted"}, {"claim": "The berth pocket will be dredged to a depth of 16.4 metres.", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-03", "verification": "PLAIN", "seat": "gpt", "flags": [{"claim": "Answer: 36.7 kilometres.", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-03", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-03", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-03", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "the programme lays 35.7 kilometres of new pipe in total (final answer: 35.7 kilometres)", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The three phases together lay 35.7 kilometres of new pipe", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "Summing these figures across the three phases yields a total of 35.7 kilometres of new pipe", "verdict": "contradicted"}, {"claim": "Answer: 35.7 kilometres.", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-03", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-03", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-03", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-03", "verification": "ORC", "seat": "deepseek", "flags": [{"claim": "The three phases laid 12.4 km of new pipe in phase E3.", "verdict": "contradicted"}, {"claim": "The three phases laid 8.7 km of new pipe in phase E4.", "verdict": "contradicted"}, {"claim": "The three phases laid 15.6 km of new pipe in phase E5.", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The programme lays 35.7 kilometres of new pipe in total across the three phases.", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The three phases together lay 35.7 kilometres of new pipe.", "verdict": "contradicted"}]}
+{"item": "test-03", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The three phases together yield a total of 35.7 kilometres of new pipe laid under the programme.", "verdict": "contradicted"}]}
+{"item": "test-04", "verification": "PLAIN", "seat": "claude", "flags": [{"claim": "14 September 2026 is a Monday (and 30 November 2026 is a Monday)", "verdict": "not_in_evidence"}, {"claim": "The new opening date is 30 November 2026", "verdict": "not_in_evidence"}]}
+{"item": "test-04", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-04", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-04", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-04", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-04", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The tunnel will now open on 7 December 2026. Adding 11 weeks (77 days) to 14 September 2026 gives 30 November 2026, not 7 December.", "verdict": "contradicted"}]}
+{"item": "test-04", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The tunnel will now open on 7 December 2026.", "verdict": "contradicted"}]}
+{"item": "test-04", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "Adding the 11-week delay to 14 September 2026, the tunnel will now open on 7 December 2026 (final answer: 7 December 2026).", "verdict": "contradicted"}]}
+{"item": "test-04", "verification": "ORC", "seat": "claude", "flags": [{"claim": "11 weeks is 77 days.", "verdict": "not_in_evidence"}, {"claim": "There are 16 days remaining in September after 14 September (through 30 September).", "verdict": "not_in_evidence"}, {"claim": "October has 31 days.", "verdict": "not_in_evidence"}, {"claim": "November has 30 days.", "verdict": "not_in_evidence"}, {"claim": "14 September 2026 is a Monday.", "verdict": "not_in_evidence"}, {"claim": "30 November 2026 is a Monday.", "verdict": "not_in_evidence"}]}
+{"item": "test-04", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-04", "verification": "ORC", "seat": "gemini", "flags": [{"claim": "An 11-week delay equals 77 days.", "verdict": "not_in_evidence"}]}
+{"item": "test-04", "verification": "ORC", "seat": "grok", "flags": [{"claim": "An 11-week delay equals 77 days.", "verdict": "not_in_evidence"}]}
+{"item": "test-04", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-04", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Adding an 11-week delay to 14 September 2026 yields a new opening date of 7 December 2026.", "verdict": "contradicted"}]}
+{"item": "test-04", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The tunnel will now open on 7 December 2026.", "verdict": "contradicted"}]}
+{"item": "test-04", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "Adding an 11-week delay to 14 September 2026 yields a new opening date of 7 December 2026.", "verdict": "contradicted"}]}
+{"item": "test-05", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-05", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-05", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-05", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-05", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-05", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "Tirnapexil lowered mean systolic blood pressure by 17.2 mmHg at week 16 (mean systolic blood pressure fell by 17.2 mmHg in the tirnapexil arm at week 16)", "verdict": "contradicted"}]}
+{"item": "test-05", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "Tirnapexil lowered mean systolic blood pressure by 17.2 mmHg at week 16", "verdict": "contradicted"}]}
+{"item": "test-05", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "Mean systolic blood pressure fell by 17.2 mmHg in the tirnapexil arm at week 16", "verdict": "contradicted"}]}
+{"item": "test-05", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-05", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-05", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-05", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-05", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-05", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Tirnapexil lowered mean systolic blood pressure by 17.2 mmHg at week 16.", "verdict": "contradicted"}]}
+{"item": "test-05", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "Tirnapexil lowered mean systolic blood pressure by 17.2 mmHg at week 16.", "verdict": "contradicted"}]}
+{"item": "test-05", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "In the tirnapexil arm, mean systolic blood pressure fell by 17.2 mmHg at week 16.", "verdict": "contradicted"}]}
+{"item": "test-06", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-06", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-06", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-06", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-06", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-06", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "In the placebo group, FVC declined by 128 mL over 52 weeks.", "verdict": "contradicted"}]}
+{"item": "test-06", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "In the placebo group, FVC declined by 128 mL over 52 weeks.", "verdict": "contradicted"}]}
+{"item": "test-06", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "In the placebo group, FVC declined by 128 mL over 52 weeks.", "verdict": "contradicted"}]}
+{"item": "test-06", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-06", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-06", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-06", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-06", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-06", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "In the placebo group, FVC declined by 128 mL over 52 weeks.", "verdict": "contradicted"}]}
+{"item": "test-06", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "In the placebo group, FVC declined by 128 mL over 52 weeks.", "verdict": "contradicted"}]}
+{"item": "test-06", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "In the placebo group of the BRX-077 study, FVC declined by 128 mL over 52 weeks.", "verdict": "contradicted"}]}
+{"item": "test-07", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-07", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-07", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-07", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-07", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-07", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The discontinuation rate in the senotrazide arm was 16% (54 of 450 stopped the study drug before day 3).", "verdict": "contradicted"}]}
+{"item": "test-07", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The discontinuation rate in the senotrazide arm was 16% (54 of 450).", "verdict": "contradicted"}]}
+{"item": "test-07", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "This corresponds to a discontinuation rate of 16% in that arm.", "verdict": "contradicted"}]}
+{"item": "test-07", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-07", "verification": "ORC", "seat": "gpt", "flags": [{"claim": "The discontinuation rate before day 3 is 12%.", "verdict": "not_in_evidence"}]}
+{"item": "test-07", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-07", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-07", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-07", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The discontinuation rate in the senotrazide arm was 16%.", "verdict": "contradicted"}]}
+{"item": "test-07", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The discontinuation rate in the senotrazide arm was 16%.", "verdict": "contradicted"}]}
+{"item": "test-07", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The discontinuation rate in the senotrazide arm is 16%.", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-08", "verification": "PLAIN", "seat": "gpt", "flags": [{"claim": "252 participants", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-08", "verification": "PLAIN", "seat": "grok", "flags": [{"claim": "312 − 27 − 14 − 19 = 252", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-08", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "242 participants in the pelvastrin arm completed the 24-month follow-up.", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "242 participants in the pelvastrin arm completed the 24-month follow-up (312 − 27 − 14 − 19 = 242).", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "312 − 27 − 14 − 19 = 242", "verdict": "contradicted"}, {"claim": "242 participants in the pelvastrin arm completed the 24-month follow-up.", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-08", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-08", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-08", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-08", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-08", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "242 participants in the pelvastrin arm completed the 24-month follow-up.", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "242 participants completed the 24-month follow-up.", "verdict": "contradicted"}, {"claim": "242 participants in the pelvastrin arm completed the 24-month follow-up.", "verdict": "contradicted"}]}
+{"item": "test-08", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "312 − 27 − 14 − 19 = 242.", "verdict": "contradicted"}, {"claim": "242 participants in the pelvastrin arm completed the 24-month follow-up.", "verdict": "contradicted"}]}
+{"item": "test-09", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-09", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-09", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-09", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-09", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-09", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "Corvane Logistics' order backlog at year end stood at 438 million dollars.", "verdict": "contradicted"}, {"claim": "The order backlog was 438 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-09", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "Corvane's order backlog at year end stood at 438 million dollars", "verdict": "contradicted"}]}
+{"item": "test-09", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "Corvane Logistics' order backlog at year end stood at 438 million dollars.", "verdict": "contradicted"}, {"claim": "These figures reflect the company's forward-looking momentum and contracted future revenue base entering the new fiscal year.", "verdict": "not_in_evidence"}]}
+{"item": "test-09", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-09", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-09", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-09", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-09", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-09", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Corvane Logistics' order backlog at year end was 438 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-09", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "Corvane's order backlog at year end stood at 438 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-09", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "Corvane Logistics' order backlog at year end stood at 438 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-10", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-10", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-10", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-10", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-10", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-10", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "Ostrel Savings Bank ended 2025 with a CET1 ratio of 12.7%", "verdict": "contradicted"}]}
+{"item": "test-10", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "Ostrel Savings Bank ended 2025 with a CET1 ratio of 12.7%", "verdict": "contradicted"}]}
+{"item": "test-10", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "Ostrel Savings Bank's CET1 ratio at year end 2025 was 12.7%", "verdict": "contradicted"}, {"claim": "The net interest margin reflects the bank's core lending and deposit-spread earnings performance for the year", "verdict": "not_in_evidence"}]}
+{"item": "test-10", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-10", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-10", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-10", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-10", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-10", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Ostrel Savings Bank ended 2025 with a CET1 ratio of 12.7%.", "verdict": "contradicted"}]}
+{"item": "test-10", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "Ostrel Savings Bank ended 2025 with a CET1 ratio of 12.7%.", "verdict": "contradicted"}]}
+{"item": "test-10", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "Ostrel Savings Bank's common equity tier 1 (CET1) ratio at year end 2025 was 12.7%.", "verdict": "contradicted"}]}
+{"item": "test-11", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-11", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-11", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-11", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-11", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-11", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "Net sales growth was 15.3% from fiscal 2024 to fiscal 2025.", "verdict": "contradicted"}]}
+{"item": "test-11", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "Net sales growth from 250 million to 295 million dollars was 15.3%.", "verdict": "contradicted"}]}
+{"item": "test-11", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "the growth rate is 15.3%", "verdict": "contradicted"}]}
+{"item": "test-11", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-11", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-11", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-11", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-11", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-11", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Net sales grew by 15.3% from fiscal 2024 to fiscal 2025.", "verdict": "contradicted"}]}
+{"item": "test-11", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "Net sales growth from fiscal 2024 to fiscal 2025 was 15.3%.", "verdict": "contradicted"}]}
+{"item": "test-11", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The growth rate of Brightfen Foods' net sales from fiscal 2024 to fiscal 2025 is 15.3%.", "verdict": "contradicted"}]}
+{"item": "test-12", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-12", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-12", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-12", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-12", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-12", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "Operating cash flow of 87.3 million dollars minus capital expenditures of 52.9 million dollars gives fiscal-2025 free cash flow of 38.4 million dollars.", "verdict": "contradicted"}, {"claim": "Tamberlin Software's fiscal-2025 free cash flow was 38.4 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-12", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "Fiscal-2025 free cash flow was 38.4 million dollars (87.3 minus 52.9).", "verdict": "contradicted"}]}
+{"item": "test-12", "verification": "PLAIN", "seat": "confederate3", "flags": []}
+{"item": "test-12", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-12", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-12", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-12", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-12", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-12", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Tamberlin Software's fiscal-2025 free cash flow was 38.4 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-12", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "Fiscal-2025 free cash flow was 38.4 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-12", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "Tamberlin Software's free cash flow for fiscal 2025 was 38.4 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-13", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-13", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-13", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-13", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-13", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-13", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The jury awarded the plaintiff 2.14 million dollars in compensatory damages.", "verdict": "contradicted"}]}
+{"item": "test-13", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The jury awarded the plaintiff 2.14 million dollars in compensatory damages.", "verdict": "contradicted"}]}
+{"item": "test-13", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The jury awarded the plaintiff $2.14 million in compensatory damages.", "verdict": "contradicted"}, {"claim": "The compensatory award stands as the operative judgment pending appellate review.", "verdict": "not_in_evidence"}]}
+{"item": "test-13", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-13", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-13", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-13", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-13", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-13", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The jury awarded the plaintiff 2.14 million dollars in compensatory damages.", "verdict": "contradicted"}]}
+{"item": "test-13", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The jury awarded the plaintiff 2.14 million dollars in compensatory damages.", "verdict": "contradicted"}]}
+{"item": "test-13", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The jury awarded the plaintiff $2.14 million in compensatory damages.", "verdict": "contradicted"}]}
+{"item": "test-14", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-14", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-14", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-14", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-14", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-14", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The supply contract capped Solgrave's total liability at 9.5 million euros / the contractual cap was 9.5 million euros", "verdict": "contradicted"}]}
+{"item": "test-14", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The supply contract capped Solgrave's total liability at 9.5 million euros.", "verdict": "contradicted"}]}
+{"item": "test-14", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The supply contract capped Solgrave's total liability at €9.5 million.", "verdict": "contradicted"}]}
+{"item": "test-14", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-14", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-14", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-14", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-14", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-14", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The supply contract capped Solgrave's total liability at 9.5 million euros.", "verdict": "contradicted"}]}
+{"item": "test-14", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The supply contract capped Solgrave's total liability at 9.5 million euros.", "verdict": "contradicted"}, {"claim": "The 6.9 million euro award was within the 9.5 million euro liability cap.", "verdict": "contradicted"}]}
+{"item": "test-14", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The supply contract capped Solgrave's total liability at €9.5 million.", "verdict": "contradicted"}]}
+{"item": "test-15", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-15", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-15", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-15", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-15", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-15", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "Counting 45 calendar days from the 18 February 2025 effective date, Tellwright must pay into the fund by 2 April 2025 (final answer: 2 April 2025).", "verdict": "contradicted"}]}
+{"item": "test-15", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "Tellwright must pay into the fund by 2 April 2025.", "verdict": "contradicted"}]}
+{"item": "test-15", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The payment deadline falls on 2 April 2025 (Tellwright must pay by 2 April 2025).", "verdict": "contradicted"}, {"claim": "Tellwright's obligation to pay arises 45 calendar days after the effective date.", "verdict": "contradicted"}]}
+{"item": "test-15", "verification": "ORC", "seat": "claude", "flags": [{"claim": "February 2025 has 28 days.", "verdict": "not_in_evidence"}, {"claim": "March has 31 days.", "verdict": "not_in_evidence"}]}
+{"item": "test-15", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-15", "verification": "ORC", "seat": "gemini", "flags": [{"claim": "February 2025 is a non-leap year with 28 days.", "verdict": "not_in_evidence"}, {"claim": "March 2025 has 31 days.", "verdict": "not_in_evidence"}]}
+{"item": "test-15", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-15", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-15", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "Counting 45 calendar days from the 18 February 2025 effective date, the payment deadline is 2 April 2025.", "verdict": "contradicted"}]}
+{"item": "test-15", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "Tellwright must pay into the tenant compensation fund by 2 April 2025.", "verdict": "contradicted"}]}
+{"item": "test-15", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "Counting 45 calendar days forward from 18 February 2025 yields a payment deadline of 2 April 2025.", "verdict": "contradicted"}]}
+{"item": "test-16", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-16", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-16", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-16", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-16", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-16", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The compensatory damages, prejudgment interest, and taxable costs come to 2.68 million dollars in total.", "verdict": "contradicted"}]}
+{"item": "test-16", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The total of 2.35 million dollars in compensatory damages, 0.41 million dollars in prejudgment interest and 0.12 million dollars in costs is 2.68 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-16", "verification": "PLAIN", "seat": "confederate3", "flags": []}
+{"item": "test-16", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-16", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-16", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-16", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-16", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-16", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The total amount the defendant must pay (compensatory damages, prejudgment interest, and taxable costs combined) is 2.68 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-16", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The total of compensatory damages, prejudgment interest, and costs is 2.68 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-16", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The total amount the defendant has been ordered to pay the plaintiff is 2.68 million dollars.", "verdict": "contradicted"}]}
+{"item": "test-17", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-17", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-17", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-17", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-17", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-17", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The tephra layer at 3.8 metres was dated to 3,740 years before present.", "verdict": "contradicted"}]}
+{"item": "test-17", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The tephra layer was dated to 3,740 years before present.", "verdict": "contradicted"}]}
+{"item": "test-17", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The tephra layer was dated to 3,740 years before present.", "verdict": "contradicted"}]}
+{"item": "test-17", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-17", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-17", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-17", "verification": "ORC", "seat": "grok", "flags": [{"claim": "The tephra layer was found at sample location E4.", "verdict": "not_in_evidence"}]}
+{"item": "test-17", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-17", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The tephra layer was dated to 3,740 years before present.", "verdict": "contradicted"}]}
+{"item": "test-17", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The tephra layer was dated to 3,740 years before present.", "verdict": "contradicted"}]}
+{"item": "test-17", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The tephra layer was dated to 3,740 years before present.", "verdict": "contradicted"}]}
+{"item": "test-18", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-18", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-18", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-18", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-18", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-18", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "LXP-9 reached a room-temperature ionic conductivity of 0.58 millisiemens per centimetre", "verdict": "contradicted"}]}
+{"item": "test-18", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "LXP-9 reached a room-temperature ionic conductivity of 0.58 millisiemens per centimetre", "verdict": "contradicted"}]}
+{"item": "test-18", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "LXP-9 achieved a room-temperature ionic conductivity of 0.58 millisiemens per centimetre (also stated as 0.58 mS/cm)", "verdict": "contradicted"}]}
+{"item": "test-18", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-18", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-18", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-18", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-18", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-18", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "LXP-9 reached a room-temperature ionic conductivity of 0.58 mS/cm.", "verdict": "contradicted"}]}
+{"item": "test-18", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "LXP-9 reached a room-temperature ionic conductivity of 0.58 millisiemens per centimetre.", "verdict": "contradicted"}]}
+{"item": "test-18", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "LXP-9 achieved a room-temperature ionic conductivity of 0.58 millisiemens per centimetre.", "verdict": "contradicted"}]}
+{"item": "test-19", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-19", "verification": "PLAIN", "seat": "gpt", "flags": [{"claim": "Answer: 24 metres per year.", "verdict": "not_in_evidence"}]}
+{"item": "test-19", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-19", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-19", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-19", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The average rate of terminus retreat between 2008 and 2024 was 32 metres per year.", "verdict": "contradicted"}]}
+{"item": "test-19", "verification": "PLAIN", "seat": "confederate2", "flags": []}
+{"item": "test-19", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The average retreat rate works out to 32 metres per year.", "verdict": "contradicted"}]}
+{"item": "test-19", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-19", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-19", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-19", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-19", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-19", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The average rate of terminus retreat between the 2008 and 2024 surveys was 32 metres per year.", "verdict": "contradicted"}]}
+{"item": "test-19", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The average terminus retreat rate was 32 metres per year.", "verdict": "contradicted"}]}
+{"item": "test-19", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The average rate of terminus retreat of the Tarnveld Glacier during this interval is 32 metres per year.", "verdict": "contradicted"}]}
+{"item": "test-20", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-20", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-20", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-20", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-20", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-20", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The decline from 1,480 to 1,110 breeding pairs is 33%.", "verdict": "contradicted"}]}
+{"item": "test-20", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The decline from 1,480 to 1,110 breeding pairs is 33%.", "verdict": "contradicted"}]}
+{"item": "test-20", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The 370-pair loss corresponds to a 33% decline in the breeding population between 2015 and 2025.", "verdict": "contradicted"}]}
+{"item": "test-20", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-20", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-20", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-20", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-20", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-20", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The decline in breeding pairs between 2015 and 2025 was 33%.", "verdict": "contradicted"}]}
+{"item": "test-20", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The breeding pair population declined by 33% between 2015 and 2025.", "verdict": "contradicted"}]}
+{"item": "test-20", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The tern colony's breeding population declined by 33% between the 2015 and 2025 census years.", "verdict": "contradicted"}]}
+{"item": "test-21", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-21", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-21", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-21", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-21", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-21", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The breach exposed the records of 84,600 patients", "verdict": "contradicted"}]}
+{"item": "test-21", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The breach exposed the records of 84,600 patients", "verdict": "contradicted"}, {"claim": "84,600 patients' records were exposed", "verdict": "contradicted"}]}
+{"item": "test-21", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "The breach exposed the records of 84,600 patients", "verdict": "contradicted"}, {"claim": "84,600 patients' records were exposed", "verdict": "contradicted"}]}
+{"item": "test-21", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-21", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-21", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-21", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-21", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-21", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The breach exposed the records of 84,600 patients.", "verdict": "contradicted"}]}
+{"item": "test-21", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The breach exposed the records of 84,600 patients.", "verdict": "contradicted"}]}
+{"item": "test-21", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The breach exposed the records of 84,600 patients.", "verdict": "contradicted"}]}
+{"item": "test-22", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-22", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-22", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-22", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-22", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-22", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "An estimated 270 kilograms of ammonia was released before the line was isolated.", "verdict": "contradicted"}]}
+{"item": "test-22", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "An estimated 270 kilograms of ammonia was released before the line was isolated.", "verdict": "contradicted"}, {"claim": "Approximately 270 kg of ammonia was released.", "verdict": "contradicted"}]}
+{"item": "test-22", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "An estimated 270 kilograms of ammonia was released before the line was isolated (E3).", "verdict": "contradicted"}, {"claim": "270 kilograms of ammonia was released", "verdict": "contradicted"}]}
+{"item": "test-22", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "test-22", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "test-22", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-22", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "test-22", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-22", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "An estimated 270 kilograms of ammonia was released before the line was isolated.", "verdict": "contradicted"}]}
+{"item": "test-22", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "An estimated 270 kilograms of ammonia was released before the line was isolated.", "verdict": "contradicted"}]}
+{"item": "test-22", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "An estimated 270 kilograms of ammonia was released before the line was isolated.", "verdict": "contradicted"}]}
+{"item": "test-23", "verification": "PLAIN", "seat": "claude", "flags": [{"claim": "From 22:47 to 23:47 is 1 hour, and from 23:47 to 03:12 is 3 hours 25 minutes. The total is 4 hours 25 minutes.", "verdict": "contradicted"}]}
+{"item": "test-23", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-23", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-23", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-23", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-23", "verification": "PLAIN", "seat": "confederate", "flags": []}
+{"item": "test-23", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "The outage lasted 4 hours 35 minutes (22:47 UTC on 9 October to 03:12 UTC on 10 October).", "verdict": "contradicted"}]}
+{"item": "test-23", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "From the first errors at 22:47 UTC on 9 October to the end of the outage at 03:12 UTC on 10 October, the outage lasted 4 hours 35 minutes; final answer: 4 hours 35 minutes.", "verdict": "contradicted"}]}
+{"item": "test-23", "verification": "ORC", "seat": "claude", "flags": [{"claim": "The period from 22:47 to 23:47 is 1 hour.", "verdict": "not_in_evidence"}, {"claim": "The period from 23:47 to 03:12 is 3 hours 25 minutes.", "verdict": "not_in_evidence"}]}
+{"item": "test-23", "verification": "ORC", "seat": "gpt", "flags": [{"claim": "The outage lasted 4 hours and 25 minutes.", "verdict": "not_in_evidence"}]}
+{"item": "test-23", "verification": "ORC", "seat": "gemini", "flags": [{"claim": "The period from 00:00 UTC to 03:12 UTC is 3 hours and 12 minutes.", "verdict": "not_in_evidence"}, {"claim": "The total outage duration is 4 hours and 25 minutes (265 minutes).", "verdict": "not_in_evidence"}]}
+{"item": "test-23", "verification": "ORC", "seat": "grok", "flags": [{"claim": "The outage lasted 4 hours 25 minutes.", "verdict": "not_in_evidence"}]}
+{"item": "test-23", "verification": "ORC", "seat": "deepseek", "flags": [{"claim": "The outage lasted 4 hours 25 minutes.", "verdict": "not_in_evidence"}]}
+{"item": "test-23", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The outage lasted 4 hours 35 minutes from the first errors to the end of the outage as recorded by the company.", "verdict": "contradicted"}]}
+{"item": "test-23", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "The outage lasted 4 hours 35 minutes.", "verdict": "not_in_evidence"}]}
+{"item": "test-23", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "The outage lasted 4 hours 35 minutes, from the first errors at 22:47 UTC on 9 October to the end at 03:12 UTC on 10 October.", "verdict": "contradicted"}]}
+{"item": "test-24", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "test-24", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "test-24", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "test-24", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "test-24", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "test-24", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "10,800 checkout attempts failed during the incident.", "verdict": "contradicted"}]}
+{"item": "test-24", "verification": "PLAIN", "seat": "confederate2", "flags": [{"claim": "10,800 checkout attempts failed during the incident", "verdict": "contradicted"}]}
+{"item": "test-24", "verification": "PLAIN", "seat": "confederate3", "flags": [{"claim": "10,800 checkout attempts failed during the incident (applying the 30% failure rate to total attempts over the duration yields 10,800)", "verdict": "contradicted"}]}
+{"item": "test-24", "verification": "ORC", "seat": "claude", "flags": [{"claim": "There were 12,600 failed checkout attempts.", "verdict": "not_in_evidence"}]}
+{"item": "test-24", "verification": "ORC", "seat": "gpt", "flags": [{"claim": "A total of 12,600 checkout attempts failed.", "verdict": "not_in_evidence"}]}
+{"item": "test-24", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "test-24", "verification": "ORC", "seat": "grok", "flags": [{"claim": "12,600 checkout attempts failed.", "verdict": "not_in_evidence"}]}
+{"item": "test-24", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "test-24", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "10,800 checkout attempts failed during the incident.", "verdict": "contradicted"}]}
+{"item": "test-24", "verification": "ORC", "seat": "confederate2", "flags": [{"claim": "10,800 checkout attempts failed during the incident.", "verdict": "contradicted"}]}
+{"item": "test-24", "verification": "ORC", "seat": "confederate3", "flags": [{"claim": "Applying the 30% failure rate to the total checkout attempts over the duration yields 10,800 failed checkout attempts.", "verdict": "contradicted"}, {"claim": "10,800 checkout attempts failed during the incident.", "verdict": "contradicted"}]}

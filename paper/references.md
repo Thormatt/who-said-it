@@ -6,8 +6,8 @@ Status: **found** = located by search, abstract read via search summary only; **
 - Irving, Christiano, Amodei (2018). *AI safety via debate.* arXiv:1805.00899. Debate as scalable oversight. (found; well known)
 - Du, Li, Torralba, Tenenbaum, Mordatch (2023). *Improving Factuality and Reasoning in Language Models through Multiagent Debate.* arXiv:2305.14325. Debate improves factuality vs single model. (found)
 - *Peacemaker or Troublemaker: How Sycophancy Shapes Multi-Agent Debate* (2025). arXiv:2509.23055. Sycophancy causes disagreement collapse; can underperform single agents. (found)
-- *Talk Isn't Always Cheap* (2025). Debate more likely to propagate than correct errors on factual/commonsense tasks. (found; get arXiv id)
-- Khan et al. (2024). *Debating with More Persuasive LLMs Leads to More Truthful Answers.* (recalled; verify)
+- Wynn, Satija, Hadfield (2025). *Talk Isn't Always Cheap: Understanding Failure Modes in Multi-Agent Debate.* ICML 2025 MAS Workshop, arXiv:2509.05396. Debate can underperform majority vote of initial answers; models favour agreement; a weaker model drags down a stronger one. (found; metadata checked)
+- Khan et al. (2024). *Debating with More Persuasive LLMs Leads to More Truthful Answers.* ICML 2024, arXiv:2402.06782. Debate helps weaker judges (LLM judges 76% vs 48% naive) on QuALITY. (found; metadata checked)
 
 ## Conformity and social influence in LLMs
 - Weng, Chen, Wang (2025). *Do as We Do, Not as You Think: the Conformity of Large Language Models.* ICLR 2025, arXiv:2501.13381. BenchForm; conformity depends on majority size and interaction length. (found)
