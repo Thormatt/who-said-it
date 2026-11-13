@@ -45,6 +45,8 @@ def cluster_bootstrap_ci(
     frame: pd.DataFrame, column: str, *, seed: int = 0, n_boot: int = N_BOOT
 ) -> tuple[float, float, float]:
     """Mean of a 0/1 column with a 95% CI that resamples items, not answers."""
+    if frame.empty:
+        return float("nan"), float("nan"), float("nan")
     per_item = frame.groupby("item")[column].agg(["sum", "count"])
     sums, counts = per_item["sum"].to_numpy(float), per_item["count"].to_numpy(float)
     rng = np.random.default_rng(seed)
