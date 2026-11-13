@@ -19,7 +19,7 @@ from epi.analysis import N_BOOT, cluster_bootstrap_ci, holm, load_runs, paired_c
 PANEL_ORDER = ["frontier-2026-11", "frontier-2026-early", "small"]
 PANEL_NAMES = {
     "frontier-2026-11": "Frontier (Nov 2026)",
-    "frontier-2026-early": "Frontier (early 2026)",
+    "frontier-2026-early": "Previous frontier (2025–early 2026)",
     "small": "Small / cheap",
 }
 VERIFY_ORDER = ["NONE", "PLAIN", "ORC"]
