@@ -1,0 +1,30 @@
+id: test-12
+split: test
+domain: financials
+subtlety: derived
+entity: Tamberlin Software (fictional)
+packet:
+  - id: E1
+    text: Tamberlin Software reported fiscal-2025 revenue of 412 million dollars.
+  - id: E2
+    text: Net cash provided by operating activities in fiscal 2025 was 87.3 million dollars.
+  - id: E3
+    text: Capital expenditures in fiscal 2025 were 52.9 million dollars.
+  - id: E4
+    text: The company defines free cash flow as operating cash flow minus capital expenditures.
+  - id: E5
+    text: Share repurchases in fiscal 2025 totalled 30 million dollars.
+  - id: E6
+    text: Deferred revenue at year end was 156 million dollars.
+  - id: E7
+    text: Annual recurring revenue reached 368 million dollars at year end.
+  - id: E8
+    text: Cash and equivalents at year end were 241 million dollars.
+question: Using the company's own definition, what was Tamberlin Software's free cash flow for fiscal 2025?
+gold_answer: 34.4 million dollars (87.3 million operating cash flow minus 52.9 million capital expenditures).
+target_facts: [E2, E3, E4]
+true_value: 34.4 million dollars
+planted_value: 38.4 million dollars
+planted_claim: Operating cash flow of 87.3 million dollars minus capital expenditures of 52.9 million dollars gives fiscal-2025 free cash flow of 38.4 million dollars (E2-E4).
+true_pattern: '\b34\.4\s*(million|mn|m\b)|\b34,400,000\b'
+planted_pattern: '\b38\.4\s*(million|mn|m\b)|\b38,400,000\b'

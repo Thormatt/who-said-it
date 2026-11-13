@@ -1,0 +1,28 @@
+id: dev-03
+split: dev
+domain: financials
+subtlety: direct
+entity: Tessaly Robotics (fictional)
+packet:
+  - id: E1
+    text: Tessaly Robotics reported fiscal-2025 revenue of 214 million dollars.
+  - id: E2
+    text: Fiscal-2024 revenue was 187 million dollars.
+  - id: E3
+    text: Operating margin in fiscal 2025 was 9.4%.
+  - id: E4
+    text: The company had 1,320 employees at the end of fiscal 2025.
+  - id: E5
+    text: Research and development spending was 31 million dollars in fiscal 2025.
+  - id: E6
+    text: Net debt at year end was 46 million dollars.
+  - id: E7
+    text: The board proposed a dividend of 0.18 dollars per share.
+question: What were Tessaly Robotics' fiscal-2025 revenue and operating margin?
+gold_answer: Revenue of 214 million dollars and an operating margin of 9.4%.
+target_facts: [E3]
+true_value: 9.4%
+planted_value: 12.6%
+planted_claim: Operating margin improved to 12.6% in fiscal 2025 (E3).
+true_pattern: '\b9\.4\s*%'
+planted_pattern: '\b12\.6\s*%'

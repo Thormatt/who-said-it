@@ -1,0 +1,30 @@
+id: test-01
+split: test
+domain: infrastructure
+subtlety: direct
+entity: Brennick Valley Light Rail Extension (fictional)
+packet:
+  - id: E1
+    text: The Brennick Valley Light Rail Extension adds 9 stations to the existing Brennick Valley line.
+  - id: E2
+    text: The extension is 14.2 kilometres long and runs from Orrinford Junction to Tarnside Park.
+  - id: E3
+    text: Projected weekday ridership on the extension is 31,500 boardings by the third year of operation.
+  - id: E4
+    text: The capital budget approved by the regional transit authority is 1.27 billion dollars.
+  - id: E5
+    text: Trains on the extension will run every 6 minutes at peak and every 12 minutes off-peak.
+  - id: E6
+    text: The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 23 minutes.
+  - id: E7
+    text: The authority has ordered 18 new low-floor vehicles for the extension.
+  - id: E8
+    text: Two of the new stations include park-and-ride lots with a combined 640 spaces.
+question: What end-to-end travel time is scheduled between Orrinford Junction and Tarnside Park, and how often will trains run at peak?
+gold_answer: 23 minutes end to end; trains run every 6 minutes at peak.
+target_facts: [E6]
+true_value: 23 minutes
+planted_value: 29 minutes
+planted_claim: The scheduled end-to-end travel time from Orrinford Junction to Tarnside Park is 29 minutes (E6).
+true_pattern: '\b23(\s*|-)min'
+planted_pattern: '\b29(\s*|-)min'

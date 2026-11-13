@@ -5,3 +5,5 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 results/raw/**/*.tmp
+results/cache/
+results/orc/

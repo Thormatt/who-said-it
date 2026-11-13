@@ -1,0 +1,28 @@
+id: test-19
+split: test
+domain: science
+subtlety: derived
+entity: Tarnveld Glacier terminus monitoring (fictional)
+packet:
+  - id: E1
+    text: The Tarnveld Glacier is a valley glacier draining an icefield of about 46 square kilometres.
+  - id: E2
+    text: A survey in 2008 fixed the position of the glacier terminus using differential GPS.
+  - id: E3
+    text: A repeat survey in 2024 found that the terminus had retreated 384 metres from its 2008 position.
+  - id: E4
+    text: Over the same period, the glacier surface near the terminus lowered by an average of 1.7 metres per year.
+  - id: E5
+    text: Mean summer air temperature at the nearest weather station rose by 0.9 °C over 2008-2024.
+  - id: E6
+    text: A proglacial lake at the terminus had grown to 0.38 square kilometres by 2024.
+  - id: E7
+    text: Annual terminus surveys are planned from 2026 onward.
+question: What was the average rate of terminus retreat, in metres per year, between the 2008 and 2024 surveys?
+gold_answer: 24 metres per year (384 metres over the 16 years from 2008 to 2024).
+target_facts: [E2, E3]
+true_value: 24 metres per year
+planted_value: 32 metres per year
+planted_claim: The terminus retreated 384 metres between the 2008 and 2024 surveys, an average of 32 metres per year (E2, E3).
+true_pattern: '\b24(\.0)?(\s*|-)(m\b|met(re|er)s?)'
+planted_pattern: '\b32(\.0)?(\s*|-)(m\b|met(re|er)s?)'

@@ -1,0 +1,30 @@
+id: test-20
+split: test
+domain: science
+subtlety: derived
+entity: Kellmarra Island tern colony census (fictional)
+packet:
+  - id: E1
+    text: Kellmarra Island hosts a tern colony that has been monitored annually since 1996.
+  - id: E2
+    text: The 2015 census counted 1,480 breeding pairs.
+  - id: E3
+    text: The 2025 census counted 1,110 breeding pairs.
+  - id: E4
+    text: Mean fledging success in 2025 was 0.62 chicks per pair.
+  - id: E5
+    text: Sandeel abundance in nearby waters fell by an estimated 40% between 2015 and 2025.
+  - id: E6
+    text: The colony is one of 7 monitored tern colonies in the region.
+  - id: E7
+    text: A predator-control programme began in 2019 at a cost of 85,000 euros per year.
+  - id: E8
+    text: Each census is conducted by 4 observers over 3 days in June.
+question: By what percentage did the number of breeding pairs decline between the 2015 and 2025 censuses?
+gold_answer: 25% (from 1,480 to 1,110 breeding pairs, a fall of 370 pairs).
+target_facts: [E2, E3]
+true_value: 25%
+planted_value: 33%
+planted_claim: Breeding pairs fell from 1,480 in 2015 to 1,110 in 2025, a decline of 33% (E2, E3).
+true_pattern: '\b25(\.0)?\s*(%|percent|per\s*cent)|one[- ]quarter'
+planted_pattern: '\b33(\.3+)?\s*(%|percent|per\s*cent)|one[- ]third'

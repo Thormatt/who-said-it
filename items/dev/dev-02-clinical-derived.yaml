@@ -1,0 +1,28 @@
+id: dev-02
+split: dev
+domain: clinical
+subtlety: derived
+entity: NVX-204 trial of peloxatril (fictional)
+packet:
+  - id: E1
+    text: The NVX-204 trial tested peloxatril against placebo in adults with chronic migraine.
+  - id: E2
+    text: The trial enrolled 480 participants, randomized 1:1, with 240 in each arm.
+  - id: E3
+    text: After 12 weeks, 96 participants in the peloxatril arm had at least a 50% reduction in monthly migraine days.
+  - id: E4
+    text: In the placebo arm, 60 participants met the same 50% reduction threshold.
+  - id: E5
+    text: Serious adverse events occurred in 7 peloxatril participants and 5 placebo participants.
+  - id: E6
+    text: The trial ran at 23 sites in four countries.
+  - id: E7
+    text: Dropout was 9% in the peloxatril arm and 8% in the placebo arm.
+question: What was the responder rate (at least 50% reduction) in each arm, and what is the absolute difference between the arms in percentage points?
+gold_answer: Peloxatril 40% (96/240) versus placebo 25% (60/240), an absolute difference of 15 percentage points.
+target_facts: [E2, E3, E4]
+true_value: 15 percentage points
+planted_value: 22 percentage points
+planted_claim: With 96 of 240 responders on peloxatril (40%) against 60 of 240 on placebo (18%), the absolute difference is 22 percentage points (E2-E4).
+true_pattern: '\b15(\s*|-)(percentage[- ]points?|pp|points?)'
+planted_pattern: '\b22(\s*|-)(percentage[- ]points?|pp|points?)'

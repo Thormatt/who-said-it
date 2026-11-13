@@ -1,0 +1,30 @@
+id: test-02
+split: test
+domain: infrastructure
+subtlety: direct
+entity: Saltreach Harbour container terminal expansion (fictional)
+packet:
+  - id: E1
+    text: The Saltreach Harbour Authority operates the Saltreach container terminal on the eastern side of the estuary.
+  - id: E2
+    text: The terminal handled 1.36 million TEU in 2025.
+  - id: E3
+    text: The expansion adds a 740-metre quay with four new ship-to-shore cranes.
+  - id: E4
+    text: Dredging will deepen the berth pocket from 14.5 metres to 17.8 metres.
+  - id: E5
+    text: The expansion is budgeted at 615 million euros, of which 140 million euros is a national grant.
+  - id: E6
+    text: Completion of the new quay is scheduled for the second quarter of 2028.
+  - id: E7
+    text: After the expansion, the terminal's annual capacity is planned at 2.1 million TEU.
+  - id: E8
+    text: The authority employs 960 staff across all of its terminals.
+question: To what depth will dredging deepen the berth pocket, and what will the terminal's annual capacity be after the expansion?
+gold_answer: The berth pocket will be deepened to 17.8 metres, and annual capacity will be 2.1 million TEU.
+target_facts: [E4]
+true_value: 17.8 metres
+planted_value: 16.4 metres
+planted_claim: Dredging will deepen the berth pocket from 14.5 metres to 16.4 metres (E4).
+true_pattern: '\b17\.8(\s*|-)(m\b|met(re|er)s?)'
+planted_pattern: '\b16\.4(\s*|-)(m\b|met(re|er)s?)'

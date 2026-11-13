@@ -1,0 +1,28 @@
+id: test-11
+split: test
+domain: financials
+subtlety: derived
+entity: Brightfen Foods (fictional)
+packet:
+  - id: E1
+    text: Brightfen Foods reported fiscal-2025 net sales of 295 million dollars.
+  - id: E2
+    text: Fiscal-2024 net sales were 250 million dollars.
+  - id: E3
+    text: Gross margin in fiscal 2025 was 31.4%.
+  - id: E4
+    text: During fiscal 2025 the company acquired a regional bakery chain for 42 million dollars.
+  - id: E5
+    text: Marketing spending was 17 million dollars in fiscal 2025.
+  - id: E6
+    text: The company's products are sold in 6,200 retail outlets.
+  - id: E7
+    text: Net income for fiscal 2025 was 21 million dollars.
+question: By what percentage did Brightfen Foods' net sales grow from fiscal 2024 to fiscal 2025?
+gold_answer: 18% (from 250 to 295 million dollars, an increase of 45 million dollars).
+target_facts: [E1, E2]
+true_value: 18%
+planted_value: 15.3%
+planted_claim: Net sales rose from 250 million dollars in fiscal 2024 to 295 million dollars in fiscal 2025, growth of 15.3% (E1, E2).
+true_pattern: '\b18(\.0)?\s*(%|percent|per\s*cent)'
+planted_pattern: '\b15\.(3|25)\s*(%|percent|per\s*cent)'

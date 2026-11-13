@@ -1,0 +1,12 @@
+{"item": "dev-01", "verification": "PLAIN", "seat": "claude", "flags": []}
+{"item": "dev-01", "verification": "PLAIN", "seat": "gpt", "flags": []}
+{"item": "dev-01", "verification": "PLAIN", "seat": "gemini", "flags": []}
+{"item": "dev-01", "verification": "PLAIN", "seat": "grok", "flags": []}
+{"item": "dev-01", "verification": "PLAIN", "seat": "deepseek", "flags": []}
+{"item": "dev-01", "verification": "PLAIN", "seat": "confederate", "flags": [{"claim": "The upgrade raises the plant's design capacity to 68 million litres per day", "verdict": "contradicted"}]}
+{"item": "dev-01", "verification": "ORC", "seat": "claude", "flags": []}
+{"item": "dev-01", "verification": "ORC", "seat": "gpt", "flags": []}
+{"item": "dev-01", "verification": "ORC", "seat": "gemini", "flags": []}
+{"item": "dev-01", "verification": "ORC", "seat": "grok", "flags": []}
+{"item": "dev-01", "verification": "ORC", "seat": "deepseek", "flags": []}
+{"item": "dev-01", "verification": "ORC", "seat": "confederate", "flags": [{"claim": "The upgrade raises the plant's design capacity to 68 million litres per day.", "verdict": "contradicted"}]}

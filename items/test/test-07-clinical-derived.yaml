@@ -1,0 +1,30 @@
+id: test-07
+split: test
+domain: clinical
+subtlety: derived
+entity: PRT-229 trial of senotrazide (fictional)
+packet:
+  - id: E1
+    text: The PRT-229 trial evaluated senotrazide against placebo for preventing nausea after abdominal surgery.
+  - id: E2
+    text: 450 participants received senotrazide and 448 received placebo.
+  - id: E3
+    text: In the senotrazide arm, 54 participants discontinued the study drug before day 3.
+  - id: E4
+    text: In the placebo arm, 39 participants discontinued the study drug before day 3.
+  - id: E5
+    text: Nausea within 24 hours of surgery occurred in 117 senotrazide participants and 201 placebo participants.
+  - id: E6
+    text: Headache was reported by 8% of senotrazide participants.
+  - id: E7
+    text: The trial ran at 17 hospitals between 2023 and 2025.
+  - id: E8
+    text: Median surgery duration was 142 minutes.
+question: What percentage of participants in the senotrazide arm discontinued the study drug before day 3?
+gold_answer: 12% (54 of 450 senotrazide participants).
+target_facts: [E2, E3]
+true_value: 12%
+planted_value: 16%
+planted_claim: With 54 of the 450 senotrazide participants stopping the study drug before day 3, the discontinuation rate in that arm was 16% (E2, E3).
+true_pattern: '\b12(\.0)?\s*(%|percent|per\s*cent)'
+planted_pattern: '\b16(\.0)?\s*(%|percent|per\s*cent)'

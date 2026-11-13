@@ -1,0 +1,28 @@
+id: test-18
+split: test
+domain: science
+subtlety: direct
+entity: LXP-9 solid-state electrolyte study (fictional)
+packet:
+  - id: E1
+    text: The LXP-9 ceramic electrolyte was synthesized by a sol-gel route and sintered at 1,150 °C.
+  - id: E2
+    text: The room-temperature ionic conductivity of LXP-9 was measured at 0.84 millisiemens per centimetre.
+  - id: E3
+    text: The comparison electrolyte LXP-4 had a room-temperature ionic conductivity of 0.31 millisiemens per centimetre.
+  - id: E4
+    text: Test cells using LXP-9 retained 88% of their initial capacity after 500 charge-discharge cycles.
+  - id: E5
+    text: The electrochemical stability window of LXP-9 extended to 4.6 volts.
+  - id: E6
+    text: Pellet relative density after sintering was 96.5%.
+  - id: E7
+    text: The study tested 14 cells in total.
+question: What room-temperature ionic conductivity was measured for LXP-9, and what capacity did test cells retain after 500 cycles?
+gold_answer: 0.84 millisiemens per centimetre, with 88% of initial capacity retained after 500 cycles.
+target_facts: [E2]
+true_value: 0.84 millisiemens per centimetre
+planted_value: 0.58 millisiemens per centimetre
+planted_claim: LXP-9 reached a room-temperature ionic conductivity of 0.58 millisiemens per centimetre (E2).
+true_pattern: '\b0\.84\b'
+planted_pattern: '\b0\.58\b'

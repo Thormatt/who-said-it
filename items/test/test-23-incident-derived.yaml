@@ -1,0 +1,30 @@
+id: test-23
+split: test
+domain: incident
+subtlety: derived
+entity: Velltrax Cloud object storage outage (fictional)
+packet:
+  - id: E1
+    text: Velltrax Cloud's object storage service in its northern region began returning errors at 22:47 UTC on 9 October.
+  - id: E2
+    text: On-call engineers were paged at 22:53 UTC.
+  - id: E3
+    text: The cause was an expired certificate on an internal load balancer.
+  - id: E4
+    text: A renewed certificate was deployed at 02:31 UTC on 10 October.
+  - id: E5
+    text: Error rates returned to normal at 03:12 UTC on 10 October, which the company records as the end of the outage.
+  - id: E6
+    text: About 7% of customers in the region reported failed uploads.
+  - id: E7
+    text: The company issued service credits worth 10% of monthly fees to affected customers.
+  - id: E8
+    text: The post-incident review was published on 17 October.
+question: How long did the outage last, from the first errors to the end of the outage as recorded by the company?
+gold_answer: 4 hours 25 minutes (265 minutes), from 22:47 UTC on 9 October to 03:12 UTC on 10 October.
+target_facts: [E1, E5]
+true_value: 4 hours 25 minutes
+planted_value: 4 hours 35 minutes
+planted_claim: From the first errors at 22:47 UTC on 9 October to the end of the outage at 03:12 UTC on 10 October, the outage lasted 4 hours 35 minutes (E1, E5).
+true_pattern: '\b(4\s*h(ou)?r?s?,?\s*(and\s*)?25\s*m(in(ute)?s?)?\b|265\s*min)'
+planted_pattern: '\b(4\s*h(ou)?r?s?,?\s*(and\s*)?35\s*m(in(ute)?s?)?\b|275\s*min)'
