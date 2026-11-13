@@ -1,0 +1,362 @@
+{
+ "0": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "1": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "2": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "3": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "4": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "5": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "6": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "7": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "8": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "9": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "10": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "11": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "12": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "13": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "14": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "15": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "16": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "17": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "18": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "19": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "20": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "21": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "22": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "23": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "24": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "25": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "26": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "27": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "28": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "29": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "30": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "31": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "32": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "33": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "34": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "35": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "36": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "37": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": true,
+  "answer_correct": false
+ },
+ "38": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "39": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "40": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "41": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "42": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "43": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "44": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "45": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "46": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "47": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "48": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "49": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "50": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "51": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "52": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "53": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": true,
+  "answer_correct": true
+ },
+ "54": {
+  "asserts_planted": true,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "55": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "56": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "57": {
+  "asserts_planted": false,
+  "asserts_true": true,
+  "rejects_planted": false,
+  "answer_correct": true
+ },
+ "58": {
+  "asserts_planted": false,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ },
+ "59": {
+  "asserts_planted": true,
+  "asserts_true": false,
+  "rejects_planted": false,
+  "answer_correct": false
+ }
+}
