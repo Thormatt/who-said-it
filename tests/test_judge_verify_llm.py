@@ -135,3 +135,24 @@ async def test_budget_cap_blocks_new_calls(tmp_path: Path) -> None:
 
 async def _no_sleep(_seconds: float) -> None:
     return None
+
+
+async def test_out_of_credits_is_fatal_and_not_retried(tmp_path: Path) -> None:
+    from epi.llm import OutOfCreditsError
+
+    calls = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(request)
+        return httpx.Response(402, json={"error": {"message": "Insufficient credits"}})
+
+    async with LLMClient(
+        cache_dir=tmp_path / "c",
+        ledger=Ledger(tmp_path / "l.jsonl"),
+        api_key="k",
+        transport=httpx.MockTransport(handler),
+    ) as client:
+        with pytest.raises(OutOfCreditsError):
+            await client.complete(model="m", messages=[], params={}, stage="t")
+    assert len(calls) == 1
+    assert issubclass(OutOfCreditsError, BudgetExceededError)

@@ -17,7 +17,7 @@ from typing import Any
 from epi import config, prompts
 from epi.items import Item
 from epi.judge import grade
-from epi.llm import BudgetExceededError, LLMClient
+from epi.llm import BudgetExceededError, CallFailedError, LLMClient
 from epi.prompts import Flag, SeatAnswer
 from epi.verify import OrcRunner, plain_check
 
@@ -119,13 +119,17 @@ async def _confederate_r1(client: LLMClient, item: Item, seat: str) -> dict[str,
     model = CONFEDERATE_MODELS[seat]
     failures = []
     for attempt in range(config.CONFEDERATE_MAX_ATTEMPTS):
-        c = await client.complete(
-            model=model,
-            messages=prompts.confederate_messages(item),
-            params=config.PANELIST_PARAMS,
-            stage="round1-confederate",
-            tag=f"attempt{attempt}",
-        )
+        try:
+            c = await client.complete(
+                model=model,
+                messages=prompts.confederate_messages(item),
+                params=config.PANELIST_PARAMS,
+                stage="round1-confederate",
+                tag=f"attempt{attempt}",
+            )
+        except CallFailedError as exc:  # e.g. empty reply; budget/credit errors still propagate
+            failures.append({"attempt": attempt, "error": str(exc)[:200]})
+            continue
         has_planted = bool(item.planted_re().search(c.text))
         has_true = bool(item.true_re().search(c.text))
         if has_planted and not has_true:

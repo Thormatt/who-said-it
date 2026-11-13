@@ -13,7 +13,7 @@ from pathlib import Path
 
 from epi import config
 from epi.items import Item
-from epi.llm import Ledger, LLMClient, load_api_key
+from epi.llm import Ledger, LLMClient, OutOfCreditsError, load_api_key
 from epi.prompts import Flag, plain_check_messages
 
 PLAIN_SCHEMA = {
@@ -162,6 +162,8 @@ class OrcRunner:
         before = self._traces(workspace)
         result = self._orc("verify", "--file", str(answer_file), "-w", workspace, "--json", "-y")
         self._record_cost(workspace, self._traces(workspace) - before, f"{item.id}/{seat}")
+        if result.returncode != 0 and "Insufficient credits" in result.stderr:
+            raise OutOfCreditsError(f"orc verify: provider out of credits ({item.id}/{seat})")
         if result.returncode != 0:
             raise RuntimeError(f"orc verify failed for {item.id}/{seat}: {result.stderr[-800:]}")
         raw = result.stdout

@@ -29,6 +29,10 @@ class CallFailedError(RuntimeError):
     pass
 
 
+class OutOfCreditsError(BudgetExceededError):
+    """Provider account is empty (HTTP 402). Fatal: every further call would fail too."""
+
+
 @dataclass(frozen=True)
 class Completion:
     text: str
@@ -186,6 +190,10 @@ class LLMClient:
                     last_error = f"in-body error: {payload['error']}"
                 elif response.status_code in RETRYABLE_STATUS:
                     last_error = f"HTTP {response.status_code}: {response.text[:300]}"
+                elif response.status_code == 402:
+                    raise OutOfCreditsError(
+                        f"provider account out of credits: {response.text[:300]}"
+                    )
                 else:
                     raise CallFailedError(
                         f"{model} HTTP {response.status_code}: {response.text[:500]}"
