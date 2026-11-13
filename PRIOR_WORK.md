@@ -17,4 +17,8 @@ Apart rules: *"Building on existing work is allowed and encouraged, but you must
 
 | ORC commit | Change | Why |
 |---|---|---|
-| _(pending)_ | Model precedence: `ORC_VERIFY_MODEL` / `ORC_EXTRACT_MODEL` are ignored because the skill manifest pins `claude-sonnet-4-6` / `claude-haiku-4-5` | Found in the 13 Nov smoke test; needed to run current judge models |
+| `9ba3ef0` | Commits the pre-existing 2026-07-10 change unchanged. **Not sprint work**; it only pins the baseline. | Exact pre-sprint baseline |
+| `fe61666` | Model precedence: `ORC_*_MODEL` env vars were ignored because the skill manifest pinned `claude-sonnet-4-6` / `claude-haiku-4-5` | Found in the 13 Nov smoke test; needed to run current judge models |
+| `1fbe731` | Claude 5.5-generation compatibility: forced `tool_choice` is downgraded to auto + instruction (one re-prompt), and `temperature` is dropped where the model rejects sampling params | Every ORC skill returned 400 on Sonnet 5.5 / Haiku 5.5 |
+
+All ORC sprint work is on branch `sprint/epistemics` in a separate worktree. The author's main checkout and `main` are untouched. **Consequence for the study:** on Sonnet 5.5, ORC verdicts are not sampled at temperature 0, so they are not bit-for-bit replayable. Verdicts are cached once per item and reused across conditions, so every condition sees identical flags.
