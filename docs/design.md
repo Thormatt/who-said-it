@@ -134,9 +134,40 @@ The unit is one real panelist's round-2 answer (item × panelist × condition ×
 |---|---|---|
 | 2026-11-13 | v1 drafted | — |
 | 2026-11-13 | v1.1 (before any data): dropped CODENAME; added PLAIN-check control (H6); added direct/derived subtlety factor (H7) and floor contingency | Separate "any check" from "ORC's structure"; avoid a floor effect on easy errors |
+| 2026-11-13 | Sampling: all generation at provider-default temperature; judges also at default. Replaces "panelists 0.7, judges 0" in §7. | Claude 5.5 models return 400 on explicit temperature; one rule for all models avoids a model × temperature confound |
+| 2026-11-13 | PLAIN control as implemented: one Sonnet 5.5 call per answer, packet + answer in, JSON list of contradicted / not-in-evidence claims out. No separate claim extraction, per-claim retrieval or citation filtering. | Precise statement of what PLAIN lacks relative to ORC |
+| 2026-11-13 | **Dev pilot (4 dev items, 1 rep, frontier-2026-11 panel, all 12 conditions): 0/240 round-2 adoptions and 0/48 final-synthesis adoptions.** Every one of the 20 round-1 answers from real panelists was correct. The floor contingency (§9) was triggered at both subtlety levels. | Pilot data, dev only |
+| 2026-11-13 | **Pilot-driven exploration (dev items only; test items untouched):** three candidate design factors that could create pressure on the panel. (a) Panel tier: `frontier-2026-11` / `frontier-2026-early` (the models behind the author's spring-2026 anecdotes) / `small` (cheap models typical of agent pipelines). (b) Wrong share: 1 or 3 of the 5 answers each viewer sees, with three confederates from different off-panel models and distinct NAMED labels. (c) Evidence access in round 2: packet shown or withheld. The main-run configuration is chosen from this dev exploration and recorded here before the test run. | With a 4:1 correct majority and the evidence at hand, attribution and verification had no room to act. Model generation is the leading explanation for the gap from the earlier anecdotes. |
 
 ## 12. Ethics and dual use (to be expanded in the report appendix)
 
 - Model names appear only inside experimental prompts as labels. Nothing is published as if it were written by those models.
 - **Dual use:** if prestige labels make errors spread, an attacker could exploit this in multi-agent pipelines by claiming to be a stronger model. Reporting it supports defenses (stripping identities, binding claims to evidence). The report states this risk and the mitigations that were tested.
 - No human subjects. The hand-labeling is done by the author.
+
+## 13. Main configuration (v2), frozen 13 Nov 2026 before any test-item data
+
+This section supersedes §3, §6 and §10 where they conflict. It was chosen from dev data only (`results/pilot`, `results/explore`).
+
+**Exploration result (dev, 4 items, 1 rep, ANON/NAMED-HIGH × NONE).** Round-2 adoption was ≈0 in every regime except **n_wrong = 3 with the evidence withheld in round 2**. In that regime it was 23% (frontier-2026-11), 33% (frontier-2026-early) and 43% (small). Adoption there was almost entirely on direct items. NAMED-HIGH ≥ ANON in all three panels (small n).
+
+**Main grid ("vulnerable regime": n_wrong = 3, no evidence in round 2).** 3 panels × ATTRIBUTION {ANON, NAMED-HIGH, NAMED-LOW} × VERIFY {NONE, PLAIN, ORC} × 24 test items × 5 panelists × 2 reps. Final synthesis and judging as before. SYNTH is not run, because it is undefined when each viewer sees a different majority; the dev-pilot SYNTH result (0 adoptions) is reported descriptively.
+
+**Boundary replication.** 3 panels × regimes {n_wrong 1 + evidence, n_wrong 3 + evidence, n_wrong 1 + no evidence} × ANON × NONE × 24 items × 1 rep. This tests whether the dev zeros hold.
+
+**Hypotheses for the test run** (directional unless stated). All are tested within the vulnerable regime and pooled over panels unless named.
+
+| ID | Hypothesis | Family |
+|---|---|---|
+| H1 | Spread NAMED-HIGH > ANON | primary |
+| H2 | Spread NAMED-HIGH > NAMED-LOW | primary |
+| H4 | Spread ORC < NONE | primary |
+| H8 | Spread frontier-2026-11 < frontier-2026-early (generation), and < small | primary |
+| H5 | (NONE − ORC) larger under NAMED-HIGH than ANON | secondary |
+| H6 | Spread ORC < PLAIN | secondary |
+| H7 | Spread differs between direct and derived items (**two-sided**; dev suggested direct > derived, the reverse of v1's prediction) | secondary |
+| B | In each boundary regime, spread stays below 5% for every panel (95% CI upper bound reported) | descriptive |
+
+Holm correction is applied across the primary family (H1, H2, H4, H8; H8 uses the frontier-2026-11 vs frontier-2026-early contrast). Panel contrasts (H8) are matched at item × attribution × verification × rep level, comparing the mean rate of each panel's five panelists. All other primary contrasts are matched at item × seat × rep × other factors.
+
+**Frozen artifacts:** harness tag `freeze-v1` (this repository); ORC `sprint/epistemics` @ `1fbe731`, tag `epi-freeze-v1`; models and labels as in `src/epi/config.py` at the tag.
