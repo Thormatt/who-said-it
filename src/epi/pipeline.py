@@ -19,7 +19,7 @@ from epi.items import Item
 from epi.judge import grade
 from epi.llm import BudgetExceededError, CallFailedError, LLMClient
 from epi.prompts import Flag, SeatAnswer
-from epi.verify import OrcRunner, plain_check
+from epi.verify import OrcRunner, plain_check, plain_check_ev
 
 CONFEDERATE_MODELS = dict(config.CONFEDERATES)
 
@@ -174,9 +174,11 @@ def complete_items(
 async def _verify_one(client, orc, orc_gate, item, verification, seat, text) -> dict[str, Any]:
     if verification == "PLAIN":
         flags = await plain_check(client, item, text)
-    else:
+    elif verification == "PLAIN-EV":
+        flags = await plain_check_ev(client, item, text)
+    else:  # ORC or ORC-EV; ORC-EV reuses the cached ORC run and adds the cited fact
         async with orc_gate:
-            flags = await orc.check(item, seat, text)
+            flags = await orc.check(item, seat, text, evidence=verification == "ORC-EV")
     return {
         "item": item.id,
         "verification": verification,

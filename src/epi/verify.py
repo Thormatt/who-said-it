@@ -45,7 +45,13 @@ PLAIN_SCHEMA = {
         },
     },
 }
+PLAIN_EV_SCHEMA = json.loads(json.dumps(PLAIN_SCHEMA))
+_issue = PLAIN_EV_SCHEMA["json_schema"]["schema"]["properties"]["issues"]["items"]
+_issue["properties"]["evidence_id"] = {"type": "string"}
+_issue["required"] = ["claim", "verdict", "evidence_id"]
+PLAIN_EV_SCHEMA["json_schema"]["name"] = "evidence_check_with_source"
 ORC_LABEL_TO_VERDICT = {"contradicted": "contradicted", "not_found": "not_in_evidence"}
+EVIDENCE_ID_RE = re.compile(r"\bE(\d+)\b")
 TOKENS_RE = re.compile(r'"(input|output)_tokens":\s*(\d+)')
 MODEL_RE = re.compile(r'"model":\s*"([^"]+)"')
 
@@ -55,11 +61,41 @@ def parse_plain_flags(text: str) -> tuple[Flag, ...]:
     return tuple(Flag(claim=i["claim"].strip(), verdict=i["verdict"]) for i in data["issues"])
 
 
+def with_evidence(flag: Flag, item: Item, evidence_id: str | None) -> Flag:
+    """Attach the cited packet fact to a contradicted flag (post-hoc evidence-style flags)."""
+    facts = {f.id: f.text for f in item.packet}
+    if flag.verdict != "contradicted" or evidence_id not in facts:
+        return flag
+    return Flag(flag.claim, flag.verdict, evidence_id, facts[evidence_id])
+
+
+def parse_plain_ev_flags(text: str, item: Item) -> tuple[Flag, ...]:
+    data = json.loads(_strip_fences(text))
+    return tuple(
+        with_evidence(
+            Flag(claim=i["claim"].strip(), verdict=i["verdict"]),
+            item,
+            i.get("evidence_id", "").strip().upper(),
+        )
+        for i in data["issues"]
+    )
+
+
 def _strip_fences(text: str) -> str:
     cleaned = text.strip()
     if cleaned.startswith("```"):
         cleaned = cleaned.split("\n", 1)[1].rsplit("```", 1)[0]
     return cleaned
+
+
+async def plain_check_ev(client: LLMClient, item: Item, answer_text: str) -> tuple[Flag, ...]:
+    completion = await client.complete(
+        model=config.PLAIN_CHECK_MODEL,
+        messages=plain_check_messages(item, answer_text, with_evidence=True),
+        params={**config.SUPPORT_PARAMS, "response_format": PLAIN_EV_SCHEMA},
+        stage="verify-plain-ev",
+    )
+    return parse_plain_ev_flags(completion.text, item)
 
 
 async def plain_check(client: LLMClient, item: Item, answer_text: str) -> tuple[Flag, ...]:
@@ -72,12 +108,20 @@ async def plain_check(client: LLMClient, item: Item, answer_text: str) -> tuple[
     return parse_plain_flags(completion.text)
 
 
-def parse_orc_flags(orc_json: dict) -> tuple[Flag, ...]:
-    return tuple(
-        Flag(claim=r["claim"].strip(), verdict=ORC_LABEL_TO_VERDICT[r["label"]])
-        for r in orc_json.get("results", [])
-        if r.get("label") in ORC_LABEL_TO_VERDICT
-    )
+def parse_orc_flags(orc_json: dict, item: Item | None = None) -> tuple[Flag, ...]:
+    """With `item`, contradicted flags also carry the packet fact ORC's reasoning cites
+    (first E-id mentioned that exists in the packet); used only for ORC-EV."""
+    flags = []
+    for r in orc_json.get("results", []):
+        if r.get("label") not in ORC_LABEL_TO_VERDICT:
+            continue
+        flag = Flag(claim=r["claim"].strip(), verdict=ORC_LABEL_TO_VERDICT[r["label"]])
+        if item is not None:
+            known = {f.id for f in item.packet}
+            cited = [f"E{n}" for n in EVIDENCE_ID_RE.findall(r.get("reasoning", ""))]
+            flag = with_evidence(flag, item, next((e for e in cited if e in known), None))
+        flags.append(flag)
+    return tuple(flags)
 
 
 class OrcRunner:
@@ -148,13 +192,16 @@ class OrcRunner:
             detail=f"estimated from {len(new_traces)} traces; {detail}",
         )
 
-    def check_sync(self, item: Item, seat: str, answer_text: str) -> tuple[Flag, ...]:
+    def check_sync(
+        self, item: Item, seat: str, answer_text: str, evidence: bool = False
+    ) -> tuple[Flag, ...]:
+        source = item if evidence else None
         key = hashlib.sha256(
             f"{config.ORC_VERIFY_MODEL}|{config.ORC_EXTRACT_MODEL}|{answer_text}".encode()
         ).hexdigest()[:16]
         out_path = self.cache_dir / item.id / f"{seat}-{key}.json"
         if out_path.exists():
-            return parse_orc_flags(json.loads(out_path.read_text()))
+            return parse_orc_flags(json.loads(out_path.read_text()), source)
         self.ledger.check()
         workspace = self._ensure_workspace(item)
         answer_file = out_path.with_suffix(".md")
@@ -169,10 +216,12 @@ class OrcRunner:
         raw = result.stdout
         payload = json.loads(raw[raw.find("{") :])
         out_path.write_text(json.dumps(payload, indent=1))
-        return parse_orc_flags(payload)
+        return parse_orc_flags(payload, source)
 
-    async def check(self, item: Item, seat: str, answer_text: str) -> tuple[Flag, ...]:
+    async def check(
+        self, item: Item, seat: str, answer_text: str, evidence: bool = False
+    ) -> tuple[Flag, ...]:
         # Calls for one item run in sequence so trace-based cost attribution stays exact.
         lock = self._item_locks.setdefault(item.id, asyncio.Lock())
         async with lock:
-            return await asyncio.to_thread(self.check_sync, item, seat, answer_text)
+            return await asyncio.to_thread(self.check_sync, item, seat, answer_text, evidence)

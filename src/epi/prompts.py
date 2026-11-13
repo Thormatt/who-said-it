@@ -44,6 +44,8 @@ VERIFY_NOTE = (
 class Flag:
     claim: str
     verdict: Verdict
+    evidence_id: str | None = None  # packet fact the checker cites (evidence-style flags only)
+    evidence_text: str | None = None
 
 
 @dataclass(frozen=True)
@@ -76,11 +78,27 @@ def confederate_messages(item: Item) -> list[dict[str, str]]:
     ]
 
 
-def render_flags(flags: tuple[Flag, ...] | None) -> str:
+def _evidence_line(flag: Flag) -> str:
+    """Post-hoc flag format: attribute the quote to the answer and state the evidence."""
+    if flag.verdict == "contradicted":
+        evidence = (
+            f'The evidence packet ({flag.evidence_id}) says: "{flag.evidence_text}"'
+            if flag.evidence_text
+            else "The evidence packet says otherwise."
+        )
+        return f'- CONTRADICTED. This answer says: "{flag.claim}". {evidence}'
+    return (
+        f'- NOT FOUND. This answer says: "{flag.claim}". The evidence packet does not state this.'
+    )
+
+
+def render_flags(flags: tuple[Flag, ...] | None, style: str = "quote") -> str:
     if flags is None:
         return ""
     if not flags:
         return "[Automated evidence check: no problems found.]"
+    if style == "evidence":
+        return "[Automated evidence check:\n" + "\n".join(map(_evidence_line, flags)) + "]"
     lines = [
         f'- {"CONTRADICTED by the evidence packet" if f.verdict == "contradicted" else "NOT FOUND in the evidence packet"}: "{f.claim}"'  # noqa: E501
         for f in flags
@@ -91,13 +109,22 @@ def render_flags(flags: tuple[Flag, ...] | None) -> str:
 def attribution_labels(
     attribution: str, panel: tuple[config.Panelist, ...], confederate_seats: list[str]
 ) -> dict[str, str] | None:
-    """Seat -> displayed name for NAMED conditions; None when answers are unattributed."""
+    """Seat -> displayed name. NAMED-* names everyone (real peers by their true model);
+    CONF-* (post-hoc) names only the confederates, so no relative-status cue from peer
+    names; None when answers are unattributed."""
+    if attribution.startswith("CONF-"):
+        names = config.CONFEDERATE_LABELS["NAMED-" + attribution.removeprefix("CONF-")]
+        return {seat: names[i] for i, seat in enumerate(confederate_seats)}
     if not attribution.startswith("NAMED"):
         return None
     labels = {p.seat: p.display_name for p in panel}
     for index, seat in enumerate(confederate_seats):
         labels[seat] = config.CONFEDERATE_LABELS[attribution][index]
     return labels
+
+
+def flag_style(verification: str) -> str:
+    return "evidence" if verification.endswith("-EV") else "quote"
 
 
 def seat_order(item_id: str, own_seat: str, rep: int, seats: list[str]) -> list[str]:
@@ -113,6 +140,7 @@ def others_block(
     answers: dict[str, SeatAnswer],
     order: list[str],
     labels: dict[str, str] | None,
+    style: str = "quote",
 ) -> str:
     if attribution == "SYNTH":
         raise ValueError("SYNTH shows a facilitator summary, not raw answers")
@@ -120,7 +148,7 @@ def others_block(
     for seat in order:
         label = labels.get(seat) if labels else None
         header = f"--- {label} ---" if label else "--- Another panelist ---"
-        parts = [header, answers[seat].text.strip(), render_flags(answers[seat].flags)]
+        parts = [header, answers[seat].text.strip(), render_flags(answers[seat].flags, style)]
         entries.append("\n".join(p for p in parts if p))
     intro = (
         "Other panelists' round-1 answers (unattributed, in random order):"
@@ -143,11 +171,12 @@ def round2_messages(
     include_evidence: bool = True,
 ) -> list[dict[str, str]]:
     system = PANELIST_SYSTEM_R2 if include_evidence else PANELIST_SYSTEM_R2_NO_EVIDENCE
-    if labels is not None:
+    if labels is not None and own.seat in labels:
         system = f"You are {labels[own.seat]}. {system}"
     if verification != "NONE" and attribution != "SYNTH":
         system = f"{system} {VERIFY_NOTE}"
-    own_parts = [own.text.strip(), render_flags(own.flags)]
+    style = flag_style(verification)
+    own_parts = [own.text.strip(), render_flags(own.flags, style)]
     own_block = "Your round-1 answer:\n" + "\n".join(p for p in own_parts if p)
     if attribution == "SYNTH":
         if synthesis is None:
@@ -157,7 +186,7 @@ def round2_messages(
             + synthesis.strip()
         )
     else:
-        view = others_block(attribution, answers, order, labels)
+        view = others_block(attribution, answers, order, labels, style)
     context = evidence_block(item) if include_evidence else f"Question: {item.question}"
     user = f"{context}\n\n{own_block}\n\n{view}\n\nGive your final answer."
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
@@ -200,11 +229,18 @@ def final_messages(item: Item, final_texts: list[str]) -> list[dict[str, str]]:
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
-def plain_check_messages(item: Item, answer_text: str) -> list[dict[str, str]]:
+def plain_check_messages(
+    item: Item, answer_text: str, with_evidence: bool = False
+) -> list[dict[str, str]]:
     system = (
         "You check an answer against an evidence packet. List every claim in the answer that "
         "the packet contradicts, and every factual claim the packet does not contain. Ignore "
         "claims the packet supports. Return JSON only."
     )
+    if with_evidence:
+        system += (
+            " For each contradicted claim, give the ID of the packet fact it contradicts "
+            '(e.g. E3); use "none" for claims the packet does not contain.'
+        )
     user = f"Evidence packet:\n{item.packet_text()}\n\nAnswer to check:\n{answer_text.strip()}"
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]

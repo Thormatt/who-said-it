@@ -6,6 +6,7 @@ from pathlib import Path
 import httpx
 import pytest
 
+from epi import config
 from epi.items import load_items
 from epi.judge import derive_label, fabricated_refs, grade_from_json
 from epi.llm import BudgetExceededError, Ledger, LLMClient, cache_key
@@ -122,7 +123,7 @@ async def test_client_retries_then_succeeds(tmp_path: Path, monkeypatch) -> None
 
 async def test_budget_cap_blocks_new_calls(tmp_path: Path) -> None:
     ledger = Ledger(tmp_path / "l.jsonl")
-    ledger.record(stage="seed", model="m", cost_usd=49.9)
+    ledger.record(stage="seed", model="m", cost_usd=config.BUDGET_CAP_USD - 0.1)
     async with LLMClient(
         cache_dir=tmp_path / "c",
         ledger=ledger,

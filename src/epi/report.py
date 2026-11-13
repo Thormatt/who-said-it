@@ -220,7 +220,7 @@ def build_report(root: Path) -> None:
     finals = vuln[vuln["kind"] == "final"]
     tests = hypothesis_tests(r2)
     no_claude = hypothesis_tests(r2[r2["seat"] != "claude"])
-    boundary = frame[(frame["run"] != "vulnerable") & (frame["kind"] == "round2")]
+    boundary = frame[frame["run"].str.startswith("b-") & (frame["kind"] == "round2")]
     figures = root / "figures"
     figures.mkdir(exist_ok=True)
     figure_main(r2, figures / "adoption_by_condition.png")

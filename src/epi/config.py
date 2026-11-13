@@ -13,7 +13,7 @@ LEDGER_PATH = RESULTS_DIR / "ledger.jsonl"
 ORC_DIR = ROOT.parent / "orc-sprint"
 ORC_ENV_FILE = ROOT.parent / "orc" / ".env"
 
-BUDGET_CAP_USD = 50.0
+BUDGET_CAP_USD = 75.0  # raised from 50 for post-hoc follow-ups (design §11)
 BUDGET_MARGIN_USD = 0.75  # stop launching calls this close to the cap (concurrency overshoot)
 MAX_CONCURRENCY = 8
 
