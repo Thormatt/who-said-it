@@ -200,7 +200,7 @@ def figure_main(r2: pd.DataFrame, out: Path) -> None:
     axes[0].set_ylabel("Round-2 adoption of planted error")
     axes[0].legend(fontsize=8, frameon=False)
     fig.tight_layout()
-    fig.savefig(out, dpi=200)
+    fig.savefig(out, dpi=200, bbox_inches="tight")
     plt.close(fig)
 
 
