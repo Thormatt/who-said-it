@@ -2,7 +2,7 @@
 title: 'Who Said It? Majority Pressure, Attribution and Evidence-Bound Verification in Multi-LLM Panels\thanks{Research conducted at the AI x Epistemics Research Sprint, November 2026.}'
 author:
   - "Thor Matthiasson, independent researcher"
-  - "Jennifer McTiernan, [affiliation]"
+  - "Jennifer McTiernan, attorney"
   - "With Apart Research"
 date: ""
 abstract: |
