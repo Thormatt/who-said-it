@@ -75,7 +75,7 @@ export const TakeawaysScene: React.FC<{ seconds: number }> = ({ seconds }) => (
 export const CreditsScene: React.FC = () => (
   <AbsoluteFill style={{ background: colors.bg, color: colors.text, fontFamily: font, justifyContent: "center", alignItems: "center", gap: 26 }}>
     <FadeUp><div style={{ fontSize: 90, fontWeight: 800 }}>Who Said It?</div></FadeUp>
-    <FadeUp delay={0.4}><div style={{ fontSize: 38, color: colors.muted }}>Thor Matthiasson · with Apart Research</div></FadeUp>
+    <FadeUp delay={0.4}><div style={{ fontSize: 38, color: colors.muted }}>Thor Matthiasson · Jennifer McTiernan · with Apart Research</div></FadeUp>
     <FadeUp delay={0.8}><div style={{ fontSize: 30, color: colors.muted }}>24 held-out items · 3 panels · 7,352 round-2 answers · pre-registered</div></FadeUp>
     <FadeUp delay={1.2}><div style={{ fontSize: 24, color: colors.muted }}>Narration: synthetic voice. Full report, code and data accompany this video.</div></FadeUp>
   </AbsoluteFill>
