@@ -7,3 +7,4 @@ __pycache__/
 results/raw/**/*.tmp
 results/cache/
 results/orc/
+submission/*.mp4
