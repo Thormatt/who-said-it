@@ -46,7 +46,7 @@ export const FlagsScene: React.FC<{ seconds: number; followup: string | null }> 
       <FlagBox tone={colors.flagship} delay={seconds * 0.3} title="What a panelist concluded" body={<>"…the evidence packet contains a direct statement that the rate was 16%" → adopts 16%</>} />
       <FlagBox tone={colors.truth} delay={seconds * 0.55} title="Evidence-stating flag (follow-up test)" body={<>CONTRADICTED. This answer says "…the discontinuation rate was 16%". The evidence packet (E3) says: <span style={{ color: colors.truth }}>"In the senotrazide arm, 54 participants discontinued the study drug before day 3."</span></>} />
       {followup ? (
-        <FadeUp delay={seconds * 0.75} style={{ textAlign: "center", fontSize: 32, marginTop: 6 }}>{followup}</FadeUp>
+        <FadeUp delay={seconds * 0.75} style={{ textAlign: "center", fontSize: 30, marginTop: 6, width: 1400, alignSelf: "center", color: "#cbd5e1" }}>{followup}</FadeUp>
       ) : null}
     </AbsoluteFill>
   </SceneFrame>
@@ -58,7 +58,7 @@ export const TakeawaysScene: React.FC<{ seconds: number }> = ({ seconds }) => (
       {[
         ["1", "Keep evidence in the loop", "a check that sees the sources removed the error from every final answer"],
         ["2", "Treat claimed identities as untrusted", "names shifted trust, most for small models"],
-        ["3", "Design what the verifier says", "flags should state the evidence, not just quote the wrong claim"],
+        ["3", "Design what the verifier says", "flags that state the evidence cut residual spread from 5.4% to 0.9%"],
       ].map(([n, head, sub], i) => (
         <FadeUp key={n} delay={seconds * (0.15 + i * 0.25)} style={{ display: "flex", gap: 34, alignItems: "baseline" }}>
           <div style={{ fontSize: 80, fontWeight: 800, color: colors.truth, width: 70 }}>{n}</div>

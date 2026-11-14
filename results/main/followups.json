@@ -1,0 +1,214 @@
+{
+ "conf_labels": {
+  "frontier-2026-11": {
+   "rates": {
+    "ANON": 0.1083,
+    "CONF-HIGH": 0.1667,
+    "CONF-LOW": 0.0125,
+    "NAMED-HIGH": 0.1583,
+    "NAMED-LOW": 0.0042
+   },
+   "tests": {
+    "CONF-HIGH \u2212 ANON": {
+     "diff": 0.058333333333333334,
+     "ci_low": 0.020833333333333332,
+     "ci_high": 0.1,
+     "p": 0.0041,
+     "pairs": 240,
+     "items": 24
+    },
+    "ANON \u2212 CONF-LOW": {
+     "diff": 0.09583333333333334,
+     "ci_low": 0.05,
+     "ci_high": 0.15,
+     "p": 0.0,
+     "pairs": 240,
+     "items": 24
+    },
+    "NAMED-HIGH \u2212 CONF-HIGH": {
+     "diff": -0.008333333333333333,
+     "ci_low": -0.05416666666666667,
+     "ci_high": 0.0375,
+     "p": 0.8705,
+     "pairs": 240,
+     "items": 24
+    },
+    "NAMED-LOW \u2212 CONF-LOW": {
+     "diff": -0.008333333333333333,
+     "ci_low": -0.025,
+     "ci_high": 0.008333333333333333,
+     "p": 0.6268,
+     "pairs": 240,
+     "items": 24
+    }
+   }
+  },
+  "frontier-2026-early": {
+   "rates": {
+    "ANON": 0.2882,
+    "CONF-HIGH": 0.3375,
+    "CONF-LOW": 0.0875,
+    "NAMED-HIGH": 0.287,
+    "NAMED-LOW": 0.0261
+   },
+   "tests": {
+    "CONF-HIGH \u2212 ANON": {
+     "diff": 0.06550218340611354,
+     "ci_low": 0.013043478260869565,
+     "ci_high": 0.12173913043478261,
+     "p": 0.0133,
+     "pairs": 229,
+     "items": 23
+    },
+    "ANON \u2212 CONF-LOW": {
+     "diff": 0.1965065502183406,
+     "ci_low": 0.1091703056768559,
+     "ci_high": 0.28695652173913044,
+     "p": 0.0,
+     "pairs": 229,
+     "items": 23
+    },
+    "NAMED-HIGH \u2212 CONF-HIGH": {
+     "diff": -0.06521739130434782,
+     "ci_low": -0.10445652173913034,
+     "ci_high": -0.02608695652173913,
+     "p": 0.0139,
+     "pairs": 230,
+     "items": 23
+    },
+    "NAMED-LOW \u2212 CONF-LOW": {
+     "diff": -0.06521739130434782,
+     "ci_low": -0.10434782608695652,
+     "ci_high": -0.030434782608695653,
+     "p": 0.0005,
+     "pairs": 230,
+     "items": 23
+    }
+   }
+  },
+  "small": {
+   "rates": {
+    "ANON": 0.2913,
+    "CONF-HIGH": 0.413,
+    "CONF-LOW": 0.2739,
+    "NAMED-HIGH": 0.4105,
+    "NAMED-LOW": 0.2325
+   },
+   "tests": {
+    "CONF-HIGH \u2212 ANON": {
+     "diff": 0.12173913043478261,
+     "ci_low": 0.04782608695652174,
+     "ci_high": 0.2,
+     "p": 0.0002,
+     "pairs": 230,
+     "items": 23
+    },
+    "ANON \u2212 CONF-LOW": {
+     "diff": 0.017391304347826087,
+     "ci_low": -0.05217391304347826,
+     "ci_high": 0.09130434782608696,
+     "p": 0.6693,
+     "pairs": 230,
+     "items": 23
+    },
+    "NAMED-HIGH \u2212 CONF-HIGH": {
+     "diff": -0.004366812227074236,
+     "ci_low": -0.0611353711790393,
+     "ci_high": 0.05217391304347826,
+     "p": 1.0,
+     "pairs": 229,
+     "items": 23
+    },
+    "NAMED-LOW \u2212 CONF-LOW": {
+     "diff": -0.039473684210526314,
+     "ci_low": -0.10619469026548672,
+     "ci_high": 0.03070175438596491,
+     "p": 0.2513,
+     "pairs": 228,
+     "items": 23
+    }
+   }
+  }
+ },
+ "evidence_flags": {
+  "by_panel": {
+   "frontier-2026-11": {
+    "rates": {
+     "ORC": {
+      "evidence": 0.0,
+      "quote": 0.0014
+     },
+     "PLAIN": {
+      "evidence": 0.0,
+      "quote": 0.0014
+     }
+    },
+    "quote \u2212 evidence": {
+     "diff": 0.001388888888888889,
+     "ci_low": 0.0,
+     "ci_high": 0.003472222222222222,
+     "p": 0.4911,
+     "pairs": 1440,
+     "items": 24
+    }
+   },
+   "frontier-2026-early": {
+    "rates": {
+     "ORC": {
+      "evidence": 0.0,
+      "quote": 0.0131
+     },
+     "PLAIN": {
+      "evidence": 0.0028,
+      "quote": 0.0145
+     }
+    },
+    "quote \u2212 evidence": {
+     "diff": 0.012381646030589949,
+     "ci_low": 0.0036258158085569255,
+     "ci_high": 0.02335809077967294,
+     "p": 0.0003,
+     "pairs": 1373,
+     "items": 23
+    }
+   },
+   "small": {
+    "rates": {
+     "ORC": {
+      "evidence": 0.0087,
+      "quote": 0.058
+     },
+     "PLAIN": {
+      "evidence": 0.0087,
+      "quote": 0.0493
+     }
+    },
+    "quote \u2212 evidence": {
+     "diff": 0.044960116026105876,
+     "ci_low": 0.02102973168963017,
+     "ci_high": 0.07106598984771574,
+     "p": 0.0,
+     "pairs": 1379,
+     "items": 23
+    }
+   }
+  },
+  "pooled": {
+   "diff": 0.019322519083969467,
+   "ci_low": 0.01011491057362617,
+   "ci_high": 0.029190294424111043,
+   "p": 0.0,
+   "pairs": 4192,
+   "items": 24
+  },
+  "final_absorption_evidence_flags": {
+   "n": 851,
+   "adopted": 0
+  }
+ },
+ "second_judge": {
+  "n": 15848,
+  "agreement": 0.9969081272084805,
+  "kappa": 0.9740801073655896
+ }
+}

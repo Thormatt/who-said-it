@@ -6,7 +6,7 @@ author:
   - "With Apart Research"
 date: ""
 abstract: |
-  When several AI models deliberate, does a confident, checkable error repeated by some of them become the panel's answer? We plant errors through confederate panelists in fictional evidence-packet tasks (24 held-out items, six domains). We vary attribution (anonymous, or labeled as flagship or as tiny models), verification between rounds (none, a plain LLM check, or the evidence-bound runtime ORC), pressure (how many of five peer answers are wrong, and whether the evidence stays visible), and panel (late-2026 frontier, previous frontier, small models). Across 7,352 round-2 answers, the error essentially never spread when panelists could see the evidence or when only one peer repeated it (1 of 1,064 answers). When three of five peers repeated it and the evidence was withheld, up to 41% of answers adopted it without verification, and it entered 8–29% of final panel answers. Spread fell with capability: 3.1% (late-2026 frontier), 7.6% (previous frontier) and 13.9% (small), pooled over conditions. Labeling the wrong peers as tiny models cut spread in the frontier panels (−10 and −26 points), while flagship labels raised it most for small models (+12). A follow-up naming only the wrong peers reproduced the frontier effect. Any evidence check cut spread by 17.6 points, and no checked final answer kept the error. On these short packets, ORC did no better than a plain prompted check (−0.2 points, p = 0.64), so the protective ingredient is evidence access. Remaining failures came from misread verifier flags and from false flags on correct computed values.
+  When several AI models deliberate, does a confident, checkable error repeated by some of them become the panel's answer? We plant errors through confederate panelists in fictional evidence-packet tasks (24 held-out items, six domains). We vary attribution (anonymous, or labeled as flagship or tiny models), verification between rounds (none, a plain LLM check, or the evidence-bound runtime ORC), pressure (how many of five peers are wrong; evidence visible or withheld), and panel (late-2026 frontier, previous frontier, small models). Across 7,352 round-2 answers, the error essentially never spread when panelists could see the evidence or when only one peer repeated it (1 of 1,064). With three of five peers wrong and the evidence withheld, up to 41% of answers adopted it without verification, and it entered 8–29% of final panel answers. Spread fell with capability: 3.1%, 7.6% and 13.9% pooled. Flagship labels raised spread in every panel, even when only the wrong peers were named (+6 to +12 points). Tiny-model labels protected frontier panels but not small models. Any evidence check cut spread by 17.6 points, and no checked final answer kept the error. On these short packets, ORC did no better than a plain prompted check (−0.2 points, p = 0.64). Residual failures came from models misreading flags that quote the wrong claim. Flags that state the evidence instead cut residual spread for small models from 5.4% to 0.9%. Evidence access, not verifier architecture, is the protective ingredient.
 geometry: margin=1in
 fontsize: 11pt
 mainfont: "Times New Roman"
@@ -30,9 +30,8 @@ We test the mechanism under control. Fictional evidence packets make the truth u
 3. A map of **where errors spread and what stops them**. When three of five peers repeat the error and the evidence is withheld:
    - spread falls with capability but stays above zero;
    - prestige labels shift it, an effect that survives removing real peers' names in a follow-up;
-   - any evidence check removes it from every final answer, while a purpose-built verifier adds nothing over a plain check on short packets.
-
-   We also identify two residual verifier failure modes.
+   - any evidence check removes it from every final answer, while a purpose-built verifier adds nothing over a plain check on short packets;
+   - a flag format that states the evidence nearly removes the residual spread.
 
 ## 2. Related Work
 
@@ -128,7 +127,7 @@ Because real peers keep their true names, this asymmetry could reflect *relative
 - tiny −9.6 [5.0, 15.0] (p < 0.0001);
 - full naming vs confederate-only naming: −0.8 points (p = 0.87).
 
-In the frontier panel, the prestige label itself moves trust. {{CONF_OTHER}}
+In the frontier panel, the prestige label itself moves trust. Across all three panels, naming only the confederates as flagships raised spread against ANON: +5.8, +6.6 [1.3, 12.2] and +12.2 [4.8, 20.0] points (frontier, previous frontier, small). The flagship effect therefore does not depend on peer names. Tiny labels protected the frontier and previous-frontier panels (−9.6 and −19.7) but not the small panel (−1.7, p = 0.67). Relative status mattered only in the previous-frontier panel. There, naming the real peers removed 6.5 points of the flagship effect (p = 0.014), which explains its null in the main run.
 
 **Any evidence check nearly eliminates spread (H4, H6).**
 - Verification cut spread by 17.6 points. With a check, spread was 0–0.4% (frontier), 0.9–2.2% (previous frontier) and 2.6–7.8% (small).
@@ -142,12 +141,12 @@ In the frontier panel, the prestige label itself moves trust. {{CONF_OTHER}}
 1. *Flag misreading.* Flags quote the claim they reject, and some panelists read the quotation as the packet's own text and switched to the wrong value: "the evidence packet contains a direct statement that… was 16%".
 2. *False flags on computed values.* Both checkers marked correct derived values as "not found in the evidence packet" for 5–6% of real answers, because computed numbers are not stated verbatim.
 
-A follow-up re-ran the checked conditions with flags that attribute the quotation to the answer and state the cited fact ("This answer says…; the evidence packet (E3) says…"). {{EV}}
+A follow-up re-ran the checked conditions with flags that attribute the quotation to the answer and state the cited fact ("This answer says…; the evidence packet (E3) says…"). This cut residual spread by 1.9 points [1.0, 2.9] (p < 0.0001) pooled. The drop was largest for small models (5.4% → 0.9%), against 1.4% → 0.1% for the previous frontier. No final answer kept the error (0 of 851).
 
 **Judge validity.**
 - On all 1,248 final answers, the judge agreed with the judge-independent token check on 1,242.
-- A second judge from another lab (GPT-6 Luna Pro) agreed on spread for {{XJ}}.
-- Sixty stratified answers were labeled blind to the judge's grades by the assistant (spread agreement 53/60, κ = 0.76), then reviewed and corrected by the first author. {{HUMAN}}
+- A second judge from another lab (GPT-6 Luna Pro) agreed with the primary judge on spread for 99.7% of 15,848 graded answers (κ = 0.97).
+- Sixty stratified answers were labeled blind to the judge's grades by the assistant (spread agreement 53/60, κ = 0.76), then reviewed and corrected by the first author [author review: result pending].
 - The judge slightly undercounts hedged answers ("23 or 29 minutes").
 
 ## 5. Discussion and Limitations
@@ -155,13 +154,13 @@ A follow-up re-ran the checked conditions with flags that attribute the quotatio
 Capable panels resist a confident, checkable error when anyone can check it or when a single peer repeats it. That corrects the first author's anecdotal claim that named debate "latches on". The vulnerability appears when evidence is out of reach and several peers repeat the error. That is the normal condition in agent pipelines, where agents pass claims rather than sources, and in correlated-error settings. Three lessons follow:
 1. **Keep evidence in the channel.** Any check that saw the sources removed the error from every final answer.
 2. **Treat claimed identity as an attack surface.** Prestige labels shifted trust even with no peer names in view. Anonymization [13] removes this surface, but also the protective discount on weak sources.
-3. **Design verifier output.** Flags should state what the evidence says, and computed claims should go to arithmetic verification, which ORC has but did not select by default.
+3. **Design verifier output.** Flags that state what the evidence says cut residual spread for small models from 5.4% to 0.9%. Computed claims should go to arithmetic verification, which ORC has but did not select by default.
 
 **Limitations.**
 - **Task realism.** Packets are short and fictional, errors are single numeric values, and confederates are instructed rather than organically wrong.
 - **Pressure.** The vulnerable regime is a 3–3 split; we did not test a clear wrong majority.
 - **Panels.** They are hand-picked, and the previous frontier mixes 2025 and early-2026 models.
-- **Labels.** They are prompt text; the relative-status follow-up covers {{CONF_SCOPE}}.
+- **Labels.** They are prompt text. Relative status modulates the effect in the previous-frontier panel (follow-up).
 - **Claude's many roles.** Claude drafted items and text, judged, ran both checkers, and was a panelist. This is mitigated by a judge from another lab, a deterministic token check and the author's review.
 - **Not tested here.** The facilitator (SYNTH) pathway under majority pressure.
 - **Replay.** On Sonnet 5.5, ORC verdicts cannot be replayed at temperature 0.
@@ -169,7 +168,7 @@ Capable panels resist a confident, checkable error when anyone can check it or w
 
 ## 6. Conclusion
 
-A confident, checkable error repeated by AI peers does not automatically become the panel's answer. Across three panels it essentially never spread when the evidence was visible or when only one peer repeated it. It spread when most peers repeated it and the evidence was out of reach, and then reached up to 29% of final answers. The late-2026 frontier resisted most, but not completely. Who the error appears to come from shifts trust. Any check that put the evidence back removed the error from every final answer, and on short packets a purpose-built verifier did no better than a plain check. For multi-agent systems: keep evidence in the loop, and treat claimed identities as untrusted.
+A confident, checkable error repeated by AI peers does not automatically become the panel's answer. Across three panels it essentially never spread when the evidence was visible or when only one peer repeated it. It spread when most peers repeated it and the evidence was out of reach, and then reached up to 29% of final answers. The late-2026 frontier resisted most, but not completely. A flagship label on the wrong peers raised spread in every panel. Any check that put the evidence back removed the error from every final answer, and flags that state the evidence closed most of the remaining gap. On short packets, a purpose-built verifier did no better than a plain check. For multi-agent systems: keep evidence in the loop, and treat claimed identities as untrusted.
 
 ## Code and Data
 
