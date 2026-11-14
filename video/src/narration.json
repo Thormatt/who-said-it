@@ -1,0 +1,42 @@
+[
+ {
+  "id": "title",
+  "text": "When several AI models deliberate together, does a confident error, repeated by some of them, become the panel's answer? This project tested that question under controlled conditions."
+ },
+ {
+  "id": "setup",
+  "text": "Each task is a short, fictional evidence packet with one checkable fact. Say, a renovation delayed by fourteen months. Five real models answer on their own. Then hidden confederate models confidently claim a wrong value, like forty-one months. In round two, every panelist sees its peers' answers and revises. Finally, a synthesizer writes the panel's answer."
+ },
+ {
+  "id": "pilot",
+  "text": "The first surprise. In an ordinary panel, with the evidence on the table and one wrong peer, today's models never took the bait. Zero out of two hundred and forty answers."
+ },
+ {
+  "id": "pressure",
+  "text": "So we added pressure. The error stayed at zero whenever the evidence was visible, or when only one peer repeated it. Only one corner breaks. When three of five peers repeat the error, and the evidence is withheld, around thirty percent of answers adopted it, with no names attached at all."
+ },
+ {
+  "id": "generation",
+  "text": "Model generation matters. Pooled across conditions, the late twenty twenty-six frontier panel adopted the error about three percent of the time. The previous frontier, about eight percent. And small, cheap models, about fourteen percent. Better models resist more, but not completely."
+ },
+ {
+  "id": "attribution",
+  "text": "Names matter too. Labeling the wrong peers as tiny models protected the frontier panels. Labeling them as flagship models pushed small models further. FOLLOWUP_CONF"
+ },
+ {
+  "id": "verification",
+  "text": "The strongest lever is evidence. Any automated check against the packet cut the spread by about eighteen points, and not one of eight hundred and thirty-two checked final answers kept the error. A purpose-built verifier did no better than a plain prompted check. What matters is putting the evidence back in the loop."
+ },
+ {
+  "id": "flags",
+  "text": "A few errors still slipped through. Some models misread the checker's flag, and took a quoted wrong claim as if the evidence had said it. FOLLOWUP_EV"
+ },
+ {
+  "id": "takeaways",
+  "text": "Three lessons for anyone building multi-agent systems. Keep evidence in the loop. Treat claimed identities as untrusted. And design what your verifier says as carefully as the verifier itself."
+ },
+ {
+  "id": "credits",
+  "text": "Who Said It? An entry for the Apart Research AI and epistemics research sprint. Code, data and the full report accompany this video."
+ }
+]
