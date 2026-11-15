@@ -43,7 +43,7 @@ We test the mechanism under control. Fictional evidence packets make the truth u
 
 **Identity and conformity.**
 
-- LLM conformity grows with majority size [6], echoing Asch [1].
+- LLM conformity grows with majority size [6], echoing Asch's conformity experiments [1].
 - Much of it needs no speaker. Source effects should therefore be measured above a speaker-free baseline [10], which our anonymous condition provides.
 - LLMs defer more to human experts than to other LLMs [11], and authority bias is graded [12].
 - In multi-agent debate, identity bias is reduced by anonymizing self and peer responses [13], and exposing model-family labels has been reported to degrade cooperation [14].
@@ -190,7 +190,7 @@ A confident, checkable error repeated by AI peers does not automatically become 
 
 ## References
 
-1. Asch, S. E. (1956). Studies of independence and conformity. *Psychological Monographs* 70(9).
+1. Asch, S. E. (1956). Studies of independence and conformity: I. A minority of one against a unanimous majority. *Psychological Monographs* 70(9).
 2. Dalkey, N., & Helmer, O. (1963). An experimental application of the Delphi method to the use of experts. *Management Science* 9(3).
 3. Du, Y., Li, S., Torralba, A., Tenenbaum, J. B., & Mordatch, I. (2023). Improving factuality and reasoning in language models through multiagent debate. arXiv:2305.14325.
 4. Irving, G., Christiano, P., & Amodei, D. (2018). AI safety via debate. arXiv:1805.00899.
@@ -203,9 +203,9 @@ A confident, checkable error repeated by AI peers does not automatically become 
 11. Bajaj, A., & Tiganj, Z. (2026). Who do LLMs trust? Human experts matter more than other LLMs. arXiv:2602.13568.
 12. Joswin, E., Medicherla, S., & Mammen, P. M. (2026). A mechanistic view of authority hierarchy in LLM sycophancy. ICML 2026 Mechanistic Interpretability Workshop. arXiv:2607.00415.
 13. Choi, H. K., Zhu, X., & Li, Y. (2025). When identity skews debate: anonymization for bias-reduced multi-agent reasoning. arXiv:2510.07517.
-14. Del Giudice, X., Palma, A., Migliarini, M., Galasso, F., & Spinelli, I. (2026). Prompted identity degrades cooperation in multi-agent LLM systems. arXiv:2609.35928 (located via secondary listings).
+14. Del Giudice, X., Palma, A., Migliarini, M., Galasso, F., & Spinelli, I. (2026). Prompted identity degrades cooperation in multi-agent LLM systems. arXiv:2609.35928.
 15. ORC: evidence-bound verification runtime. https://github.com/Thormatt/orc (MIT).
-16. Matthiasson, T. (2026). Computed targets and the middleman protocol: mathematical guardrails and channel removal for LLM negotiators. arXiv preprint.
+16. Matthiasson, T. (2026). Computed targets and the middleman protocol: mathematical guardrails and channel removal for LLM negotiators in multi-issue bargaining. Preprint, <https://github.com/Thormatt/llm-negotiation>.
 
 ## Appendix A: Limitations and Dual-Use / Ethical Considerations
 
