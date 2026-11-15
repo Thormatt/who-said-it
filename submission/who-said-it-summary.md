@@ -34,4 +34,4 @@ In an AI team, each program usually sees the other programs' answers, not the do
 - **Simple tags, chosen teams.** Each name tag was a line of text, and we chose the teams, so this is not a ranking of AI products.
 - **AI grading.** An AI graded the answers. A second grading AI from another company agreed with it 99.7% of the time.
 
-*Slides: thor.pagenta.app/who-said-it. A 3-minute video, the full report, code and data accompany the sprint submission.*
+*Slides: thor.pagenta.app/who-said-it. A 4-minute video, the full report, code and data accompany the sprint submission.*

@@ -35,7 +35,7 @@ says the 60 validation answers were labelled by an AI assistant, and the LLM Usa
 
 ## The report
 
-- Google Doc, in the layout of Apart's template: https://docs.google.com/document/d/1WqbeYF6bhZ_Y_XkhJhdh-eTOPS6odYgmsRLZUr--Z40/edit
+- Google Doc, in the layout of Apart's template: https://docs.google.com/document/d/1Qr21eEvYtckcBBcodB8FOixHOSIVZHj_MRJrL1hhCEU/edit
 - `who-said-it-report.pdf` is that document downloaded as PDF. After any edit, download it again with
   File > Download > PDF document.
 - **Page limit.** Apart allows 8 pages before the references. The main text ends on page 8, at the
