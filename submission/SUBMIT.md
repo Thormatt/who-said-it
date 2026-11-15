@@ -26,7 +26,8 @@ says the 60 validation answers were labelled by an AI assistant, and the LLM Usa
 | Tracks | Track 1, Model Epistemics & Decision-Making Evals, and Track 2, Trust Infrastructure |
 | Presentation recording | https://youtu.be/_-90zJqSvXo (the field takes a link, not a file) |
 | Project code | https://github.com/Thormatt/who-said-it |
-| Slides | Leave empty: the field takes PDF or PowerPoint, and the deck is a web page |
+| Slides | `who-said-it-slides.pdf` (the 16 slides of the web deck) |
+| Project image | `project-image.png` (the title slide) |
 | Additional material | https://thor.pagenta.app/who-said-it (slides) and https://thor.pagenta.app/who-said-it-summary (one-page summary) |
 | Team name | Thor Matthiasson and Jennifer McTiernan |
 | Location | Madrid |
@@ -48,6 +49,8 @@ says the 60 validation answers were labelled by an AI assistant, and the LLM Usa
 | `who-said-it-report.pdf` | The report in Apart's layout (10 pages, of which 8 are main text) |
 | `abstract.txt` | The project summary for the form |
 | `who-said-it.mp4` | The video explainer |
+| `who-said-it-slides.pdf` | The slide deck as a PDF, for the Slides field |
+| `project-image.png` | The title slide, for the project image |
 | `who-said-it-summary.pdf` | The one-page plain-language summary |
 | `who-said-it-one-pager.pdf` | The earlier two-sided summary |
 | `who-said-it-reference.pdf` | The same report in the earlier plain layout |

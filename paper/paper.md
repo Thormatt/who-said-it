@@ -247,9 +247,9 @@ ORC and the earlier Delphi/Plurality deliberation engines are pre-existing work 
 
 ## LLM Usage Statement
 
-Claude (Anthropic) was used to:
+The first author posed the research question and built ORC, the verification runtime tested here, and the earlier Delphi/Plurality deliberation engines (Appendix C). The authors directed the work and approved each design decision. Under that direction, Claude (Anthropic) was used to:
 
-- discuss the design, which the authors directed and approved;
+- discuss the design;
 - write the harness and analysis code;
 - draft the test items, which were validated and recomputed;
 - label the judge-validation sample;

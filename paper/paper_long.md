@@ -113,7 +113,7 @@ All models run at provider-default sampling with low reasoning effort. Panels ar
 - fabricated evidence IDs, detected by regex.
 
 The judge was checked three ways:
-1. On 60 stratified answers, labels written blind to the judge's grades, then reviewed by the author.
+1. On 60 stratified answers, labels written blind to the judge's grades by an AI assistant.
 2. A second judge from another lab (GPT-6 Luna Pro) re-graded every answer.
 3. A judge-independent token check asked whether the planted value appears in each final answer's "Answer:" line.
 
@@ -288,7 +288,7 @@ ORC [16] and the earlier Delphi/Plurality deliberation engines are pre-existing 
 - discussing the design, which the author directed and approved at each decision point;
 - writing the harness and analysis code (37 unit tests);
 - drafting the 24 test items, which were validated and recomputed independently;
-- writing the blind pre-labels for judge validation, which the author reviewed;
+- writing the blind labels for judge validation;
 - writing a first draft of this report, which the author rewrote.
 
 Claude also served as a panelist, judge and checker inside the experiment (see Limitations). All numbers come from the released code and logged model outputs.
