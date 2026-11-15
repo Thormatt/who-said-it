@@ -1,110 +1,111 @@
 {
- "pilot": {
-  "adopted": 0,
-  "total": 240
- },
- "regimes": [
-  {
-   "panel": "frontier-2026-11",
-   "label": "Frontier · Nov 2026",
-   "ev1": 0.0,
-   "noev1": 0.0,
-   "ev3": 0.0,
-   "noev3": 0.1083
+  "pilot": {
+    "adopted": 0,
+    "total": 240
   },
-  {
-   "panel": "frontier-2026-early",
-   "label": "Previous frontier · 2025–early 2026",
-   "ev1": 0.0,
-   "noev1": 0.0,
-   "ev3": 0.0,
-   "noev3": 0.2882
+  "regimes": [
+    {
+      "panel": "frontier-2026-11",
+      "label": "Frontier · Nov 2026",
+      "ev1": 0.0,
+      "noev1": 0.0,
+      "ev3": 0.0,
+      "noev3": 0.1083
+    },
+    {
+      "panel": "frontier-2026-early",
+      "label": "Previous frontier · 2025–early 2026",
+      "ev1": 0.0,
+      "noev1": 0.0,
+      "ev3": 0.0,
+      "noev3": 0.2882
+    },
+    {
+      "panel": "small",
+      "label": "Small / cheap",
+      "ev1": 0.0,
+      "noev1": 0.0,
+      "ev3": 0.0087,
+      "noev3": 0.2913
+    }
+  ],
+  "generation": [
+    {
+      "panel": "frontier-2026-11",
+      "label": "Frontier · Nov 2026",
+      "rate": 0.031
+    },
+    {
+      "panel": "frontier-2026-early",
+      "label": "Previous frontier · 2025–early 2026",
+      "rate": 0.0761
+    },
+    {
+      "panel": "small",
+      "label": "Small / cheap",
+      "rate": 0.1394
+    }
+  ],
+  "attribution": [
+    {
+      "panel": "frontier-2026-11",
+      "label": "Frontier · Nov 2026",
+      "ANON": 0.1083,
+      "NAMED-HIGH": 0.1583,
+      "NAMED-LOW": 0.0042
+    },
+    {
+      "panel": "frontier-2026-early",
+      "label": "Previous frontier · 2025–early 2026",
+      "ANON": 0.2882,
+      "NAMED-HIGH": 0.287,
+      "NAMED-LOW": 0.0261
+    },
+    {
+      "panel": "small",
+      "label": "Small / cheap",
+      "ANON": 0.2913,
+      "NAMED-HIGH": 0.4105,
+      "NAMED-LOW": 0.2325
+    }
+  ],
+  "verification": [
+    {
+      "panel": "frontier-2026-11",
+      "label": "Frontier · Nov 2026",
+      "NONE": 0.0903,
+      "PLAIN": 0.0014,
+      "ORC": 0.0014,
+      "final_none": 0.0833
+    },
+    {
+      "panel": "frontier-2026-early",
+      "label": "Previous frontier · 2025–early 2026",
+      "NONE": 0.2003,
+      "PLAIN": 0.0145,
+      "ORC": 0.0131,
+      "final_none": 0.2263
+    },
+    {
+      "panel": "small",
+      "label": "Small / cheap",
+      "NONE": 0.3115,
+      "PLAIN": 0.0493,
+      "ORC": 0.058,
+      "final_none": 0.2889
+    }
+  ],
+  "finals": {
+    "checked_total": 832,
+    "checked_with_error_answer_line": 0
   },
-  {
-   "panel": "small",
-   "label": "Small / cheap",
-   "ev1": 0.0,
-   "noev1": 0.0,
-   "ev3": 0.0087,
-   "noev3": 0.2913
+  "orcVsPlain": {
+    "diff": -0.002,
+    "p": 0.64
+  },
+  "followups": {
+    "conf": "Follow-up, only the wrong peers named: flagship labels still raised spread in every panel (+6 to +12 points)",
+    "ev": "Follow-up, flags that state the evidence: small models' residual spread fell from 5.4% to 0.9%; 0 of 851 final answers kept the error",
+    "evSmall": 0.0087
   }
- ],
- "generation": [
-  {
-   "panel": "frontier-2026-11",
-   "label": "Frontier · Nov 2026",
-   "rate": 0.031
-  },
-  {
-   "panel": "frontier-2026-early",
-   "label": "Previous frontier · 2025–early 2026",
-   "rate": 0.0761
-  },
-  {
-   "panel": "small",
-   "label": "Small / cheap",
-   "rate": 0.1394
-  }
- ],
- "attribution": [
-  {
-   "panel": "frontier-2026-11",
-   "label": "Frontier · Nov 2026",
-   "ANON": 0.1083,
-   "NAMED-HIGH": 0.1583,
-   "NAMED-LOW": 0.0042
-  },
-  {
-   "panel": "frontier-2026-early",
-   "label": "Previous frontier · 2025–early 2026",
-   "ANON": 0.2882,
-   "NAMED-HIGH": 0.287,
-   "NAMED-LOW": 0.0261
-  },
-  {
-   "panel": "small",
-   "label": "Small / cheap",
-   "ANON": 0.2913,
-   "NAMED-HIGH": 0.4105,
-   "NAMED-LOW": 0.2325
-  }
- ],
- "verification": [
-  {
-   "panel": "frontier-2026-11",
-   "label": "Frontier · Nov 2026",
-   "NONE": 0.0903,
-   "PLAIN": 0.0014,
-   "ORC": 0.0014,
-   "final_none": 0.0833
-  },
-  {
-   "panel": "frontier-2026-early",
-   "label": "Previous frontier · 2025–early 2026",
-   "NONE": 0.2003,
-   "PLAIN": 0.0145,
-   "ORC": 0.0131,
-   "final_none": 0.2263
-  },
-  {
-   "panel": "small",
-   "label": "Small / cheap",
-   "NONE": 0.3115,
-   "PLAIN": 0.0493,
-   "ORC": 0.058,
-   "final_none": 0.2889
-  }
- ],
- "finals": {
-  "checked_total": 832,
-  "checked_with_error_answer_line": 0
- },
- "orcVsPlain": {
-  "diff": -0.002,
-  "p": 0.64
- },
- "followups": {
-  "conf": "Follow-up, only the wrong peers named: flagship labels still raised spread in every panel (+6 to +12 points)",
-  "ev": "Follow-up, flags that state the evidence: small models' residual spread fell from 5.4% to 0.9%; 0 of 851 final answers kept the error"
- }
 }

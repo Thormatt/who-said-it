@@ -152,3 +152,68 @@ export const progressAt = (frame: number, fps: number, startSec: number, endSec:
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+
+/** Progress (0..1) of a cue placed at `fraction` of the scene, lasting `span` of it. */
+export const useCue = (seconds: number) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (fraction: number, span = 0.05): number =>
+    progressAt(frame, fps, seconds * fraction, seconds * (fraction + span));
+};
+
+/** A teammate's answer as a panelist sees it: name tag, text, optional checker warning. */
+export const AnswerCard: React.FC<{
+  tag: string;
+  tagColor: string;
+  children: React.ReactNode;
+  warning?: React.ReactNode;
+  warningShow?: number;
+  width?: number;
+  show?: number;
+  large?: boolean;
+}> = ({ tag, tagColor, children, warning, warningShow = 1, width = 520, show = 1, large = false }) => (
+  <div
+    style={{
+      width,
+      background: colors.panel,
+      borderRadius: 14,
+      padding: "22px 26px",
+      opacity: show,
+      transform: `translateY(${(1 - show) * 30}px)`,
+      fontFamily: font,
+    }}
+  >
+    <div
+      style={{
+        display: "inline-block",
+        padding: "6px 14px",
+        borderRadius: 8,
+        background: tagColor,
+        color: colors.bg,
+        fontSize: 19,
+        fontWeight: 700,
+        marginBottom: 16,
+        whiteSpace: "nowrap",
+      }}
+    >
+      {tag}
+    </div>
+    <div style={{ fontSize: large ? 36 : 30, lineHeight: 1.4, minHeight: large ? 100 : undefined }}>{children}</div>
+    {warning ? (
+      <div
+        style={{
+          marginTop: 16,
+          padding: "12px 16px",
+          borderLeft: `6px solid ${colors.error}`,
+          background: "rgba(240,82,82,0.12)",
+          borderRadius: 8,
+          fontSize: 24,
+          lineHeight: 1.35,
+          opacity: warningShow,
+        }}
+      >
+        {warning}
+      </div>
+    ) : null}
+  </div>
+);

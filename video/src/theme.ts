@@ -18,3 +18,10 @@ export const font = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 export const mono = 'Menlo, "SF Mono", Consolas, monospace';
 
 export const pct = (value: number, digits = 0): string => `${(value * 100).toFixed(digits)}%`;
+
+/** Plain-language team names for viewers who have not read the paper. */
+export const teamLabel: Record<string, string> = {
+  "frontier-2026-11": "Newest models (Nov 2026)",
+  "frontier-2026-early": "Previous generation",
+  small: "Small, cheap models",
+};

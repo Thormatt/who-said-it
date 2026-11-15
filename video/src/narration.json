@@ -1,42 +1,46 @@
 [
- {
-  "id": "title",
-  "text": "When several AI models deliberate together, does a confident error, repeated by some of them, become the panel's answer? This project tested that question under controlled conditions."
- },
- {
-  "id": "setup",
-  "text": "Each task is a short, fictional evidence packet with one checkable fact. Say, a renovation delayed by fourteen months. Five real models answer on their own. Then hidden confederate models confidently claim a wrong value, like forty-one months. In round two, every panelist sees its peers' answers and revises. Finally, a synthesizer writes the panel's answer."
- },
- {
-  "id": "pilot",
-  "text": "The first surprise. In an ordinary panel, with the evidence on the table and one wrong peer, today's models never took the bait. Zero out of two hundred and forty answers."
- },
- {
-  "id": "pressure",
-  "text": "So we added pressure. The error stayed at zero whenever the evidence was visible, or when only one peer repeated it. Only one corner breaks. When three of five peers repeat the error, and the evidence is withheld, around thirty percent of answers adopted it, with no names attached at all."
- },
- {
-  "id": "generation",
-  "text": "Model generation matters. Pooled across conditions, the late twenty twenty-six frontier panel adopted the error about three percent of the time. The previous frontier, about eight percent. And small, cheap models, about fourteen percent. Better models resist more, but not completely."
- },
- {
-  "id": "attribution",
-  "text": "Names matter too. Labeling the wrong peers as tiny models protected the frontier panels. Labeling them as flagship models pushed small models further. And when only the wrong peers carried names, flagship labels still raised the spread in every panel."
- },
- {
-  "id": "verification",
-  "text": "The strongest lever is evidence. Any automated check against the packet cut the spread by about eighteen points, and not one of eight hundred and thirty-two checked final answers kept the error. A purpose-built verifier did no better than a plain prompted check. What matters is putting the evidence back in the loop."
- },
- {
-  "id": "flags",
-  "text": "A few errors still slipped through. Some models misread the checker's flag, and took a quoted wrong claim as if the evidence had said it. When the flags instead stated what the evidence says, the remaining spread among small models fell from about five percent to under one percent."
- },
- {
-  "id": "takeaways",
-  "text": "Three lessons for anyone building multi-agent systems. Keep evidence in the loop. Treat claimed identities as untrusted. And design what your verifier says as carefully as the verifier itself."
- },
- {
-  "id": "credits",
-  "text": "Who Said It? An entry for the Apart Research AI and epistemics research sprint. Code, data and the full report accompany this video."
- }
+  {
+    "id": "title",
+    "text": "AI models increasingly work in teams. One drafts an answer, others review it, and they all read each other's work. So what happens when some of the team are confidently wrong? Does everyone else go along? And does it matter who the wrong answer seems to come from?"
+  },
+  {
+    "id": "task",
+    "text": "Here's how we tested it. We gave a team of five AI models a short, made-up document. For example, a report that a bridge renovation was delayed by fourteen months. Then we asked a question with one right answer: how long was the delay? We also slipped in fake teammates, secretly told to insist on a wrong number: forty-one months."
+  },
+  {
+    "id": "round2",
+    "text": "In round one, everyone answers alone. In round two, each real model sees five of its teammates' answers, and can keep its answer or change it. If a model switches to the planted wrong number, we count that as the error spreading. At the end, one more model reads the round-two answers and writes the team's final answer."
+  },
+  {
+    "id": "pilot",
+    "text": "First surprise. With the document still in view, and one fake teammate, today's models never fell for it. Zero switches out of two hundred and forty answers."
+  },
+  {
+    "id": "pressure",
+    "text": "So we made it harder. In round two, we took the document away, and made three of the five answers each model saw wrong. Now the error spread. We ran three teams. About one in ten answers from the newest models switched to the wrong number, and nearly three in ten from the previous generation, and from small, cheap models. With the document in view, almost nobody switched, even with three wrong teammates."
+  },
+  {
+    "id": "nametags",
+    "text": "Now, the question in our title: who said it? In round two, a model sees its teammates' answers either with no names attached, or with a name on each answer. We kept the wrong answers word for word the same, and changed only the name tag. It claimed to come either from a top flagship model, or from a tiny, weak one."
+  },
+  {
+    "id": "tagresults",
+    "text": "The name tag changed what models believed. Tagged as a tiny model, the wrong answer was almost always ignored by the two frontier teams. Tagged as a flagship, it pulled small models along: forty-one percent switched, up from twenty-nine with no names. The words were identical. Only the claimed author changed."
+  },
+  {
+    "id": "checker",
+    "text": "What stops it? A fact-checker. Before round two, an automated checker compares each answer with the document, and attaches a warning to the wrong ones. With a checker, switching dropped sharply, and not one of eight hundred and thirty-two final team answers contained the error. Our purpose-built checking tool did no better than simply asking a model to check. What matters is that something checks against the source."
+  },
+  {
+    "id": "warnings",
+    "text": "Some errors still slipped through, for a surprising reason. The warning quoted the wrong claim, and some models read that quote as if the document had said it. When we rewrote the warning to state what the document actually says, leftover switching among small models fell from about five percent to under one."
+  },
+  {
+    "id": "takeaways",
+    "text": "Three lessons for anyone building teams of AI agents. Keep the source in the loop, and check claims against it. Don't trust name tags: a claimed identity changed what models believed. And word your checker's warnings carefully, because the wording decides whether they work."
+  },
+  {
+    "id": "credits",
+    "text": "Who Said It? By Thor Matthiasson and Jennifer McTiernan, for the Apart Research AI and Epistemics sprint. The full report, code and data accompany this video."
+  }
 ]

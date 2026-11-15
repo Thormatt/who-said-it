@@ -1,28 +1,26 @@
 import React from "react";
 import { AbsoluteFill, Series } from "remotion";
 import { Captions, Narration } from "./components";
-import data from "./data.json";
 import durations from "./durations.json";
 import narration from "./narration.json";
-import { AttributionScene, GenerationScene, PressureScene } from "./scenes/Findings";
-import { PilotScene, SetupScene, TitleScene } from "./scenes/Intro";
-import { CreditsScene, FlagsScene, TakeawaysScene, VerificationScene } from "./scenes/Outro";
+import { NameTagScene, PressureScene, TagResultsScene } from "./scenes/Findings";
+import { PilotScene, Round2Scene, TaskScene, TitleScene } from "./scenes/Intro";
+import { CheckerScene, CreditsScene, TakeawaysScene, WarningsScene } from "./scenes/Outro";
 import { FPS, SCENE_PADDING_SECONDS } from "./theme";
 
 type SceneId = keyof typeof durations;
 
-const followups = data.followups as { conf: string | null; ev: string | null };
-
 const render = (id: SceneId, seconds: number): React.ReactNode => {
   switch (id) {
-    case "title": return <TitleScene />;
-    case "setup": return <SetupScene seconds={seconds} />;
+    case "title": return <TitleScene seconds={seconds} />;
+    case "task": return <TaskScene seconds={seconds} />;
+    case "round2": return <Round2Scene seconds={seconds} />;
     case "pilot": return <PilotScene seconds={seconds} />;
     case "pressure": return <PressureScene seconds={seconds} />;
-    case "generation": return <GenerationScene seconds={seconds} />;
-    case "attribution": return <AttributionScene seconds={seconds} followup={followups.conf} />;
-    case "verification": return <VerificationScene seconds={seconds} />;
-    case "flags": return <FlagsScene seconds={seconds} followup={followups.ev} />;
+    case "nametags": return <NameTagScene seconds={seconds} />;
+    case "tagresults": return <TagResultsScene seconds={seconds} />;
+    case "checker": return <CheckerScene seconds={seconds} />;
+    case "warnings": return <WarningsScene seconds={seconds} />;
     case "takeaways": return <TakeawaysScene seconds={seconds} />;
     default: return <CreditsScene />;
   }

@@ -1,12 +1,13 @@
 {
-  "title": 11.24,
-  "setup": 28.19,
-  "pilot": 11.84,
-  "pressure": 21.22,
-  "generation": 22.01,
-  "attribution": 18.16,
-  "verification": 20.02,
-  "flags": 17.46,
-  "takeaways": 13.33,
-  "credits": 9.52
+  "title": 15.7,
+  "task": 23.64,
+  "round2": 21.59,
+  "pilot": 11.7,
+  "pressure": 30.79,
+  "nametags": 21.46,
+  "tagresults": 20.71,
+  "checker": 26.98,
+  "warnings": 19.64,
+  "takeaways": 16.72,
+  "credits": 10.73
 }

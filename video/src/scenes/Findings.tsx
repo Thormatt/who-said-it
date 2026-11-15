@@ -1,81 +1,94 @@
 import React from "react";
-import { AbsoluteFill, interpolateColors, useCurrentFrame, useVideoConfig } from "remotion";
-import { FadeUp, HBar, Legend, SceneFrame, VBar, progressAt } from "../components";
+import { AnswerCard, FadeUp, HBar, Legend, SceneFrame, VBar, useCue } from "../components";
 import data from "../data.json";
-import { colors, pct } from "../theme";
+import { colors, pct, teamLabel } from "../theme";
 
-const Cell: React.FC<{ value: number; reveal: number; highlight: boolean }> = ({ value, reveal, highlight }) => {
-  const fill = interpolateColors(Math.min(1, value / 0.3), [0, 1], [colors.panel, colors.error]);
-  return (
-    <div style={{ width: 170, height: 130, background: reveal > 0 ? fill : colors.panel, border: `2px solid ${highlight ? colors.error : colors.grid}`, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 40, fontWeight: 800, opacity: 0.25 + 0.75 * reveal }}>
-      {reveal > 0.5 ? pct(value) : ""}
-    </div>
-  );
-};
+const Condition: React.FC<{ show: number; children: React.ReactNode }> = ({ show, children }) => (
+  <div style={{ padding: "14px 22px", borderRadius: 12, border: `2px solid ${colors.error}`, fontSize: 30, opacity: show, transform: `translateY(${(1 - show) * 20}px)` }}>
+    {children}
+  </div>
+);
 
 export const PressureScene: React.FC<{ seconds: number }> = ({ seconds }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const safe = progressAt(frame, fps, seconds * 0.15, seconds * 0.4);
-  const corner = progressAt(frame, fps, seconds * 0.62, seconds * 0.75);
+  const cue = useCue(seconds);
   return (
-    <SceneFrame kicker="Adding pressure" heading="Only one corner breaks">
-      <div style={{ display: "flex", justifyContent: "center", gap: 70, marginTop: 30 }}>
+    <SceneFrame kicker="Turning up the pressure" heading="Take the document away, add more wrong voices">
+      <div style={{ display: "flex", gap: 24, paddingLeft: 110 }}>
+        <Condition show={cue(0.08)}>Round two: document removed</Condition>
+        <Condition show={cue(0.2)}>3 of the 5 answers each model sees are wrong</Condition>
+      </div>
+      <FadeUp delay={seconds * 0.38} style={{ paddingLeft: 654, marginTop: 44, fontSize: 26, color: colors.muted }}>
+        answers that switched to the wrong number
+      </FadeUp>
+      <div style={{ display: "flex", flexDirection: "column", gap: 26, marginTop: 14, paddingLeft: 110 }}>
         {data.regimes.map((r, i) => (
-          <div key={r.panel} style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 28, color: colors.muted, marginBottom: 16, height: 70, width: 360 }}>{r.label}</div>
-            <div style={{ display: "grid", gridTemplateColumns: "170px 170px", gap: 12, justifyContent: "center" }}>
-              <Cell value={r.ev1} reveal={safe} highlight={false} />
-              <Cell value={r.ev3} reveal={safe} highlight={false} />
-              <Cell value={r.noev1} reveal={safe} highlight={false} />
-              <Cell value={r.noev3} reveal={corner} highlight={corner > 0} />
-            </div>
-            {i === 0 ? null : null}
-          </div>
+          <HBar key={r.panel} value={r.noev3} max={0.32} width={900} color={colors.error} delay={seconds * [0.42, 0.6, 0.68][i]} label={teamLabel[r.panel]} valueLabel={pct(r.noev3)} height={84} />
         ))}
       </div>
-      <FadeUp delay={seconds * 0.1} style={{ display: "flex", justifyContent: "center", gap: 120, marginTop: 34, fontSize: 28, color: colors.muted }}>
-        <span>columns: 1 vs 3 of 5 peers wrong</span>
-        <span>rows: evidence shown vs withheld</span>
+      <FadeUp delay={seconds * 0.8} style={{ paddingLeft: 654, marginTop: 30, fontSize: 30 }}>
+        With the document in view: <b style={{ color: colors.truth }}>under 1%</b> in every team
       </FadeUp>
     </SceneFrame>
   );
 };
 
-export const GenerationScene: React.FC<{ seconds: number }> = ({ seconds }) => (
-  <SceneFrame kicker="Who resists" heading="Better models resist more — not completely">
-    <AbsoluteFill style={{ justifyContent: "flex-start", paddingTop: 70, paddingLeft: 60, gap: 40 }}>
-      {data.generation.map((g, i) => (
-        <HBar key={g.panel} value={g.rate} max={0.16} width={900} color={[colors.truth, colors.flagship, colors.error][i]} delay={seconds * (0.2 + i * 0.18)} label={g.label} valueLabel={pct(g.rate, 1)} height={90} />
-      ))}
-      <FadeUp delay={seconds * 0.8} style={{ fontSize: 28, color: colors.muted, paddingLeft: 544 }}>
-        share of round-2 answers adopting the error, pooled over all conditions
-      </FadeUp>
-    </AbsoluteFill>
-  </SceneFrame>
-);
+const TAGS = [
+  { tag: "Another panelist", color: colors.anon, note: "no name", at: 0.2 },
+  { tag: "GPT-6.1 Sol Pro (OpenAI's flagship model)", color: colors.flagship, note: "tagged as a flagship", at: 0.42 },
+  { tag: "Qwen2.5 0.5B (a 0.5-billion-parameter model)", color: colors.tiny, note: "tagged as a tiny model", at: 0.62 },
+];
 
-export const AttributionScene: React.FC<{ seconds: number; followup: string | null }> = ({ seconds, followup }) => (
-  <SceneFrame kicker="Who said it" heading="Labels move answers — depending on the panel">
-    <div style={{ display: "flex", justifyContent: "center", gap: 110, marginTop: 10 }}>
-      {data.attribution.map((a, i) => (
-        <div key={a.panel} style={{ textAlign: "center" }}>
-          <div style={{ display: "flex", gap: 14, alignItems: "flex-end" }}>
-            <VBar value={a.ANON} max={0.45} height={330} color={colors.anon} delay={seconds * 0.15 + i * 0.2} valueLabel={pct(a.ANON)} />
-            <VBar value={a["NAMED-HIGH"]} max={0.45} height={330} color={colors.flagship} delay={seconds * 0.35 + i * 0.2} valueLabel={pct(a["NAMED-HIGH"])} />
-            <VBar value={a["NAMED-LOW"]} max={0.45} height={330} color={colors.tiny} delay={seconds * 0.25 + i * 0.2} valueLabel={pct(a["NAMED-LOW"])} />
+export const NameTagScene: React.FC<{ seconds: number }> = ({ seconds }) => {
+  const cue = useCue(seconds);
+  return (
+    <SceneFrame kicker="Who said it?" heading="Same wrong answer, different name tag">
+      <div style={{ display: "flex", justifyContent: "center", gap: 24, marginTop: 50 }}>
+        {TAGS.map((t) => (
+          <div key={t.tag} style={{ textAlign: "center" }}>
+            <div style={{ textAlign: "left" }}>
+              <AnswerCard tag={t.tag} tagColor={t.color} width={550} show={cue(t.at)} large>
+                The renovation was delayed by <b style={{ color: colors.error, whiteSpace: "nowrap" }}>41 months</b>.
+              </AnswerCard>
+            </div>
+            <div style={{ fontSize: 30, fontWeight: 700, color: t.color, marginTop: 22, opacity: cue(t.at + 0.04) }}>{t.note}</div>
           </div>
-          <div style={{ fontSize: 26, color: colors.muted, marginTop: 14, width: 320 }}>{a.label}</div>
-        </div>
-      ))}
-    </div>
-    <div style={{ marginTop: 26 }}>
-      <Legend delay={seconds * 0.1} items={[["anonymous", colors.anon], ["wrong peers labeled flagship", colors.flagship], ["wrong peers labeled tiny", colors.tiny]]} />
-    </div>
-    {followup ? (
-      <FadeUp delay={seconds * 0.7} style={{ textAlign: "center", fontSize: 30, marginTop: 24, color: colors.text }}>
-        {followup}
+        ))}
+      </div>
+      <FadeUp delay={seconds * 0.56} style={{ textAlign: "center", fontSize: 40, marginTop: 70 }}>
+        The words are identical. Only the claimed author changes.
       </FadeUp>
-    ) : null}
-  </SceneFrame>
-);
+      <FadeUp delay={seconds * 0.6} style={{ textAlign: "center", fontSize: 24, color: colors.muted, marginTop: 14 }}>
+        simplified; the real answers were longer and gave reasons
+      </FadeUp>
+    </SceneFrame>
+  );
+};
+
+export const TagResultsScene: React.FC<{ seconds: number }> = ({ seconds }) => {
+  const cue = useCue(seconds);
+  return (
+    <SceneFrame kicker="Who said it?" heading="The name tag changed what models believed">
+      <FadeUp delay={seconds * 0.03} style={{ textAlign: "center", fontSize: 26, color: colors.muted, marginBottom: 6 }}>
+        answers that switched to the wrong number
+      </FadeUp>
+      <div style={{ display: "flex", justifyContent: "center", gap: 90 }}>
+        {data.attribution.map((a, i) => {
+          const focus = a.panel === "small" ? cue(0.5) : 0;
+          return (
+            <div key={a.panel} style={{ textAlign: "center", padding: "6px 18px 10px", borderRadius: 14, border: `3px solid rgba(245,158,11,${focus})` }}>
+              <div style={{ display: "flex", gap: 14, alignItems: "flex-end" }}>
+                <VBar value={a.ANON} max={0.45} height={300} color={colors.anon} delay={seconds * 0.06 + i * 0.15} valueLabel={pct(a.ANON)} />
+                <VBar value={a["NAMED-HIGH"]} max={0.45} height={300} color={colors.flagship} delay={seconds * 0.45 + i * 0.15} valueLabel={pct(a["NAMED-HIGH"])} />
+                <VBar value={a["NAMED-LOW"]} max={0.45} height={300} color={colors.tiny} delay={seconds * 0.16 + i * 0.15} valueLabel={pct(a["NAMED-LOW"])} />
+              </div>
+              <div style={{ fontSize: 28, color: colors.muted, marginTop: 12 }}>{teamLabel[a.panel]}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ marginTop: 24 }}>
+        <Legend delay={seconds * 0.04} items={[["no names", colors.anon], ["wrong answers tagged flagship", colors.flagship], ["wrong answers tagged tiny", colors.tiny]]} />
+      </div>
+    </SceneFrame>
+  );
+};
