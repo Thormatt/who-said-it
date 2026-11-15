@@ -111,5 +111,49 @@
   "boundary": {
     "adopted": 1,
     "total": 1064
+  },
+  "counts": {
+    "frontier-2026-11": {
+      "ANON": {
+        "fooled": 26,
+        "n": 240
+      },
+      "NAMED-HIGH": {
+        "fooled": 38,
+        "n": 240
+      },
+      "NAMED-LOW": {
+        "fooled": 1,
+        "n": 240
+      }
+    },
+    "frontier-2026-early": {
+      "ANON": {
+        "fooled": 66,
+        "n": 229
+      },
+      "NAMED-HIGH": {
+        "fooled": 66,
+        "n": 230
+      },
+      "NAMED-LOW": {
+        "fooled": 6,
+        "n": 230
+      }
+    },
+    "small": {
+      "ANON": {
+        "fooled": 67,
+        "n": 230
+      },
+      "NAMED-HIGH": {
+        "fooled": 94,
+        "n": 229
+      },
+      "NAMED-LOW": {
+        "fooled": 53,
+        "n": 228
+      }
+    }
   }
 }

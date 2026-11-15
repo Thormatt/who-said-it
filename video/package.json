@@ -5,10 +5,12 @@
   "scripts": {
     "narrate": "node scripts/narrate.mjs",
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts Explainer out/who-said-it.mp4"
+    "render": "remotion render src/index.ts Explainer out/who-said-it.mp4",
+    "sound": "cd .. && uv run python video/scripts/sound.py"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.543",
+    "@remotion/google-fonts": "4.0.543",
     "@remotion/media": "^4.0.543",
     "@types/react": "^18.3.31",
     "react": "^18.3.1",

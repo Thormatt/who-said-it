@@ -1,53 +1,65 @@
 import React from "react";
-import { AbsoluteFill, Series } from "remotion";
-import { Captions, Narration } from "./components";
-import durations from "./durations.json";
-import narration from "./narration.json";
-import { NameTagScene, PressureScene, TagResultsScene } from "./scenes/Findings";
-import { HookScene, PilotScene, Round2Scene, TaskScene, TitleScene } from "./scenes/Intro";
-import { CheckerScene, CreditsScene, LimitsScene, TakeawaysScene, WarningsScene } from "./scenes/Outro";
-import { FPS, SCENE_PADDING_SECONDS } from "./theme";
+import { AbsoluteFill, Series, staticFile, useCurrentFrame } from "remotion";
+import { Audio } from "@remotion/media";
+import { Captions } from "./kit";
+import { Cold, Game, Title, Why } from "./scenes/act1";
+import { Easy, Final, Hard } from "./scenes/act2";
+import { TagFake, Tags } from "./scenes/act3";
+import { Checker, Twist } from "./scenes/act4";
+import { Credits, Ending } from "./scenes/act5";
+import { FPS, colors } from "./theme";
+import { sceneFrames, scenes, totalFrames } from "./timing";
 
-type SceneId = keyof typeof durations;
+export { totalFrames };
 
-const render = (id: SceneId, seconds: number): React.ReactNode => {
-  switch (id) {
-    case "hook": return <HookScene seconds={seconds} />;
-    case "title": return <TitleScene seconds={seconds} />;
-    case "task": return <TaskScene seconds={seconds} />;
-    case "round2": return <Round2Scene seconds={seconds} />;
-    case "pilot": return <PilotScene seconds={seconds} />;
-    case "pressure": return <PressureScene seconds={seconds} />;
-    case "nametags": return <NameTagScene seconds={seconds} />;
-    case "tagresults": return <TagResultsScene seconds={seconds} />;
-    case "checker": return <CheckerScene seconds={seconds} />;
-    case "warnings": return <WarningsScene seconds={seconds} />;
-    case "limits": return <LimitsScene seconds={seconds} />;
-    case "takeaways": return <TakeawaysScene seconds={seconds} />;
-    default: return <CreditsScene />;
-  }
+const SCENES: Record<string, React.FC> = {
+  cold: Cold, title: Title, why: Why, game: Game, easy: Easy, hard: Hard, final: Final,
+  tags: Tags, tagfake: TagFake, checker: Checker, twist: Twist, ending: Ending, credits: Credits,
 };
 
-export const sceneFrames = (id: SceneId): number =>
-  Math.ceil((durations[id] + SCENE_PADDING_SECONDS) * FPS);
+/** Slow-moving light and a faint dot grid behind every scene, so cuts never land on flat color. */
+const Backdrop: React.FC = () => {
+  const a = useCurrentFrame() / FPS;
+  return (
+    <AbsoluteFill
+      style={{
+        background: [
+          `radial-gradient(1300px 760px at ${50 + Math.sin(a * 0.11) * 18}% ${36 + Math.cos(a * 0.09) * 10}%, #1b2a55 0%, transparent 66%)`,
+          `radial-gradient(1000px 640px at ${72 + Math.cos(a * 0.07) * 18}% 92%, #241a4d 0%, transparent 62%)`,
+          colors.bg,
+        ].join(", "),
+      }}
+    >
+      <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.055) 1.6px, transparent 1.6px)", backgroundSize: "46px 46px", backgroundPosition: `${a * 4}px ${a * 2.5}px` }} />
+      <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 56%, rgba(0,0,0,0.5) 100%)" }} />
+    </AbsoluteFill>
+  );
+};
 
-export const totalFrames = (): number =>
-  narration.reduce((sum, s) => sum + sceneFrames(s.id as SceneId), 0);
+const ProgressBar: React.FC = () => (
+  <div style={{ position: "absolute", left: 0, bottom: 0, height: 5, width: `${(useCurrentFrame() / totalFrames()) * 100}%`, background: colors.flagship, opacity: 0.85 }} />
+);
 
 export const Explainer: React.FC = () => (
-  <AbsoluteFill style={{ background: "#0d1321" }}>
+  <AbsoluteFill style={{ background: colors.bg }}>
+    <Backdrop />
     <Series>
-      {narration.map(({ id, text }) => {
-        const sceneId = id as SceneId;
-        const seconds = durations[sceneId] + SCENE_PADDING_SECONDS;
+      {scenes.map(({ id, text }) => {
+        const Scene = SCENES[id];
         return (
-          <Series.Sequence key={id} durationInFrames={sceneFrames(sceneId)} premountFor={FPS}>
-            {render(sceneId, seconds)}
-            <Narration id={id} />
-            <Captions text={text.replace(/\s*FOLLOWUP_\w+/g, "")} seconds={durations[sceneId]} />
+          <Series.Sequence key={id} durationInFrames={sceneFrames(id)} premountFor={FPS}>
+            <Scene />
+            {text ? (
+              <>
+                <Audio src={staticFile(`audio/${id}.wav`)} />
+                <Captions id={id} />
+              </>
+            ) : null}
           </Series.Sequence>
         );
       })}
     </Series>
+    <Audio src={staticFile("audio/music.wav")} />
+    <ProgressBar />
   </AbsoluteFill>
 );

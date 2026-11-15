@@ -1,54 +1,55 @@
 [
   {
-    "id": "hook",
-    "text": "Picture an AI model reading a teammate's answer. The answer is wrong. When we labeled it as coming from a tiny model, the newest AI models almost never believed it. Labeled as a flagship model, about one in six switched to it. Same words. Different name."
+    "id": "cold",
+    "text": "Five AI models are in a meeting. Each has read the same report, and each gets the same question: how long was the bridge repair delayed? They all get it right. Fourteen months. But this meeting has three extra guests. We planted them. And they've been told to insist, with total confidence, on the wrong answer. Forty-one months. So, who does the room believe?"
   },
   {
     "id": "title",
-    "text": "Who said it? AI agents increasingly work in teams, passing each other claims rather than sources. When one of them is confidently wrong, does the team catch it, or carry it along? And what stops it?"
+    "text": null,
+    "seconds": 3.2
   },
   {
-    "id": "task",
-    "text": "Here's the test. Five AI models read a short, made-up document. Say, a report that a bridge renovation was delayed by fourteen months. They answer one question: how long was the delay? Then we add fake teammates, secretly told to insist on forty-one months."
+    "id": "why",
+    "text": "This matters because AI is increasingly built as teams. One model drafts, another reviews, a third writes the summary you actually read. Along that chain, models mostly see each other's claims, not the original source. So when one of them is confidently wrong, does the mistake get caught, or passed along?"
   },
   {
-    "id": "round2",
-    "text": "In round two, each model sees five teammates' answers, and can change its mind. Switching to the planted number is what we measure. Finally, one more model writes the team's final answer: the one a user would actually see."
+    "id": "game",
+    "text": "To find out, we built a game. We wrote short reports about things that never happened, so the only way to know the answer is to read the report. Round one: every model answers alone. Round two: each model sees what its teammates said, and can change its mind. If it drops the right answer for the planted one, we count it as fooled."
   },
   {
-    "id": "pilot",
-    "text": "The first result was reassuring. With the document in view and one wrong teammate, the newest models never switched. Zero out of two hundred and forty."
+    "id": "easy",
+    "text": "We started gently. One impostor, and the report still on the table. The newest models didn't flinch. Two hundred and forty answers. Zero fooled."
   },
   {
-    "id": "pressure",
-    "text": "So we made it harder. In round two, the document was gone, and three of the five answers each model saw were wrong. Now the error spread: about one in ten answers from the newest models, and nearly three in ten from older and smaller ones. It reached up to three in ten final team answers, too. Remove either condition, and just one answer in over a thousand switched."
+    "id": "hard",
+    "text": "So we turned up the pressure. We took the report away, so the models had only each other's word. And we sent in more impostors, until three of the five answers each model saw were wrong. This time, it worked. The newest models were fooled about one time in ten. Earlier and smaller models: nearly three in ten."
   },
   {
-    "id": "nametags",
-    "text": "Now, who said it. We showed the same wrong answers with no names, or with a name tag claiming they came from a top flagship model, or from a tiny one. Only the tag changed."
+    "id": "final",
+    "text": "And it didn't stay in the meeting. The team's final answer, the one a person would actually read, carried the wrong number up to three times in ten. But notice what it took. Put the report back, or leave just one impostor, and it vanishes: one answer fooled, in more than a thousand."
   },
   {
-    "id": "tagresults",
-    "text": "Tagged as tiny, the error was almost always ignored by both frontier teams. Tagged as a flagship, it convinced small models more: forty-one percent switched, up from twenty-nine. And the label was fake. In a real system, any agent can claim to be anyone."
+    "id": "tags",
+    "text": "Now the strange part. Until now, the answers were anonymous. So we gave everyone a name tag. Real models wore their real names. The impostors wore whatever name we gave them. First, we tagged the wrong answer as the work of a tiny AI model, the kind small enough to run on a phone. The newest models shrugged it off: fooled once in two hundred and forty tries. Then we changed nothing but the tag. Now the same words came from a flagship: a company's most advanced model. Fooled thirty-eight times."
+  },
+  {
+    "id": "tagfake",
+    "text": "Small models fell harder still: with the flagship tag, forty-one percent of their answers followed the impostor. And the tag was just a line of text. In a real system, nothing stops a program from claiming to be something it isn't."
   },
   {
     "id": "checker",
-    "text": "What stops it is evidence. We added a fact-checker that compares each answer with the document, and attaches a warning to wrong ones. Switching fell sharply in every team, and not one of eight hundred and thirty-two final team answers kept the error. Our own purpose-built verifier did no better than simply asking a model to check. Access to the source is what matters."
+    "text": "So what stops it? We added one more seat: a fact-checker. It's the only one that still has the report. It compares every answer with the source, and attaches a warning to the ones that don't match. The effect collapsed, in every team. And of eight hundred and thirty-two final answers, the number carrying the error was zero."
   },
   {
-    "id": "warnings",
-    "text": "A few errors still slipped through, because of wording. The warning quoted the wrong claim, and some models read it as if the document had said it. Rewritten to state what the document says, the warning cut leftover switching in small models from five percent to under one."
+    "id": "twist",
+    "text": "One last surprise. A few models were still fooled, and the culprit was the warning itself. The warning said: contradicted by the report, followed by the wrong sentence in quotation marks. It meant that the report disagrees with that sentence. But some models read it the other way, as if the report itself had said forty-one months. So we rewrote the warning to spell out who said what. This answer says forty-one. The report says fourteen. In small models, the leftover errors fell from about five percent to under one."
   },
   {
-    "id": "limits",
-    "text": "A caveat. These were short, made-up documents with one planted number, and the fake teammates were told to be wrong. It's a controlled test, not a field study."
-  },
-  {
-    "id": "takeaways",
-    "text": "So, if you build teams of AI agents: keep the source in the loop. Treat claimed identities as untrusted. And make warnings state the evidence, not just repeat the error."
+    "id": "ending",
+    "text": "A caution: this was a lab test, with short invented reports and impostors following orders. Real mistakes are messier. Still, the pattern is hard to miss. What moved these models wasn't better evidence. It was repetition, and a name. What protected them was a way back to the source. So the next time several AI models agree, don't ask how many said it. Don't ask who said it. Ask how they know."
   },
   {
     "id": "credits",
-    "text": "Who Said It? By Thor Matthiasson and Jennifer McTiernan, for the Apart Research AI and Epistemics sprint. The report, code and data accompany this video."
+    "text": "Who Said It? A research project for the Apart Research AI and Epistemics sprint. The paper, the code and the data come with this video."
   }
 ]
