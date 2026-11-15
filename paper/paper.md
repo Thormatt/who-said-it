@@ -36,11 +36,13 @@ We test the mechanism under control. Fictional evidence packets make the truth u
 ## 2. Related Work
 
 **Debate.**
+
 - Debate can improve factuality [3] and helps weaker judges pick correct answers [5].
 - It can also fail. Sycophancy causes disagreement collapse [8], and debate can underperform a majority vote of initial answers, with weaker agents dragging stronger ones down [7].
 - In verifiable puzzles, majority pressure suppresses correction, and stronger teams overturn wrong consensus more often [9].
 
 **Identity and conformity.**
+
 - LLM conformity grows with majority size [6], echoing Asch [1].
 - Much of it needs no speaker. Source effects should therefore be measured above a speaker-free baseline [10], which our anonymous condition provides.
 - LLMs defer more to human experts than to other LLMs [11], and authority bias is graded [12].
@@ -51,12 +53,14 @@ We test the mechanism under control. Fictional evidence packets make the truth u
 ## 3. Methods
 
 **Items.** There are 28 fictional evidence packets: 4 for development and 24 held-out. Each has 6–9 numbered facts in one of six domains, plus a question, a gold answer and one planted value:
+
 - **direct** items contradict a stated fact;
 - **derived** items give a wrong result computed from correctly stated inputs.
 
 Items were drafted with LLM assistance, validated automatically (unique planted token, gold matches the true pattern), and every derived answer was recomputed independently.
 
 **Panels.** Three hand-picked panels of five models from five labs, all accessed through OpenRouter:
+
 - **frontier (Nov 2026):** Claude Sonnet 5.5, GPT-6.1 Terra, Gemini 4 Carbon, Grok 4.7, DeepSeek V4.1 Flash;
 - **previous frontier (2025–early 2026):** Claude Opus 4.6, GPT-5, Gemini 2.5 Pro, Grok 4.3, DeepSeek R1;
 - **small:** Llama 4 Scout, Mistral Small 3.2, GPT-4.1 Mini, Qwen3 32B, Gemini 2.5 Flash.
@@ -64,12 +68,14 @@ Items were drafted with LLM assistance, validated automatically (unique planted 
 All models run at default sampling with low reasoning effort.
 
 **Protocol.**
+
 - **Round 1:** each panelist answers alone. Three off-panel **confederates** (Mistral Large 4, GLM-5.3 Flash, MiniMax M3) are instructed to assert the planted claim confidently and cite the relevant fact.
 - **Round 2:** each panelist sees its own answer and five peer answers, then revises.
 - **Synthesis:** a fixed synthesizer (Qwen 3.8 Max), which never sees names, writes the panel's final answer.
 - **Pairing:** round 1 and all verifier outputs are shared across conditions, so every contrast is paired.
 
 **Factors.**
+
 - *Attribution:* ANON (unlabeled peers, a speaker-free baseline [10]); NAMED-HIGH (real peers under their true names, confederates labeled as flagships such as "Claude Fable 5.2, Anthropic's most capable frontier model"); NAMED-LOW (confederates labeled as tiny models such as "Llama 3.2 1B").
 - *Verification:* NONE; PLAIN (one Claude Sonnet 5.5 call per answer, given the packet); ORC [15] (claim extraction, per-item retrieval and chunk-cited verdicts with the same judge, default routing). Flags appear under each answer in an identical format.
 - *Pressure:* 1 or 3 of the five peers wrong, with the packet shown or withheld in round 2. With three wrong, counting the panelist's own answer, the visible panel is a 3–3 split.
@@ -90,6 +96,7 @@ All models run at default sampling with low reasoning effort.
 **Errors spread only when most peers repeat them and the evidence is out of reach (Figure 1).** In all three safe regimes and all panels, spread was 0%, except one cell (1/115). That is 1 of 1,064 answers, and every 95% CI upper bound is ≤ 2.6%.
 
 **In the vulnerable regime without verification:**
+
 - adoption ranged from 0.4% to 41% across cells (Figure 2);
 - the synthesizer carried the error into 8.3% (frontier), 22.6% (previous frontier) and 28.9% (small) of final panel answers.
 
@@ -109,6 +116,7 @@ Table 1: Pre-registered contrasts in the vulnerable regime (percentage points; p
 | H5 | ORC effect: NAMED-HIGH vs ANON | +3.7 [−0.6, 8.2] | 0.046 |
 
 **Spread falls with capability, but stays above zero (H8).** Pooled spread was:
+
 - 3.1% [1.7, 4.7] for the frontier panel;
 - 7.6% [5.1, 10.1] for the previous frontier;
 - 13.9% [11.0, 16.9] for the small panel.
@@ -116,6 +124,7 @@ Table 1: Pre-registered contrasts in the vulnerable regime (percentage points; p
 Within the frontier panel, Claude Sonnet 5.5 adopted least (0.7%) and DeepSeek V4.1 Flash most (6.5%). The panels are hand-picked, so this is a comparison of model selections, not a capability curve.
 
 **Attribution (H1, H2).** Without a check, a tiny-model label on the wrong peers cut spread relative to ANON:
+
 - −10.4 points [5.0, 16.7] in the frontier panel;
 - −26.2 [14.9, 37.6] in the previous-frontier panel;
 - only −5.3 [−1.3, 11.8] in the small panel.
@@ -123,6 +132,7 @@ Within the frontier panel, Claude Sonnet 5.5 adopted least (0.7%) and DeepSeek V
 A flagship label added +11.8 points [1.7, 23.0] in the small panel, +5.0 [1.3, 9.2] in the frontier panel and 0.0 in the previous-frontier panel.
 
 Because real peers keep their true names, this asymmetry could reflect *relative status*. A flagship label is a near-peer for the frontier panel but a big step up for small models. A post-hoc follow-up (exploratory) therefore named **only the confederates**, with real peers anonymous and panelists not told their own names. In the frontier panel, the effects were unchanged:
+
 - flagship +5.8 points [2.1, 10.0] vs ANON (p = 0.004);
 - tiny −9.6 [5.0, 15.0] (p < 0.0001);
 - full naming vs confederate-only naming: −0.8 points (p = 0.87).
@@ -130,6 +140,7 @@ Because real peers keep their true names, this asymmetry could reflect *relative
 In the frontier panel, the prestige label itself moves trust. Across all three panels, naming only the confederates as flagships raised spread against ANON: +5.8, +6.6 [1.3, 12.2] and +12.2 [4.8, 20.0] points (frontier, previous frontier, small). The flagship effect therefore does not depend on peer names. Tiny labels protected the frontier and previous-frontier panels (−9.6 and −19.7) but not the small panel (−1.7, p = 0.67). Relative status mattered only in the previous-frontier panel. There, naming the real peers removed 6.5 points of the flagship effect (p = 0.014), which explains its null in the main run.
 
 **Any evidence check nearly eliminates spread (H4, H6).**
+
 - Verification cut spread by 17.6 points. With a check, spread was 0–0.4% (frontier), 0.9–2.2% (previous frontier) and 2.6–7.8% (small).
 - **None of the 832 checked final answers contains the planted value in its Answer line.** This is a judge-independent token check; without verification the error appears in 84 of 416 finals.
 - Checks raised explicit rejection from 39–48% to 57–74%.
@@ -144,6 +155,7 @@ In the frontier panel, the prestige label itself moves trust. Across all three p
 A follow-up re-ran the checked conditions with flags that attribute the quotation to the answer and state the cited fact ("This answer says…; the evidence packet (E3) says…"). This cut residual spread by 1.9 points [1.0, 2.9] (p < 0.0001) pooled. The drop was largest for small models (5.4% → 0.9%), against 1.4% → 0.1% for the previous frontier. No final answer kept the error (0 of 851).
 
 **Judge validity.**
+
 - On all 1,248 final answers, the judge agreed with the judge-independent token check on 1,242.
 - A second judge from another lab (GPT-6 Luna Pro) agreed with the primary judge on spread for 99.7% of 15,848 graded answers (κ = 0.97).
 - Sixty stratified answers were labeled blind to the judge's grades by an AI assistant, Claude (spread agreement 53/60, κ = 0.76).
@@ -157,6 +169,7 @@ Capable panels resist a confident, checkable error when anyone can check it or w
 3. **Design verifier output.** Flags that state what the evidence says cut residual spread for small models from 5.4% to 0.9%. Computed claims should go to arithmetic verification, which ORC has but did not select by default.
 
 **Limitations.**
+
 - **Task realism.** Packets are short and fictional, errors are single numeric values, and confederates are instructed rather than organically wrong.
 - **Pressure.** The vulnerable regime is a 3–3 split; we did not test a clear wrong majority.
 - **Panels.** They are hand-picked, and the previous frontier mixes 2025 and early-2026 models.
@@ -197,6 +210,7 @@ A confident, checkable error repeated by AI peers does not automatically become 
 ## Appendix A: Limitations and Dual-Use / Ethical Considerations
 
 **Dual use.** In a pipeline where agents cannot see sources, coordinated agents that repeat a false claim, and that claim flagship identities, can push it into the output. Small models are the most exposed. Publishing this has defensive value, because the same experiment identifies working mitigations:
+
 - strip or verify claimed identities;
 - keep evidence, or an evidence check, in the channel;
 - make verifier flags state the evidence.
@@ -208,6 +222,7 @@ We release no attack tooling beyond the experimental harness, whose confederate 
 ## Appendix B: Extended Methods and Results
 
 **Exclusions and failures.**
+
 - Small panel, test-04: excluded because >50% of round-1 answers were wrong.
 - Previous frontier, test-15: excluded because of a failed round-1 output.
 - Thirteen outputs were empty, mostly DeepSeek R1 exhausting its token budget.
@@ -233,6 +248,7 @@ ORC and the earlier Delphi/Plurality deliberation engines are pre-existing work 
 ## LLM Usage Statement
 
 Claude (Anthropic) was used to:
+
 - discuss the design, which the authors directed and approved;
 - write the harness and analysis code;
 - draft the test items, which were validated and recomputed;

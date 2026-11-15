@@ -34,18 +34,18 @@ says the 60 validation answers were labelled by an AI assistant, and the LLM Usa
 
 ## The report
 
-- Google Doc, in the layout of Apart's template: https://docs.google.com/document/d/1b16165uknhDUalhec3k4BZVdxrXIctVeQx2EsRSvfiw/edit
+- Google Doc, in the layout of Apart's template: https://docs.google.com/document/d/1WqbeYF6bhZ_Y_XkhJhdh-eTOPS6odYgmsRLZUr--Z40/edit
 - `who-said-it-report.pdf` is that document downloaded as PDF. After any edit, download it again with
   File > Download > PDF document.
-- **Page limit.** Apart allows 8 pages before the references. The main text ends on page 7, at the
-  template's 11-point type, so there is about a page of room for edits.
+- **Page limit.** Apart allows 8 pages before the references. The main text ends on page 8, at the
+  template's 11-point type, with about half a page of room for edits.
 - The text is the same as `paper/paper.md`.
 
 ## Files in this folder
 
 | File | What it is |
 |---|---|
-| `who-said-it-report.pdf` | The report in Apart's layout (9 pages, of which 7 are main text) |
+| `who-said-it-report.pdf` | The report in Apart's layout (10 pages, of which 8 are main text) |
 | `abstract.txt` | The project summary for the form |
 | `who-said-it.mp4` | The video explainer |
 | `who-said-it-summary.pdf` | The one-page plain-language summary |
