@@ -172,7 +172,7 @@ A confident, checkable error repeated by AI peers does not automatically become 
 
 ## Code and Data
 
-- Items, harness, raw logs, analysis and pre-registration: [repository link, added at submission].
+- Items, harness, raw logs, analysis and pre-registration: <https://github.com/Thormatt/who-said-it>.
 - ORC: https://github.com/Thormatt/orc (MIT), commit `1fbe731`.
 
 ## References
