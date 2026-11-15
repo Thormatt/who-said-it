@@ -7,7 +7,7 @@ Deadline: Sun 15 Nov 23:59 AoE = Mon 16 Nov 06:59 EST.
 - [ ] LLM Usage Statement finalized (template requires it)
 - [ ] Both authors registered on the Apart sprint page with location **Madrid**
 - [ ] Publish the experiment repo (last minute) and add its link under "Code and Data"
-- [ ] Optional extra: one-page plain-language summary `who-said-it-one-pager.pdf` (source `paper/one-pager.html`), for readers who will not read the paper
+- [ ] Optional extra: plain-language summary, one sheet printed on both sides, `who-said-it-one-pager.pdf` (source `paper/one-pager.html`), for readers who will not read the paper
 - [ ] Submit form: title, summary, PDF, video `who-said-it.mp4` (3:21, 14 MB, ElevenLabs voice George, plain-language explainer); results slideshow https://thor.pagenta.app/who-said-it (public), code link, project image (optional)
 - [ ] Tracks: Track 1 (Model Epistemics & Decision-Making Evals) and Track 2 (Trust Infrastructure)
 - [ ] "Interested in publishing": your call
