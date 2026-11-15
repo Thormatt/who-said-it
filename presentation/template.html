@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Said It? — Results</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1321; --panel: #16203a; --grid: #263451; --text: #f1f5f9; --muted: #94a3b8;
+    --truth: #34c38f; --error: #f05252; --flag: #f59e0b; --tiny: #60a5fa; --anon: #9aa5b8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif; overflow: hidden; }
+  #viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  #stage { width: 1600px; height: 900px; position: relative; transform-origin: center center; }
+  .slide { position: absolute; inset: 0; padding: 70px 90px 90px; opacity: 0; visibility: hidden;
+    transition: opacity .45s ease; display: flex; flex-direction: column; }
+  .slide.active { opacity: 1; visibility: visible; }
+  .kicker { color: var(--muted); font-size: 22px; letter-spacing: 3px; text-transform: uppercase; }
+  h1 { font-size: 48px; margin: 8px 0 28px; line-height: 1.12; font-weight: 800; }
+  h2 { font-size: 30px; margin: 0 0 14px; font-weight: 700; }
+  p, li { font-size: 26px; line-height: 1.45; color: #dbe3ee; }
+  .muted { color: var(--muted); }
+  .center { text-align: center; }
+  .grow { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .row { display: flex; gap: 40px; align-items: flex-start; }
+  .card { background: var(--panel); border-radius: 14px; padding: 24px 28px; }
+  .big { font-size: 170px; font-weight: 800; line-height: 1; }
+  .tag { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 18px;
+    background: var(--grid); color: var(--muted); margin-right: 8px; }
+  .legend { display: flex; gap: 34px; justify-content: center; font-size: 22px; color: var(--muted); margin-top: 18px; }
+  .legend i { display: inline-block; width: 18px; height: 18px; border-radius: 4px; margin-right: 10px; vertical-align: -2px; }
+  /* bar charts */
+  .groups { display: flex; justify-content: center; gap: 90px; align-items: flex-end; }
+  .group { text-align: center; }
+  .bars { display: flex; gap: 12px; align-items: flex-end; height: 330px; }
+  .vbar { width: 78px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+  .vbar .fill { width: 100%; border-radius: 6px 6px 0 0; height: 0; transition: height .9s cubic-bezier(.2,.8,.2,1); }
+  .vbar .val { font-size: 22px; font-weight: 700; margin-bottom: 6px; opacity: 0; transition: opacity .6s .5s; }
+  .active .vbar .val { opacity: 1; }
+  .glabel { color: var(--muted); font-size: 20px; margin-top: 12px; width: 300px; min-height: 52px; }
+  .hbars { display: flex; flex-direction: column; gap: 30px; }
+  .hrow { display: flex; align-items: center; gap: 22px; }
+  .hrow .name { width: 470px; text-align: right; font-size: 26px; color: var(--muted); }
+  .hrow .track { flex: 1; }
+  .hrow .fill { height: 64px; border-radius: 8px; width: 0; transition: width 1s cubic-bezier(.2,.8,.2,1); }
+  .hrow .val { width: 120px; font-size: 32px; font-weight: 800; }
+  .compact .glabel { width: 170px; font-size: 17px; min-height: 44px; }
+  .compact .vbar { width: 60px; }
+  .compact .bars { height: 240px; }
+  .compact .vbar .val { font-size: 19px; }
+  /* pressure grids */
+  .grids { display: flex; justify-content: center; gap: 70px; }
+  .grid2 { display: grid; grid-template-columns: 150px 150px; gap: 10px; }
+  .cell { height: 118px; border-radius: 10px; border: 2px solid var(--grid); display: flex; align-items: center;
+    justify-content: center; font-size: 36px; font-weight: 800; background: var(--panel); }
+  .cell.hot { border-color: var(--error); }
+  /* setup diagram */
+  .dots { display: flex; gap: 22px; margin: 10px 0 24px; }
+  .dot { width: 96px; text-align: center; font-size: 16px; color: var(--muted); }
+  .dot b { display: flex; width: 96px; height: 96px; border-radius: 50%; align-items: center; justify-content: center;
+    font-size: 24px; color: var(--bg); margin-bottom: 8px; }
+  code, .mono { font-family: "SF Mono", Menlo, Consolas, monospace; }
+  .flag { border-left: 7px solid; border-radius: 10px; background: var(--panel); padding: 16px 22px; margin-bottom: 14px; }
+  .flag small { display: block; color: var(--muted); font-size: 17px; margin-bottom: 6px; }
+  .flag div { font-size: 19px; line-height: 1.4; }
+  table { border-collapse: collapse; font-size: 22px; }
+  td, th { padding: 8px 18px; text-align: left; border-bottom: 1px solid var(--grid); }
+  th { color: var(--muted); font-weight: 500; }
+  ul { margin: 0; padding-left: 28px; }
+  li { margin: 8px 0; }
+  /* chrome */
+  #progress { position: fixed; left: 0; bottom: 0; height: 4px; background: var(--truth); width: 0; transition: width .3s; }
+  #counter { position: fixed; right: 18px; bottom: 12px; color: var(--muted); font-size: 14px; }
+  #hint { position: fixed; left: 18px; bottom: 12px; color: var(--muted); font-size: 14px; }
+  @media (max-width: 700px) { #hint { display: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .slide, .vbar .fill, .vbar .val, .hrow .fill { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+
+<section class="slide" data-title="Title">
+  <div class="grow center">
+    <div class="kicker">Apart Research · AI × Epistemics Research Sprint · November 2026</div>
+    <div style="font-size:130px;font-weight:800;margin:26px 0 10px">Who Said It?</div>
+    <p style="font-size:32px" class="muted">Majority pressure, attribution and evidence-bound verification in multi-LLM panels</p>
+    <p style="font-size:26px;margin-top:40px">Thor Matthiasson · Jennifer McTiernan</p>
+  </div>
+</section>
+
+<section class="slide" data-title="Question">
+  <div class="kicker">The question</div>
+  <h1>When AI models deliberate, does a confident error repeated by some of them become the panel's answer?</h1>
+  <div class="row">
+    <div class="card" style="flex:1"><h2>Error laundering</h2>
+      <p>A checkable error from some participants becomes the panel's answer, and the panel's agreement makes it look more trustworthy than it would alone.</p></div>
+    <div class="card" style="flex:1"><h2>Why it matters</h2>
+      <ul><li>Debate and panels are pitched for factuality and oversight</li>
+        <li>Agent pipelines pass <em>claims</em>, not sources</li>
+        <li>The brief asks: which other agents should an AI trust?</li></ul></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Setup">
+  <div class="kicker">The setup</div>
+  <h1>Plant a checkable error, then watch it travel</h1>
+  <div class="row">
+    <div class="card mono" style="width:470px;font-size:21px;line-height:1.8">
+      <div class="muted" style="font-family:Inter;font-size:20px">Fictional evidence packet</div>
+      E1 · Opened to traffic 1987<br>E2 · Renovation approved 2019<br>
+      <span style="color:var(--truth);font-weight:700">E3 · Delayed by 14 months</span><br>E4 · Budget 12 M euros
+    </div>
+    <div>
+      <div class="dots" id="realDots"></div>
+      <div class="dots" id="confDots" style="margin-left:59px"></div>
+      <p><b>Round 2:</b> each panelist sees five peer answers and revises.<br>
+      <span class="muted">→ a synthesizer that never sees names writes the panel's final answer.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Design">
+  <div class="kicker">Design</div>
+  <h1>Four things we varied</h1>
+  <div class="row" style="gap:22px">
+    <div class="card" style="flex:1"><h2>Attribution</h2><p>anonymous · wrong peers labeled <b style="color:var(--flag)">flagship</b> · labeled <b style="color:var(--tiny)">tiny</b></p></div>
+    <div class="card" style="flex:1"><h2>Verification</h2><p>none · plain LLM check · ORC (evidence-bound runtime)</p></div>
+    <div class="card" style="flex:1"><h2>Pressure</h2><p>1 or 3 of 5 peers wrong · evidence shown or withheld</p></div>
+    <div class="card" style="flex:1"><h2>Panel</h2><p>frontier Nov 2026 · previous frontier · small / cheap</p></div>
+  </div>
+  <p class="muted" style="margin-top:34px">24 held-out items in six domains · pre-registered and frozen before test data · 7,352 round-2 answers · paired contrasts, item-clustered CIs, Holm correction</p>
+</section>
+
+<section class="slide" data-title="Pilot">
+  <div class="kicker">Pilot</div>
+  <h1>One wrong peer, evidence on the table</h1>
+  <div class="grow center">
+    <div class="big" style="color:var(--truth)">0 <span class="muted" style="font-size:110px">/ 240</span></div>
+    <p class="muted" style="font-size:30px">answers adopted the planted error. Frontier models simply didn't take the bait.</p>
+  </div>
+</section>
+
+<section class="slide" data-title="Pressure">
+  <div class="kicker">Adding pressure</div>
+  <h1>Only one corner breaks</h1>
+  <div class="grids" id="grids"></div>
+  <p class="center muted" style="margin-top:26px">columns: 1 vs 3 of 5 peers wrong · rows: evidence shown vs withheld · anonymous, no check</p>
+  <p class="center">Spread needs <b>both</b>: most peers repeat the error <b>and</b> the evidence is out of reach.</p>
+</section>
+
+<section class="slide" data-title="Generation">
+  <div class="kicker">Who resists</div>
+  <h1>Better models resist more — not completely</h1>
+  <div class="grow"><div class="hbars" id="genBars"></div></div>
+  <p class="muted">Share of round-2 answers adopting the error in the vulnerable regime, pooled over conditions. Panels are hand-picked selections, not a capability curve.</p>
+</section>
+
+<section class="slide" data-title="Attribution">
+  <div class="kicker">Who said it</div>
+  <h1>Labels move answers — depending on the panel</h1>
+  <div class="groups" id="attrBars"></div>
+  <div class="legend"><span><i style="background:var(--anon)"></i>anonymous</span><span><i style="background:var(--flag)"></i>wrong peers labeled flagship</span><span><i style="background:var(--tiny)"></i>wrong peers labeled tiny</span></div>
+  <p class="center" style="margin-top:22px">Follow-up naming <em>only</em> the wrong peers: flagship labels still raised spread in every panel (+5.8, +6.6, +12.2 pts); tiny labels protected frontier panels but not small models.</p>
+</section>
+
+<section class="slide" data-title="Verification">
+  <div class="kicker">What stops it</div>
+  <h1>Put the evidence back in the loop</h1>
+  <div class="groups" id="verBars"></div>
+  <div class="legend"><span><i style="background:var(--error)"></i>no check</span><span><i style="background:var(--truth)"></i>plain check or ORC</span></div>
+  <p class="center" style="font-size:34px;font-weight:800;margin:20px 0 4px" id="finalsLine"></p>
+  <p class="center muted" id="absorbLine"></p>
+</section>
+
+<section class="slide" data-title="ORC">
+  <div class="kicker">Reporting against interest</div>
+  <h1>A purpose-built verifier did no better than a plain check</h1>
+  <div class="row">
+    <div class="card" style="flex:1;text-align:center"><div style="font-size:90px;font-weight:800">−0.2 pts</div><p class="muted">PLAIN − ORC spread, 95% CI [−1.5, 0.8], p = 0.64</p></div>
+    <div class="card" style="flex:1.3"><h2>Why, and what it does not say</h2>
+      <ul><li>With the packet, a single prompted check flagged 94% of planted claims (ORC 100%)</li>
+        <li>Packets hold 6–9 facts, so retrieval had nothing to do</li>
+        <li>ORC ran default routing, not its arithmetic mode</li>
+        <li>No claim about large corpora</li></ul></div>
+  </div>
+  <p class="center" style="margin-top:30px">The protective ingredient is <b>evidence access</b>, not verifier architecture.</p>
+</section>
+
+<section class="slide" data-title="Checkability">
+  <div class="kicker">Which errors spread</div>
+  <h1>Errors you can recompute don't stick</h1>
+  <div class="groups" id="subBars"></div>
+  <div class="legend"><span><i style="background:var(--error)"></i>direct: contradicts a stated fact</span><span><i style="background:var(--tiny)"></i>derived: wrong arithmetic from correct inputs</span></div>
+  <p class="center" style="margin-top:20px">A derived error carries its own inputs, so panelists recompute it. A stated fact out of reach has to be taken on trust.</p>
+</section>
+
+<section class="slide" data-title="Flags">
+  <div class="kicker">What still slipped through</div>
+  <h1>Models misread the checker — a better flag fixes it</h1>
+  <div class="row">
+    <div style="width:640px;flex:none">
+      <div class="flag" style="border-color:var(--error)"><small>Original flag</small><div><code>CONTRADICTED by the evidence packet: "…the discontinuation rate was 16%"</code></div></div>
+      <div class="flag" style="border-color:var(--flag)"><small>A panelist concluded</small><div>"…the evidence packet contains a direct statement that… was 16%" → adopts 16%</div></div>
+      <div class="flag" style="border-color:var(--truth)"><small>Evidence-stating flag (follow-up)</small><div><code>CONTRADICTED. This answer says "…16%". The evidence packet (E3) says: "In the senotrazide arm, 54 participants discontinued the study drug before day 3."</code></div></div>
+    </div>
+    <div style="flex:1" class="compact"><div class="groups" id="evBars" style="gap:22px;margin-top:20px"></div>
+      <div class="legend"><span><i style="background:var(--error)"></i>quoting flag</span><span><i style="background:var(--truth)"></i>evidence flag</span></div>
+      <p class="center muted" id="evLine" style="font-size:22px"></p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Validity">
+  <div class="kicker">Can you trust the measurement?</div>
+  <h1>The judge was checked three ways</h1>
+  <div class="row" style="gap:22px">
+    <div class="card" style="flex:1"><div style="font-size:52px;font-weight:800" id="xjBig"></div><p>agreement with a second judge from another lab (GPT-6 Luna Pro)</p><p class="muted" id="xjSmall"></p></div>
+    <div class="card" style="flex:1"><div style="font-size:52px;font-weight:800;white-space:nowrap">1,242 / 1,248</div><p>final answers where a deterministic Answer-line token check matches the judge</p></div>
+    <div class="card" style="flex:1"><div style="font-size:52px;font-weight:800">53 / 60</div><p>blind assistant labels agreeing on spread (κ = 0.76), reviewed by the author</p></div>
+  </div>
+  <p class="muted" style="margin-top:28px">Known bias: the judge slightly undercounts hedged answers ("23 or 29 minutes").</p>
+</section>
+
+<section class="slide" data-title="Takeaways">
+  <div class="kicker">Takeaways</div>
+  <h1>For builders of multi-agent systems</h1>
+  <div class="grow" style="gap:34px">
+    <div class="row" style="gap:28px"><div style="font-size:70px;font-weight:800;color:var(--truth)">1</div><div><h2 style="font-size:40px">Keep evidence in the loop</h2><p class="muted">A check that saw the sources removed the error from every final answer.</p></div></div>
+    <div class="row" style="gap:28px"><div style="font-size:70px;font-weight:800;color:var(--truth)">2</div><div><h2 style="font-size:40px">Treat claimed identities as untrusted</h2><p class="muted">Flagship labels raised spread in every panel, even with no peer names in view.</p></div></div>
+    <div class="row" style="gap:28px"><div style="font-size:70px;font-weight:800;color:var(--truth)">3</div><div><h2 style="font-size:40px">Design what the verifier says</h2><p class="muted">Flags that state the evidence cut residual spread for small models from 5.4% to 0.9%.</p></div></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Limitations">
+  <div class="kicker">Limitations</div>
+  <h1>What this does not show</h1>
+  <ul>
+    <li>Short fictional packets with single numeric errors; confederates are instructed, not organically wrong</li>
+    <li>The vulnerable regime is a 3–3 split; a clear wrong majority was not tested</li>
+    <li>Panels are hand-picked; the previous frontier mixes 2025 and early-2026 models</li>
+    <li>Labels are prompt text; relative status modulates the previous-frontier panel</li>
+    <li>Claude played many roles (items, judge, checkers, a panelist), mitigated by a cross-lab judge and a deterministic check</li>
+    <li>Main configuration chosen after a dev pilot; every deviation logged before test data</li>
+  </ul>
+</section>
+
+<section class="slide" data-title="End">
+  <div class="grow center">
+    <div style="font-size:96px;font-weight:800">Who Said It?</div>
+    <p style="font-size:30px">Errors spread through AI panels when they are <b>repeated</b> and <b>out of reach</b>.<br>Evidence in the loop stops them.</p>
+    <p class="muted" style="margin-top:40px">Thor Matthiasson · Jennifer McTiernan · with Apart Research<br>Full report, pre-registration, code and data accompany this presentation.</p>
+  </div>
+</section>
+
+</div></div>
+<div id="progress"></div><div id="counter"></div><div id="hint">← → or click to navigate · F for fullscreen</div>
+
+<script>
+const DATA = /*__DATA__*/{};
+const C = { truth: "#34c38f", error: "#f05252", flag: "#f59e0b", tiny: "#60a5fa", anon: "#9aa5b8", panel: "#16203a" };
+const pct = (v, d = 0) => (v * 100).toFixed(d) + "%";
+const el = (tag, attrs = {}, html = "") => Object.assign(document.createElement(tag), attrs, { innerHTML: html });
+
+function vbar(value, max, color, label) {
+  const bar = el("div", { className: "vbar" });
+  bar.append(el("div", { className: "val" }, label));
+  const fill = el("div", { className: "fill" });
+  fill.style.background = color;
+  fill.dataset.h = Math.max(1, (value / max) * 100) + "%";
+  bar.append(fill);
+  return bar;
+}
+
+function groups(target, rows, colors, max, fmt = (v) => pct(v)) {
+  const host = document.getElementById(target);
+  rows.forEach((values, i) => {
+    const g = el("div", { className: "group" });
+    const bars = el("div", { className: "bars" });
+    values.forEach((v, j) => bars.append(vbar(v, max, colors[j], fmt(v))));
+    g.append(bars, el("div", { className: "glabel" }, DATA.labels[i]));
+    host.append(g);
+  });
+}
+
+function build() {
+  const real = document.getElementById("realDots"), conf = document.getElementById("confDots");
+  for (let i = 0; i < 5; i++) real.append(el("div", { className: "dot" }, `<b style="background:${C.truth}">14 mo</b>real model`));
+  for (let i = 0; i < 3; i++) conf.append(el("div", { className: "dot" }, `<b style="background:${C.error}">41 mo</b>confederate`));
+
+  const grids = document.getElementById("grids");
+  DATA.regimes.forEach((r, i) => {
+    const wrap = el("div", { className: "center" }, `<div class="glabel" style="margin:0 auto 14px;height:52px;display:flex;align-items:flex-end;justify-content:center">${DATA.labels[i]}</div>`);
+    const g = el("div", { className: "grid2" });
+    [["ev1", r.ev1], ["ev3", r.ev3], ["noev1", r.noev1], ["noev3", r.noev3]].forEach(([k, v]) => {
+      const c = el("div", { className: "cell" + (k === "noev3" ? " hot" : "") }, pct(v));
+      const a = Math.min(1, v / 0.3);
+      c.style.background = `rgba(240,82,82,${0.12 + 0.85 * a})`;
+      g.append(c);
+    });
+    wrap.append(g);
+    grids.append(wrap);
+  });
+
+  const gen = document.getElementById("genBars");
+  DATA.generation.forEach((v, i) => {
+    const row = el("div", { className: "hrow" }, `<div class="name">${DATA.labels[i]}</div>`);
+    const track = el("div", { className: "track" });
+    const fill = el("div", { className: "fill" });
+    fill.style.background = [C.truth, C.flag, C.error][i];
+    fill.dataset.w = (v / 0.16) * 100 + "%";
+    track.append(fill);
+    row.append(track, el("div", { className: "val" }, pct(v, 1)));
+    gen.append(row);
+  });
+
+  groups("attrBars", DATA.attribution, [C.anon, C.flag, C.tiny], 0.45);
+  groups("verBars", DATA.verify, [C.error, C.truth], 0.35, (v) => pct(v, v < 0.1 ? 1 : 0));
+  groups("subBars", DATA.subtlety, [C.error, C.tiny], 0.22, (v) => pct(v, 1));
+  groups("evBars", DATA.evFlags, [C.error, C.truth], 0.07, (v) => pct(v, 1));
+
+  document.getElementById("finalsLine").textContent = `0 of ${DATA.checkedFinals} checked final answers kept the error`;
+  document.getElementById("absorbLine").textContent =
+    `Without a check, the error reached ${DATA.finalsNone.map((v) => pct(v)).join(", ")} of final panel answers (frontier, previous frontier, small).`;
+  document.getElementById("evLine").textContent =
+    `Residual spread under verification. ${DATA.evFinals.adopted} of ${DATA.evFinals.n} final answers kept the error with evidence flags.`;
+  document.getElementById("xjBig").textContent = pct(DATA.secondJudge.agreement, 1);
+  document.getElementById("xjSmall").textContent =
+    `${DATA.secondJudge.n.toLocaleString("en-US")} graded answers · κ = ${DATA.secondJudge.kappa.toFixed(2)}`;
+}
+
+const slides = [...document.querySelectorAll(".slide")];
+let current = 0;
+
+function animate(slide, on) {
+  slide.querySelectorAll(".vbar .fill").forEach((f) => (f.style.height = on ? f.dataset.h : "0"));
+  slide.querySelectorAll(".hrow .fill").forEach((f) => (f.style.width = on ? f.dataset.w : "0"));
+}
+
+function show(n) {
+  current = Math.max(0, Math.min(slides.length - 1, n));
+  slides.forEach((s, i) => {
+    s.classList.toggle("active", i === current);
+    animate(s, i === current);
+  });
+  document.getElementById("progress").style.width = ((current + 1) / slides.length) * 100 + "%";
+  document.getElementById("counter").textContent = `${current + 1} / ${slides.length} · ${slides[current].dataset.title}`;
+  if (location.hash !== "#" + (current + 1)) history.replaceState(null, "", "#" + (current + 1));
+}
+
+function fit() {
+  const s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+  document.getElementById("stage").style.transform = `scale(${s})`;
+}
+
+document.addEventListener("keydown", (e) => {
+  if (["ArrowRight", "PageDown", " ", "Enter"].includes(e.key)) { e.preventDefault(); show(current + 1); }
+  if (["ArrowLeft", "PageUp", "Backspace"].includes(e.key)) { e.preventDefault(); show(current - 1); }
+  if (e.key === "Home") show(0);
+  if (e.key === "End") show(slides.length - 1);
+  if (e.key.toLowerCase() === "f") {
+    try { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); } catch (_) {}
+  }
+});
+document.getElementById("viewport").addEventListener("click", (e) => show(current + (e.clientX > window.innerWidth / 2 ? 1 : -1)));
+let touchX = null;
+document.addEventListener("touchstart", (e) => (touchX = e.touches[0].clientX), { passive: true });
+document.addEventListener("touchend", (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+window.addEventListener("resize", fit);
+window.addEventListener("hashchange", () => {
+  const n = (parseInt(location.hash.slice(1), 10) || 1) - 1;
+  if (n !== current) show(n);
+});
+
+build();
+fit();
+show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>

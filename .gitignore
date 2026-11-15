@@ -8,3 +8,4 @@ results/raw/**/*.tmp
 results/cache/
 results/orc/
 submission/*.mp4
+.playwright-mcp/
