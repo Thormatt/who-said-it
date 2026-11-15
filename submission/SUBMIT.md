@@ -22,13 +22,13 @@ says the 60 validation answers were labelled by an AI assistant, and the LLM Usa
 | Project title | Who Said It? Majority Pressure, Attribution and Evidence-Bound Verification in Multi-LLM Panels |
 | Project summary | The text in `abstract.txt` (238 words) |
 | PDF report | `who-said-it-report.pdf` |
-| Interested in publishing? | Your choice |
+| Interested in publishing? | Yes |
 | Tracks | Track 1, Model Epistemics & Decision-Making Evals, and Track 2, Trust Infrastructure |
-| Presentation recording | `who-said-it.mp4` (4 min 12 s, narrated) |
+| Presentation recording | https://youtu.be/_-90zJqSvXo (the field takes a link, not a file) |
 | Project code | https://github.com/Thormatt/who-said-it |
 | Slides | Leave empty: the field takes PDF or PowerPoint, and the deck is a web page |
 | Additional material | https://thor.pagenta.app/who-said-it (slides) and https://thor.pagenta.app/who-said-it-summary (one-page summary) |
-| Team name | Your choice |
+| Team name | Thor Matthiasson and Jennifer McTiernan |
 | Location | Madrid |
 | Team members | Thor Matthiasson and Jennifer McTiernan, each with an email |
 
