@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who said it? A plain-language summary</title>
+<meta name="description" content="An experiment on whether AI programs talk each other into wrong answers, and what stops it, in plain language.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root { --paper: #EEF1EC; --card: #FAFBF8; --ink: #14201B; --ink-2: #4A5952; --rule: #C5CEC6; --against: #D95926; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.55 'IBM Plex Sans', Arial, sans-serif; }
+main { max-width: 780px; margin: 0 auto; padding: 56px 20px 72px; }
+h1 { font: 800 64px/0.98 'Bricolage Grotesque', Arial, sans-serif; letter-spacing: -0.03em; margin: 0 0 14px; }
+h1 + p { color: var(--ink-2); margin: 0 0 8px; }
+h2 { font: 700 27px/1.2 'Bricolage Grotesque', Arial, sans-serif; letter-spacing: -0.01em; margin: 38px 0 10px; }
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 14px; padding-left: 26px; }
+li { margin-bottom: 9px; padding-left: 4px; }
+ol li::marker { font-weight: 600; }
+#an-example + p { background: var(--card); border-left: 6px solid var(--against); padding: 18px 22px; }
+main > p:last-child { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--ink-2); }
+@media (max-width: 520px) { h1 { font-size: 46px; } body { font-size: 17px; } }
+@media print { body { background: #fff; font-size: 10.5pt; } main { padding: 0; max-width: none; } h1 { font-size: 30pt; } h2 { font-size: 13pt; margin-top: 14pt; } }
+</style>
+</head>
+<body>
+<main>
+<h1 id="who-said-it">Who said it?</h1>
+<p><em>A plain-language summary. Thor Matthiasson and Jennifer
+McTiernan, Apart Research AI x Epistemics Sprint, November
+2026.</em></p>
+<h2 id="the-question">The question</h2>
+<p>More and more AI products are built as teams: several AI programs
+work on the same task and read each other’s answers. If some members
+confidently give a wrong answer, do the others go along with it? Does it
+matter who the wrong answer seems to come from? And what stops it from
+spreading?</p>
+<h2 id="an-example">An example</h2>
+<p>An invented report about a bridge repair says the work was delayed by
+14 months. Five AI programs are asked how long the delay was, and each
+answers 14. Each is then shown five answers from its “teammates”. Three
+were secretly planted by us and confidently insist on 41 months. Does
+the program keep 14, or switch to 41?</p>
+<h2 id="what-we-did">What we did</h2>
+<ul>
+<li><strong>The test.</strong> We wrote 24 short invented reports on six
+subjects, each with one question whose answer can only be found in the
+report. A program that switched to the planted wrong number counted as
+fooled. We fixed what we would measure before the real test and
+collected 7,352 second-round answers.</li>
+<li><strong>The teams.</strong> Three teams of five real AI programs:
+current models from the makers of Claude, ChatGPT, Gemini, Grok and
+DeepSeek, earlier models from the same companies, and small low-cost
+models. Fake teammates gave the planted wrong answer.</li>
+<li><strong>What we changed.</strong> Whether the programs could still
+see the report, whether one or three of the five answers they saw were
+wrong, whether answers carried a name tag saying which AI wrote them,
+and whether an extra fact-checker AI compared each answer with the
+report.</li>
+</ul>
+<h2 id="what-we-found">What we found</h2>
+<ol type="1">
+<li><strong>With the report in view, they were almost never
+fooled.</strong> While they could still see the report, or when only one
+of the five answers was wrong, just 1 answer in 1,064 switched to the
+wrong number.</li>
+<li><strong>Without the report, a wrong majority fooled them.</strong>
+With the report taken away and three of the five answers wrong, current
+models were fooled about 1 time in 10, and earlier and small models
+about 3 times in 10. The wrong number reached the team’s final answer in
+up to 3 of every 10 cases.</li>
+<li><strong>The name tag changed what they believed.</strong> The same
+wrong answer fooled the current models once in 240 tries when its
+made-up tag said a tiny, basic model wrote it, and 38 times in 240 when
+the tag named a company’s most advanced model.</li>
+<li><strong>A fact-checker that reads the report fixed it.</strong> When
+an extra AI compared every answer with the report and flagged the wrong
+ones, none of the 832 final team answers contained the wrong number. A
+specialised checking tool built by one of the authors (ORC) did no
+better than an ordinary AI model asked to check.</li>
+<li><strong>How the checker words its note matters.</strong> A note that
+only repeated the wrong claim sometimes backfired. When the note also
+quoted what the report actually says, small models were fooled less than
+1% of the time instead of about 5%.</li>
+</ol>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>In an AI team, each program usually sees the other programs’ answers,
+not the documents behind them. For people building these systems: let
+the AIs check claims against the original source, do not trust what a
+program says about itself, and have a checker state the correct
+information when it flags a mistake. For everyone else: several AIs
+agreeing on an answer does not make it right. The useful question is
+where the answer came from.</p>
+<h2 id="what-this-does-not-show">What this does not show</h2>
+<ul>
+<li><strong>Invented and deliberate.</strong> Reports were made up and
+wrong answers planted on purpose. Real mistakes are messier.</li>
+<li><strong>Simple tags, chosen teams.</strong> Each name tag was a line
+of text, and we chose the teams, so this is not a ranking of AI
+products.</li>
+<li><strong>AI grading.</strong> An AI graded the answers. A second
+grading AI from another company agreed with it 99.7% of the time.</li>
+</ul>
+<p><em>Slides: thor.pagenta.app/who-said-it. A 3-minute video, the full
+report, code and data accompany the sprint submission.</em></p>
+</main>
+</body>
+</html>

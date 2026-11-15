@@ -17,3 +17,7 @@ src/               harness: rounds, conditions, ORC bridge, judge, budget guard
 results/           raw call logs, judged outcomes, analysis outputs
 paper/             report (Apart template, ≤ 8 pages)
 ```
+
+## Licence
+
+Code: MIT (`LICENSE`). Data, reports and figures: CC BY 4.0 (`LICENSE-DATA.md`).

@@ -2,7 +2,7 @@
 title: 'Who Said It? Majority Pressure, Attribution and Evidence-Bound Verification in Multi-LLM Panels\thanks{Research conducted at the AI x Epistemics Research Sprint, November 2026.}'
 author:
   - "Thor Matthiasson, independent researcher"
-  - "Jennifer McTiernan, attorney"
+  - "Jennifer McTiernan, independent researcher"
   - "With Apart Research"
 date: ""
 abstract: |
@@ -146,7 +146,7 @@ A follow-up re-ran the checked conditions with flags that attribute the quotatio
 **Judge validity.**
 - On all 1,248 final answers, the judge agreed with the judge-independent token check on 1,242.
 - A second judge from another lab (GPT-6 Luna Pro) agreed with the primary judge on spread for 99.7% of 15,848 graded answers (κ = 0.97).
-- Sixty stratified answers were labeled blind to the judge's grades by the assistant (spread agreement 53/60, κ = 0.76), then reviewed and corrected by the first author [author review: result pending].
+- Sixty stratified answers were labeled blind to the judge's grades by an AI assistant, Claude (spread agreement 53/60, κ = 0.76).
 - The judge slightly undercounts hedged answers ("23 or 29 minutes").
 
 ## 5. Discussion and Limitations
@@ -232,11 +232,11 @@ ORC and the earlier Delphi/Plurality deliberation engines are pre-existing work 
 
 ## LLM Usage Statement
 
-*(Authors to finalize.)* Claude (Anthropic) was used to:
+Claude (Anthropic) was used to:
 - discuss the design, which the authors directed and approved;
 - write the harness and analysis code;
 - draft the test items, which were validated and recomputed;
-- pre-label the judge-validation sample, which the first author reviewed;
-- draft this reference version of the report, which the authors rewrote.
+- label the judge-validation sample;
+- draft this report.
 
 Claude also served as a panelist, judge and checker inside the experiment. All numbers come from the released code and logged outputs.
