@@ -48,7 +48,7 @@ export const CheckerScene: React.FC<{ seconds: number }> = ({ seconds }) => {
       <FadeUp delay={seconds * 0.55} style={{ position: "absolute", top: 480, left: 0, right: 0, textAlign: "center", fontSize: 40, fontWeight: 700 }}>
         0 of {data.finals.checked_total} final team answers contained the error
       </FadeUp>
-      <FadeUp delay={seconds * 0.7} style={{ position: "absolute", top: 560, left: 0, right: 0, textAlign: "center", fontSize: 30, color: colors.muted }}>
+      <FadeUp delay={seconds * 0.72} style={{ position: "absolute", top: 560, left: 0, right: 0, textAlign: "center", fontSize: 30, color: colors.muted }}>
         Our purpose-built checker (ORC) did no better than a model simply asked to check
       </FadeUp>
     </SceneFrame>
@@ -86,13 +86,31 @@ export const WarningsScene: React.FC<{ seconds: number }> = ({ seconds }) => {
   );
 };
 
+export const LimitsScene: React.FC<{ seconds: number }> = ({ seconds }) => (
+  <SceneFrame kicker="A caveat" heading="What this test does and doesn't show">
+    <AbsoluteFill style={{ paddingLeft: 200, paddingTop: 50, gap: 44 }}>
+      {[
+        ["Short, made-up documents", 0.12],
+        ["One planted number per question", 0.32],
+        ["Fake teammates were told to be wrong", 0.5],
+        ["A controlled test, not a field study", 0.74],
+      ].map(([text, at]) => (
+        <FadeUp key={text as string} delay={seconds * (at as number)} style={{ display: "flex", alignItems: "center", gap: 26, fontSize: 52 }}>
+          <div style={{ width: 16, height: 16, borderRadius: 8, background: colors.muted }} />
+          {text}
+        </FadeUp>
+      ))}
+    </AbsoluteFill>
+  </SceneFrame>
+);
+
 export const TakeawaysScene: React.FC<{ seconds: number }> = ({ seconds }) => (
   <SceneFrame kicker="Takeaways" heading="For anyone building teams of AI agents">
-    <AbsoluteFill style={{ justifyContent: "center", paddingLeft: 200, gap: 50, paddingBottom: 60 }}>
+    <AbsoluteFill style={{ justifyContent: "flex-start", paddingLeft: 200, gap: 46, paddingTop: 40 }}>
       {[
-        ["1", "Keep the source in the loop", "check claims against the original evidence", 0.2],
-        ["2", "Don't trust name tags", "a claimed identity changed what models believed", 0.42],
-        ["3", "Word warnings carefully", "stating what the evidence says made the checker work better", 0.68],
+        ["1", "Keep the source in the loop", "with a checker that saw the document, no final answer kept the error", 0.16],
+        ["2", "Treat claimed identities as untrusted", "a fake flagship label made the error more convincing", 0.4],
+        ["3", "Make warnings state the evidence", "not just repeat the wrong claim", 0.62],
       ].map(([n, head, sub, at]) => (
         <FadeUp key={n as string} delay={seconds * (at as number)} style={{ display: "flex", gap: 34, alignItems: "baseline" }}>
           <div style={{ fontSize: 80, fontWeight: 800, color: colors.truth, width: 70 }}>{n}</div>

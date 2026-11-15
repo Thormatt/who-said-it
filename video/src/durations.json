@@ -1,13 +1,15 @@
 {
-  "title": 15.7,
-  "task": 23.64,
-  "round2": 21.59,
-  "pilot": 11.7,
-  "pressure": 30.79,
-  "nametags": 21.46,
-  "tagresults": 20.71,
-  "checker": 26.98,
-  "warnings": 19.64,
-  "takeaways": 16.72,
-  "credits": 10.73
+  "hook": 16.72,
+  "title": 13.14,
+  "task": 17.32,
+  "round2": 13.65,
+  "pilot": 8.82,
+  "pressure": 23.03,
+  "nametags": 10.63,
+  "tagresults": 16.67,
+  "checker": 22.06,
+  "warnings": 15.79,
+  "limits": 9.89,
+  "takeaways": 10.45,
+  "credits": 10.54
 }

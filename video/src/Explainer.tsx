@@ -4,14 +4,15 @@ import { Captions, Narration } from "./components";
 import durations from "./durations.json";
 import narration from "./narration.json";
 import { NameTagScene, PressureScene, TagResultsScene } from "./scenes/Findings";
-import { PilotScene, Round2Scene, TaskScene, TitleScene } from "./scenes/Intro";
-import { CheckerScene, CreditsScene, TakeawaysScene, WarningsScene } from "./scenes/Outro";
+import { HookScene, PilotScene, Round2Scene, TaskScene, TitleScene } from "./scenes/Intro";
+import { CheckerScene, CreditsScene, LimitsScene, TakeawaysScene, WarningsScene } from "./scenes/Outro";
 import { FPS, SCENE_PADDING_SECONDS } from "./theme";
 
 type SceneId = keyof typeof durations;
 
 const render = (id: SceneId, seconds: number): React.ReactNode => {
   switch (id) {
+    case "hook": return <HookScene seconds={seconds} />;
     case "title": return <TitleScene seconds={seconds} />;
     case "task": return <TaskScene seconds={seconds} />;
     case "round2": return <Round2Scene seconds={seconds} />;
@@ -21,6 +22,7 @@ const render = (id: SceneId, seconds: number): React.ReactNode => {
     case "tagresults": return <TagResultsScene seconds={seconds} />;
     case "checker": return <CheckerScene seconds={seconds} />;
     case "warnings": return <WarningsScene seconds={seconds} />;
+    case "limits": return <LimitsScene seconds={seconds} />;
     case "takeaways": return <TakeawaysScene seconds={seconds} />;
     default: return <CreditsScene />;
   }

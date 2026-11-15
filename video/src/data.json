@@ -107,5 +107,9 @@
     "conf": "Follow-up, only the wrong peers named: flagship labels still raised spread in every panel (+6 to +12 points)",
     "ev": "Follow-up, flags that state the evidence: small models' residual spread fell from 5.4% to 0.9%; 0 of 851 final answers kept the error",
     "evSmall": 0.0087
+  },
+  "boundary": {
+    "adopted": 1,
+    "total": 1064
   }
 }

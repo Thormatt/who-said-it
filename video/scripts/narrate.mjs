@@ -11,8 +11,8 @@ const root = new URL("..", import.meta.url).pathname;
 const apiKey = process.env.ELEVENLABS_API_KEY;
 if (!apiKey) throw new Error("ELEVENLABS_API_KEY is not set");
 
-// Same voice and model as the Presenter project (packages/compiler/src/tts.ts).
-const voiceId = process.env.VOICE_ID ?? "21m00Tcm4TlvDq8ikWAM";
+// George (warm British narrator); override with VOICE_ID. Model as in Presenter.
+const voiceId = process.env.VOICE_ID ?? "JBFqnCBsd6RMkjVDRZzb";
 const modelId = "eleven_multilingual_v2";
 const voiceSettings = { stability: 0.5, similarity_boost: 0.75, style: 0.2 };
 

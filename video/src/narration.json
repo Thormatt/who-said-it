@@ -1,46 +1,54 @@
 [
   {
+    "id": "hook",
+    "text": "Picture an AI model reading a teammate's answer. The answer is wrong. When we labeled it as coming from a tiny model, the newest AI models almost never believed it. Labeled as a flagship model, about one in six switched to it. Same words. Different name."
+  },
+  {
     "id": "title",
-    "text": "AI models increasingly work in teams. One drafts an answer, others review it, and they all read each other's work. So what happens when some of the team are confidently wrong? Does everyone else go along? And does it matter who the wrong answer seems to come from?"
+    "text": "Who said it? AI agents increasingly work in teams, passing each other claims rather than sources. When one of them is confidently wrong, does the team catch it, or carry it along? And what stops it?"
   },
   {
     "id": "task",
-    "text": "Here's how we tested it. We gave a team of five AI models a short, made-up document. For example, a report that a bridge renovation was delayed by fourteen months. Then we asked a question with one right answer: how long was the delay? We also slipped in fake teammates, secretly told to insist on a wrong number: forty-one months."
+    "text": "Here's the test. Five AI models read a short, made-up document. Say, a report that a bridge renovation was delayed by fourteen months. They answer one question: how long was the delay? Then we add fake teammates, secretly told to insist on forty-one months."
   },
   {
     "id": "round2",
-    "text": "In round one, everyone answers alone. In round two, each real model sees five of its teammates' answers, and can keep its answer or change it. If a model switches to the planted wrong number, we count that as the error spreading. At the end, one more model reads the round-two answers and writes the team's final answer."
+    "text": "In round two, each model sees five teammates' answers, and can change its mind. Switching to the planted number is what we measure. Finally, one more model writes the team's final answer: the one a user would actually see."
   },
   {
     "id": "pilot",
-    "text": "First surprise. With the document still in view, and one fake teammate, today's models never fell for it. Zero switches out of two hundred and forty answers."
+    "text": "The first result was reassuring. With the document in view and one wrong teammate, the newest models never switched. Zero out of two hundred and forty."
   },
   {
     "id": "pressure",
-    "text": "So we made it harder. In round two, we took the document away, and made three of the five answers each model saw wrong. Now the error spread. We ran three teams. About one in ten answers from the newest models switched to the wrong number, and nearly three in ten from the previous generation, and from small, cheap models. With the document in view, almost nobody switched, even with three wrong teammates."
+    "text": "So we made it harder. In round two, the document was gone, and three of the five answers each model saw were wrong. Now the error spread: about one in ten answers from the newest models, and nearly three in ten from older and smaller ones. It reached up to three in ten final team answers, too. Remove either condition, and just one answer in over a thousand switched."
   },
   {
     "id": "nametags",
-    "text": "Now, the question in our title: who said it? In round two, a model sees its teammates' answers either with no names attached, or with a name on each answer. We kept the wrong answers word for word the same, and changed only the name tag. It claimed to come either from a top flagship model, or from a tiny, weak one."
+    "text": "Now, who said it. We showed the same wrong answers with no names, or with a name tag claiming they came from a top flagship model, or from a tiny one. Only the tag changed."
   },
   {
     "id": "tagresults",
-    "text": "The name tag changed what models believed. Tagged as a tiny model, the wrong answer was almost always ignored by the two frontier teams. Tagged as a flagship, it pulled small models along: forty-one percent switched, up from twenty-nine with no names. The words were identical. Only the claimed author changed."
+    "text": "Tagged as tiny, the error was almost always ignored by both frontier teams. Tagged as a flagship, it convinced small models more: forty-one percent switched, up from twenty-nine. And the label was fake. In a real system, any agent can claim to be anyone."
   },
   {
     "id": "checker",
-    "text": "What stops it? A fact-checker. Before round two, an automated checker compares each answer with the document, and attaches a warning to the wrong ones. With a checker, switching dropped sharply, and not one of eight hundred and thirty-two final team answers contained the error. Our purpose-built checking tool did no better than simply asking a model to check. What matters is that something checks against the source."
+    "text": "What stops it is evidence. We added a fact-checker that compares each answer with the document, and attaches a warning to wrong ones. Switching fell sharply in every team, and not one of eight hundred and thirty-two final team answers kept the error. Our own purpose-built verifier did no better than simply asking a model to check. Access to the source is what matters."
   },
   {
     "id": "warnings",
-    "text": "Some errors still slipped through, for a surprising reason. The warning quoted the wrong claim, and some models read that quote as if the document had said it. When we rewrote the warning to state what the document actually says, leftover switching among small models fell from about five percent to under one."
+    "text": "A few errors still slipped through, because of wording. The warning quoted the wrong claim, and some models read it as if the document had said it. Rewritten to state what the document says, the warning cut leftover switching in small models from five percent to under one."
+  },
+  {
+    "id": "limits",
+    "text": "A caveat. These were short, made-up documents with one planted number, and the fake teammates were told to be wrong. It's a controlled test, not a field study."
   },
   {
     "id": "takeaways",
-    "text": "Three lessons for anyone building teams of AI agents. Keep the source in the loop, and check claims against it. Don't trust name tags: a claimed identity changed what models believed. And word your checker's warnings carefully, because the wording decides whether they work."
+    "text": "So, if you build teams of AI agents: keep the source in the loop. Treat claimed identities as untrusted. And make warnings state the evidence, not just repeat the error."
   },
   {
     "id": "credits",
-    "text": "Who Said It? By Thor Matthiasson and Jennifer McTiernan, for the Apart Research AI and Epistemics sprint. The full report, code and data accompany this video."
+    "text": "Who Said It? By Thor Matthiasson and Jennifer McTiernan, for the Apart Research AI and Epistemics sprint. The report, code and data accompany this video."
   }
 ]
