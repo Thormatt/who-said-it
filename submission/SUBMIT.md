@@ -23,7 +23,7 @@ says the 60 validation answers were labelled by an AI assistant, and the LLM Usa
 | Project summary | The text in `abstract.txt` (238 words) |
 | PDF report | `who-said-it-report.pdf` |
 | Interested in publishing? | Yes |
-| Tracks | Track 1, Model Epistemics & Decision-Making Evals, and Track 2, Trust Infrastructure |
+| Tracks | Track 1, Model Epistemics & Decision-Making Evals; Track 2, Trust Infrastructure; and Track 4, Open Track (deployment, adoption and impact) |
 | Presentation recording | https://youtu.be/_-90zJqSvXo (the field takes a link, not a file) |
 | Project code | https://github.com/Thormatt/who-said-it |
 | Slides | `who-said-it-slides.pdf` (the 16 slides of the web deck) |
