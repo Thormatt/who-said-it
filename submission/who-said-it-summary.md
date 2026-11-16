@@ -1,6 +1,6 @@
 # Who said it?
 
-*A plain-language summary. Thor Matthiasson and Jennifer McTiernan, Apart Research AI x Epistemics Sprint, November 2026.*
+*A plain-language summary. Thor Matthiasson and Jennifer McTiernan, Esq., Apart Research AI x Epistemics Sprint, November 2026.*
 
 ## The question
 

@@ -29,9 +29,9 @@ says the 60 validation answers were labelled by an AI assistant, and the LLM Usa
 | Slides | `who-said-it-slides.pdf` (the 16 slides of the web deck) |
 | Project image | `project-image.png` (the title slide) |
 | Additional material | https://thor.pagenta.app/who-said-it (slides) and https://thor.pagenta.app/who-said-it-summary (one-page summary) |
-| Team name | Thor Matthiasson and Jennifer McTiernan |
+| Team name | Thor Matthiasson and Jennifer McTiernan, Esq. |
 | Location | Madrid |
-| Team members | Thor Matthiasson and Jennifer McTiernan, each with an email |
+| Team members | Thor Matthiasson and Jennifer McTiernan, Esq., each with an email |
 
 ## The report
 

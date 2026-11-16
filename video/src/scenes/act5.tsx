@@ -98,7 +98,7 @@ export const Credits: React.FC = () => {
     <Shell seconds={sceneSeconds("credits")} fadeOut={false}>
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", gap: 22, paddingBottom: 70, opacity: 1 - ramp(t, sceneSeconds("credits") - 0.8, sceneSeconds("credits")) }}>
         {line(0.1, { fontFamily: display, fontWeight: 700, fontSize: 130, letterSpacing: -3 }, "Who Said It?")}
-        {line(0.6, { fontSize: 46, fontWeight: 600 }, "Thor Matthiasson · Jennifer McTiernan")}
+        {line(0.6, { fontSize: 46, fontWeight: 600 }, "Thor Matthiasson · Jennifer McTiernan, Esq.")}
         {line(1.2, { fontSize: 30, color: colors.muted, marginTop: 14 }, "24 invented reports · 3 teams of 5 AI models · 7,352 second-round answers · plan fixed in advance")}
         {line(1.8, { fontSize: 30, color: colors.muted }, "Apart Research AI × Epistemics sprint · November 2026")}
         {line(2.6, { fontSize: 23, color: colors.muted, marginTop: 22 }, "Narration: synthetic voice (ElevenLabs) · Music and sound effects synthesized for this video")}
